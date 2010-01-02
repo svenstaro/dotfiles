@@ -1,0 +1,44 @@
+#avoid flicker
+double_buffer yes
+
+#own window to run simultanious 2 or more conkys
+own_window yes
+own_window_transparent no
+own_window_type normal
+own_window_hints undecorate,below,sticky,skip_taskbar,skip_pager 
+
+#borders
+draw_borders no
+border_margin 2
+
+#shades
+draw_shades no
+
+#position
+gap_x 0
+gap_y 0
+alignment bottom_left
+
+#behaviour
+update_interval 5
+
+#colour
+default_color  fffd71
+
+#default_shade_color 000000
+own_window_colour 000000
+
+#font
+use_xft yes
+xftfont Consolas:pixelsize=12
+#to prevent window from moving
+use_spacer no
+minimum_size 1440 0
+
+
+mpd_host localhost
+mpd_port 6600
+$mpd_artist = ""
+
+TEXT
+ Arch Linux (${kernel}) ~ Root: ${color D7D3C5}${font}${fs_free /}  / ${fs_size /} - ${fs_free_perc /}%${color} Load: ${color D7D3C5}${font}${loadavg}${color} CPU: ${color D7D3C5}${font}${cpu}% (${freq}MHz)${color} Mem: ${color D7D3C5}${font}${mem} / ${memmax} - ${memperc}%${color} Swap: ${color D7D3C5}${font}${swap} / ${swapmax}${color} IO: ${color D7D3C5}${font}${diskio}/s${color} Bat: ${color D7D3C5}${font}${battery_percent BAT1}%${color} Temp: ${color D7D3C5}${font}${acpitemp}°C${color} Uptime: ${color D7D3C5}${font}${uptime}${color} 
