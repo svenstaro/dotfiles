@@ -9,7 +9,7 @@ own_window_hints undecorate,below,sticky,skip_taskbar,skip_pager
 
 #borders
 draw_borders no
-border_margin 2
+#border_margin 2
 
 #shades
 draw_shades no
@@ -17,7 +17,7 @@ draw_shades no
 #position
 gap_x 0
 gap_y 0
-alignment bottom_left
+alignment top_middle
 
 #behaviour
 update_interval 5
