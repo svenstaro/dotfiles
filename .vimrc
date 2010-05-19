@@ -19,6 +19,11 @@ set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
 set background=dark     " we don't like bright white terminals
 set gfn=Bitstream\ Vera\ Sans\ Mono\ 9
+set number              " show line numbers
+
+" cursor settings
+set cursorline          " highlight cursor line
+set cursorcolumn        " highlight cursor column
 
 " wrap like other editors
 set wrap                " word wrap
@@ -33,7 +38,7 @@ set backupdir=/tmp      " backup dir
 set directory=/tmp      " swap file directory
 
 " tabs and indenting
-set expandtab           " insert spaces instead of tab chars
+set noexpandtab         " don't insert spaces instead of tab chars
 set tabstop=4           " a n-space tab width
 set shiftwidth=4        " allows the use of < and > for VISUAL indenting
 set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
@@ -124,3 +129,7 @@ autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
 "autocmd FileType python set expandtab shiftwidth=4 softtabstop=4 
+
+" gui
+set guioptions-=m " remove menubar
+set guioptions-=T " remove toolbar
