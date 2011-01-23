@@ -21,3 +21,6 @@ complete -cf sudo
 export EDITOR=gvim
 alias sharedir='python -m SimpleHTTPServer'
 
+if [[ -n "$DISPLAY" ]]; then
+	BROWSER=chromium
+fi
