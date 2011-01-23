@@ -38,12 +38,12 @@ set backupdir=/tmp      " backup dir
 set directory=/tmp      " swap file directory
 
 " tabs and indenting
-set noexpandtab         " don't insert spaces instead of tab chars
+set expandtab           " insert spaces instead of tab chars
 set tabstop=4           " a n-space tab width
 set shiftwidth=4        " allows the use of < and > for VISUAL indenting
 set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
 set autoindent          " auto indents next new line
-"set listchars=tab:→,trail:¸ " show trail spaces and tabstchars
+set listchars=tab:→,trail:¸ " show trail spaces and tabstchars
 "set list
 
 " command mode
