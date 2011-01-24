@@ -1,6 +1,7 @@
 [user]
 	name = Sven-Hendrik Haase
 	email = sh@lutzhaase.com
+
 [color]
 	diff = auto
 	status = auto
