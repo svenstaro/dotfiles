@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-# usage: encvid.sh <input> <bitrate>
+# Script to convert movie file to high-quality x264 using ffmpeg.
+# Usage: encvid.sh <input> <bitrate>
 #
 
 output="${1//.*/.mkv}"

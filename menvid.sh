@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# usage: encvid.sh <input> <bitrate>
+# Script to create x264 movie file from many input images in png format.
+# Usage: encvid.sh <input> <bitrate>
 #
-
 
 output="${1//.*/.mkv}"
 bitrate=5000
