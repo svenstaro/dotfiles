@@ -23,7 +23,7 @@ alignment top_middle
 update_interval 5
 
 #colour
-default_color  fffd71
+default_color  09baea
 
 #default_shade_color 000000
 own_window_colour 000000
@@ -41,4 +41,4 @@ mpd_port 6600
 $mpd_artist = ""
 
 TEXT
- Arch Linux (${kernel}) ~ Root: ${color D7D3C5}${font}${fs_free /}  / ${fs_size /} - ${fs_free_perc /}%${color} Load: ${color D7D3C5}${font}${loadavg}${color} CPU: ${color D7D3C5}${font}${cpu}% (${freq}MHz)${color} Mem: ${color D7D3C5}${font}${mem} / ${memmax} - ${memperc}%${color} Swap: ${color D7D3C5}${font}${swap} / ${swapmax}${color} IO: ${color D7D3C5}${font}${diskio}/s${color} Bat: ${color D7D3C5}${font}${battery_percent BAT1}%${color} Temp: ${color D7D3C5}${font}${acpitemp}°C${color} Uptime: ${color D7D3C5}${font}${uptime}${color} 
+ Arch Linux (${kernel}) ~ Root: ${color e3f0ff}${font}${fs_free /}  / ${fs_size /} - ${fs_free_perc /}%${color} Load: ${color e3f0ff}${font}${loadavg}${color} CPU: ${color e3f0ff}${font}${cpu}% (${freq}MHz)${color} Mem: ${color e3f0ff}${font}${mem} / ${memmax} - ${memperc}%${color} Swap: ${color e3f0ff}${font}${swap} / ${swapmax}${color} IO: ${color e3f0ff}${font}${diskio}/s${color} Bat: ${color e3f0ff}${font}${battery_percent BAT1}%${color} Temp: ${color e3f0ff}${font}${hwmon 0 temp 1}°C${color} Uptime: ${color e3f0ff}${font}${uptime}${color} 
