@@ -14,6 +14,11 @@ else
 	alias spacman='sudo pacman'
 fi
 
+alias mkchr='extra-i686-build && multilib-build'
+alias mkchr32='extra-i686-build'
+alias mkchr64='multilib-build'
+alias db-aur='ssh sigurd.archlinux.org /arch/db-update'
+
 export PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 export PATH="/usr/lib/colorgcc/bin:$PATH"
 
