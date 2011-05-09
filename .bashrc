@@ -25,7 +25,7 @@ export LC_TIME="de_DE.UTF-8"
 
 complete -cf sudo
 export EDITOR=gvim
-alias sharedir='python -m SimpleHTTPServer'
+alias sharedir='python -m http.server'
 
 if [[ -n "$DISPLAY" ]]; then
 	BROWSER=chromium
