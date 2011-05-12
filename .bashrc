@@ -14,6 +14,8 @@ else
 	alias spacman='sudo pacman'
 fi
 
+alias svim='sudo vim'
+
 alias mkchr='sudo extra-i686-build && sudo multilib-build'
 alias mkchr32='sudo extra-i686-build'
 alias mkchr64='sudo multilib-build'
