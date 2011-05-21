@@ -31,6 +31,8 @@ shopt -s histappend                      # append to history, don't overwrite it
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+eval `keychain --eval -Q -q SOME KEYS`
+
 complete -cf sudo
 export EDITOR=gvim
 alias sharedir='python -m http.server'
