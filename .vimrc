@@ -27,7 +27,6 @@ set cursorcolumn        " highlight cursor column
 
 " wrap like other editors
 set wrap                " word wrap
-autocmd FileType python :set textwidth=79
 "set textwidth=79        " 
 set lbr                 " line break
 set display=lastline    " don't display @ with long paragraphs
@@ -66,8 +65,6 @@ syntax on               " enable syntax highlighting
 " plug-in settings
 filetype plugin on
 filetype indent on
-autocmd Filetype tex,latex :set grepprg=grep\ -nH\ $*
-autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
 set ofu=syntaxcomplete#Complete
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 nnoremap <silent> <F8> :TlistToggle<CR>
@@ -82,26 +79,26 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1 
-set path +=/usr/include/**
-set tags+=~/.vim/tags/cpp
-set tags+=~/.vim/tags/gl
-set tags+=~/.vim/tags/sdl
-set tags+=~/.vim/tags/qt
-
-set tags+=~/.vim/tags/ogre
-set tags+=~/.vim/tags/ois
-set tags+=~/.vim/tags/sfml
-set tags+=~/.vim/tags/boost
+"set path +=/usr/include/**
+"set tags+=~/.vim/tags/cpp
+"set tags+=~/.vim/tags/gl
+"set tags+=~/.vim/tags/sdl
+"set tags+=~/.vim/tags/qt
+"
+"set tags+=~/.vim/tags/ogre
+"set tags+=~/.vim/tags/ois
+"set tags+=~/.vim/tags/sfml
+"set tags+=~/.vim/tags/boost
 " build tags of your own project with CTRL+F11
 "map <C-F11> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"let OmniCpp_NamespaceSearch = 1
+"let OmniCpp_GlobalScopeSearch = 1
+"let OmniCpp_ShowAccess = 1
+"let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+"let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+"let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+"let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
@@ -128,7 +125,10 @@ augroup END
 autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
+autocmd FileType python :set textwidth=79
 "autocmd FileType python set expandtab shiftwidth=4 softtabstop=4 
+autocmd Filetype tex,latex :set grepprg=grep\ -nH\ $*
+autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
 
 " gui
 set guioptions-=m " remove menubar
