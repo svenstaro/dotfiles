@@ -1,4 +1,3 @@
-NE binary
 CDLOADER_WINE="wine"
 
 # Steam directory
