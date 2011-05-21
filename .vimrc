@@ -17,7 +17,7 @@ set cmdheight=1         " set the command height
 set showmatch           " show matching brackets (),{},[]
 set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
-set background=dark     " we don't like bright white terminals
+"set background=dark     " we don't like bright white terminals
 set gfn=Bitstream\ Vera\ Sans\ Mono\ 9
 set number              " show line numbers
 
