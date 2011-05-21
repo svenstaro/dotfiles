@@ -1,6 +1,5 @@
-
 # Check for an interactive session
-[ -z "$PS1" ] && return
+[[ -z "$PS1" ]] && return
 
 alias ls='ls --color=auto'
 alias ll='ls -lh --color=auto'
@@ -24,6 +23,13 @@ alias db-aur='ssh sigurd.archlinux.org /arch/db-update'
 export PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 export PATH="/usr/lib/colorgcc/bin:$PATH"
 export LC_TIME='de_DE.UTF-8'
+
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+shopt -s histappend                      # append to history, don't overwrite it
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 complete -cf sudo
 export EDITOR=gvim
