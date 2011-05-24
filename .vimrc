@@ -4,8 +4,6 @@ set nocompatible        " use Vim defaults
 set mouse=a             " make sure mouse is used in all cases.
 colorscheme wombat256   " define syntax color scheme
 set shortmess+=I        " disable the welcome screen
-set complete+=k         " enable dictionary completion
-set completeopt+=longest
 set clipboard+=unnamed  " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
 set history=100         " 100 lines of command line history
@@ -23,7 +21,7 @@ set number              " show line numbers
 
 " cursor settings
 set cursorline          " highlight cursor line
-set cursorcolumn        " highlight cursor column
+"set cursorcolumn        " highlight cursor column (breaks completion preview)
 
 " wrap like other editors
 set wrap                " word wrap
@@ -43,7 +41,7 @@ set shiftwidth=4        " allows the use of < and > for VISUAL indenting
 set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
 set autoindent          " auto indents next new line
 set listchars=tab:→,trail:¸ " show trail spaces and tabstchars
-"set list
+set list
 
 " command mode
 set wildmenu 
@@ -63,10 +61,29 @@ syntax on               " enable syntax highlighting
 "set laststatus=2
 
 " plug-in settings
-filetype plugin on
 filetype indent on
+
+" auto completion stuff
+filetype plugin on
 set ofu=syntaxcomplete#Complete
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+set complete+=k         " enable dictionary completion
+
+set completeopt=menuone,menu,longest,preview
+
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+" clang completion
+let g:clang_complete_auto = 1
+let g:clang_complete_copen = 1
+let g:clang_hl_errors = 1
+
+" super tab
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionType = "context"
+
+" taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
 inoremap <silent> <F8> <esc>:TlistToggle<CR>a
 nnoremap <silent> <F7> :TlistUpdate<CR>
@@ -75,33 +92,14 @@ let Tlist_Use_Right_Window = 1
 let Tlist_Compart_Format = 1
 let Tlist_Show_Menu = 1
 let Tlist_Exit_OnlyWindow = 1
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1 
-"set path +=/usr/include/**
-"set tags+=~/.vim/tags/cpp
-"set tags+=~/.vim/tags/gl
-"set tags+=~/.vim/tags/sdl
-"set tags+=~/.vim/tags/qt
-"
-"set tags+=~/.vim/tags/ogre
-"set tags+=~/.vim/tags/ois
-"set tags+=~/.vim/tags/sfml
-"set tags+=~/.vim/tags/boost
-" build tags of your own project with CTRL+F11
-"map <C-F11> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-"let OmniCpp_NamespaceSearch = 1
-"let OmniCpp_GlobalScopeSearch = 1
-"let OmniCpp_ShowAccess = 1
-"let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-"let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-"let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-"let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
+
+" minibufexpl
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
+" nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
 inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
 
