@@ -41,7 +41,8 @@ set shiftwidth=4        " allows the use of < and > for VISUAL indenting
 set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
 set autoindent          " auto indents next new line
 set listchars=tab:→,trail:¸ " show trail spaces and tabstchars
-set list
+nnoremap <silent> <F2> :set list!<CR>
+inoremap <silent> <F2> <esc>:set list!<CR>a
 
 " command mode
 set wildmenu 
