@@ -34,7 +34,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 eval `keychain --eval -Q -q SOME KEYS`
 
 complete -cf sudo
-export EDITOR=gvim
+export EDITOR=vim
 alias sharedir='python -m http.server'
 
 if [[ -n "$DISPLAY" ]]; then
