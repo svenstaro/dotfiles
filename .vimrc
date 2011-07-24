@@ -77,7 +77,6 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " clang completion
 let g:clang_complete_auto = 1
-let g:clang_complete_copen = 1
 let g:clang_hl_errors = 1
 
 " super tab
