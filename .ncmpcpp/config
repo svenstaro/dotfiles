@@ -34,7 +34,7 @@
 ## }
 ##
 #
-#visualizer_fifo_path = ""
+visualizer_fifo_path = "/tmp/mpd.fifo"
 #
 ##
 ## Note: Below parameter is needed for ncmpcpp
@@ -61,7 +61,7 @@
 ## you need to compile ncmpcpp with fftw3 support.
 ##
 #
-#visualizer_type = "wave" (spectrum/wave)
+visualizer_type = "spectrum" (spectrum/wave)
 #
 ##### system encoding #####
 ##
