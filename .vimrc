@@ -77,6 +77,7 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
 " clang completion
 let g:clang_complete_auto = 1
+"let g:clang_complete_copen = 1
 let g:clang_hl_errors = 1
 
 " super tab
@@ -123,7 +124,7 @@ augroup END
 autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
-autocmd FileType python :set textwidth=79
+"autocmd FileType python :set textwidth=79
 "autocmd FileType python set expandtab shiftwidth=4 softtabstop=4 
 autocmd Filetype tex,latex :set grepprg=grep\ -nH\ $*
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
