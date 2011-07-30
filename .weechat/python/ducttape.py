@@ -12,6 +12,10 @@ import sys
 import os
 import datetime
 import time
+import re
+import json
+import urllib2
+
 try:
     import weechat
     import_ok = True
@@ -36,31 +40,61 @@ DOCS           = "http://ducttape-dev.org/docs/"
 GITHUB         = "https://github.com/ducttape/ducttape-engine"
 
 def site_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
-    """ Prints URL to current contest rules. """
+    """ Prints url to official site. """
     buffer_name = weechat.buffer_get_string(buffer, "name")
     if(buffer_name in CHANNELS):
         weechat.command(buffer, "Site: "+SITE)
     return weechat.WEECHAT_RC_OK
 
 def wiki_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
-    """ Prints URL to subreddit. """
+    """ Prints url to wiki. """
     buffer_name = weechat.buffer_get_string(buffer, "name")
     if(buffer_name in CHANNELS):
         weechat.command(buffer, "Wiki: "+WIKI)
     return weechat.WEECHAT_RC_OK
 
 def docs_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
-    """ Prints 'no' to subreddit. """
+    """ Prints url to API docs. """
     buffer_name = weechat.buffer_get_string(buffer, "name")
     if(buffer_name in CHANNELS):
         weechat.command(buffer, "Docs: "+DOCS)
     return weechat.WEECHAT_RC_OK
 
 def github_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
-    """ Prints 'no' to subreddit. """
+    """ Prints url to github repo. """
     buffer_name = weechat.buffer_get_string(buffer, "name")
     if(buffer_name in CHANNELS):
         weechat.command(buffer, "Github: "+GITHUB)
+    return weechat.WEECHAT_RC_OK
+
+def issue_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
+    """ Prints issue info and url. """
+    buffer_name = weechat.buffer_get_string(buffer, "name")
+    if(buffer_name in CHANNELS):
+        res = re.search("#([\d]+)", message)
+        if res:
+            num = res.group(1)
+
+            #try:
+            url = "https://api.github.com/repos/{0}/{1}/issues/{2}".\
+                    format("ducttape", "ducttape-engine", num)
+            req = urllib2.Request(url=url)
+            response = urllib2.urlopen(req)
+            data = response.read()
+            issue = json.loads(data)
+            title = issue["title"]
+            print title
+            assignee = issue["assignee"]
+            assignee_str = "nobody"
+            if assignee:
+                assignee_str = assignee["login"]
+
+            weechat.command(buffer, "Issue #{0}: {1} [{2}]\n=> {3}".\
+                    format(num, title, assignee_str, GITHUB+"/issues/"+str(num)))
+
+            #except:
+            #    print sys.exc_info()[0]
+            #    pass
     return weechat.WEECHAT_RC_OK
 
 def gj_unload_script():
@@ -81,6 +115,7 @@ if (import_ok and
     weechat.hook_print("", "", "!github", 1, "github_cb", "")
     weechat.hook_print("", "", "!repo", 1, "github_cb", "")
     weechat.hook_print("", "", "!gh", 1, "github_cb", "")
+    weechat.hook_print("", "", "#", 1, "issue_cb", "")
 else:
     print "failed to load weechat"
 
