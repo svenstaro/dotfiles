@@ -83,7 +83,7 @@ def issue_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
             data = response.read()
             issue = json.loads(data)
             title = issue["title"]
-            print title
+
             assignee = issue["assignee"]
             assignee_str = "nobody"
             if assignee:
