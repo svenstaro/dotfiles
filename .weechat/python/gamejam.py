@@ -1,5 +1,5 @@
 # 
-# Game Jam script, version 0.1 for Reddit Game Jam
+# Game Jam script, version 0.2 for Reddit Game Jam
 #
 #   Listens for a few text commands in a channel prefixed by '!' and responds
 #   accordingly. Reports things like contest time.
@@ -22,16 +22,16 @@ except:
 
 SCRIPT_NAME    = "gamejam"
 SCRIPT_AUTHOR  = "Sven-Hendrik Haase <sh@lutzhaase.com>"
-SCRIPT_VERSION = "0.1"
+SCRIPT_VERSION = "0.2"
 SCRIPT_LICENSE = "GPL"
 SCRIPT_DESC    = "Provides time to/during a game contest and other commands"
 CONFIG_FILE_NAME= "gamejam" 
 SCRIPT_COMMAND = "gamejam"
 
 # put this into some run-time editable data type
-CHANNELS       = ("freenode-ssl.#redditgamejam")
-RULES          = "http://www.reddit.com/r/RedditGameJam/comments/eattc/reddit_game_jam_04_rules/"
-SUBREDDIT      = "http://www.reddit.com/r/RedditGameJam/"
+CHANNELS       = ("freenode-ssl.#bacongamejam")
+RULES          = "http://www.reddit.com/r/BaconGameJam/comments/eattc/reddit_game_jam_04_rules/"
+SUBREDDIT      = "http://www.reddit.com/r/BaconGameJam/"
 TIME_OF_JAM    = datetime.datetime(2010, 12, 10, 22, 0, 0, 0, None)
 LENGTH_OF_JAM  = datetime.timedelta(0, 0, 0, 0, 0, 48, 0)
 
