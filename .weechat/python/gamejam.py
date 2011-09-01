@@ -7,7 +7,7 @@
 # Usage:
 # 
 #   
- 
+
 import sys
 import os
 import datetime
@@ -32,7 +32,7 @@ SCRIPT_COMMAND = "gamejam"
 CHANNELS       = ("freenode-ssl.#bacongamejam")
 RULES          = "http://www.reddit.com/r/BaconGameJam/comments/eattc/reddit_game_jam_04_rules/"
 SUBREDDIT      = "http://www.reddit.com/r/BaconGameJam/"
-TIME_OF_JAM    = datetime.datetime(2010, 12, 10, 22, 0, 0, 0, None)
+TIME_OF_JAM    = datetime.datetime(2011, 3, 25, 22, 0, 0, 0, None)
 LENGTH_OF_JAM  = datetime.timedelta(0, 0, 0, 0, 0, 48, 0)
 
 def rules_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
@@ -59,10 +59,22 @@ def time_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
             # contest hasn't started yet, provide time to start
             time_to_jam = TIME_OF_JAM - now
             weechat.command(buffer, "Time to contest: "+str(time_to_jam))
-        if(now > TIME_OF_JAM): 
+        if(TIME_OF_JAM < now < TIME_OF_JAM + LENGTH_OF_JAM):
             # contest has already started, provide time to end
             time_left = (TIME_OF_JAM + LENGTH_OF_JAM) - now
             weechat.command(buffer, "Contest ends in: "+str(time_left))
+        if(now > TIME_OF_JAM + LENGTH_OF_JAM):
+            # contest has already ended, provide time to last contest
+            time_left = (TIME_OF_JAM + LENGTH_OF_JAM) - now
+            time_left = -time_left
+            weechat.command(buffer, "Last contest is this long ago: "+str(time_left))
+    return weechat.WEECHAT_RC_OK
+
+def sleep_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
+    """ Prints 'no' to subreddit. """
+    buffer_name = weechat.buffer_get_string(buffer, "name")
+    if(buffer_name in CHANNELS):
+        weechat.command(buffer, "no")
     return weechat.WEECHAT_RC_OK
 
 def gj_unload_script():
@@ -72,12 +84,13 @@ def gj_unload_script():
     return weechat.WEECHAT_RC_OK
 
 # Main stuff
-if (import_ok and 
+if (import_ok and
     weechat.register(SCRIPT_NAME, SCRIPT_AUTHOR, SCRIPT_VERSION,
         SCRIPT_LICENSE, SCRIPT_DESC, "gj_unload_script", "")):
 #    GameJamSettings = GameJamSettings()
     weechat.hook_print("", "", "!rules", 1, "rules_cb", "")
     weechat.hook_print("", "", "!subreddit", 1, "subreddit_cb", "")
     weechat.hook_print("", "", "!time", 1, "time_cb", "")
+    weechat.hook_print("", "", "!sleep", 1, "sleep_cb", "")
 else:
     print "failed to load weechat"
