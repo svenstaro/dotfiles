@@ -49,6 +49,13 @@ def subreddit_cb(data, buffer, date, tags, displayed, highlight, prefix, message
         weechat.command(buffer, "Subreddit: "+SUBREDDIT)
     return weechat.WEECHAT_RC_OK
 
+def site_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
+    """ Prints URL to subreddit. """
+    buffer_name = weechat.buffer_get_string(buffer, "name")
+    if(buffer_name in CHANNELS):
+        weechat.command(buffer, "Site: http://bacongamejam.org")
+    return weechat.WEECHAT_RC_OK
+
 def time_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
     """ Prints remaining time to jam when jam is not running and outputs 
     remaining time in case jam is running. """
@@ -90,6 +97,7 @@ if (import_ok and
 #    GameJamSettings = GameJamSettings()
     weechat.hook_print("", "", "!rules", 1, "rules_cb", "")
     weechat.hook_print("", "", "!subreddit", 1, "subreddit_cb", "")
+    weechat.hook_print("", "", "!site", 1, "site_cb", "")
     weechat.hook_print("", "", "!time", 1, "time_cb", "")
     weechat.hook_print("", "", "!sleep", 1, "sleep_cb", "")
 else:
