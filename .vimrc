@@ -129,6 +129,7 @@ autocmd FileType python let python_slow_sync = 1
 "autocmd FileType python set expandtab shiftwidth=4 softtabstop=4 
 autocmd Filetype tex,latex :set grepprg=grep\ -nH\ $*
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
+autocmd Filetype tex,latex :set textwidth=79
 
 " gui
 set guioptions-=m " remove menubar
