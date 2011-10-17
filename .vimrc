@@ -8,6 +8,7 @@ set clipboard+=unnamed  " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
 set history=100         " 100 lines of command line history
 set ruler               " ruler display in status line
+set hidden              " enable buffer switching without saving
 set showmode            " show mode at bottom of screen
 set showcmd             " show incomplete command at bottom of screen
 set ww=<,>,[,]          " whichwrap -- left/right keys can traverse up/down
