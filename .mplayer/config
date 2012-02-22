@@ -1,0 +1,8 @@
+# Write your default config options here!
+
+cache=1048576
+cache-min=1
+vo=xv
+ass=yes
+embeddedfonts=yes
+correct-pts=yes
