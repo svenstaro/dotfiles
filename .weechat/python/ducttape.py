@@ -33,7 +33,7 @@ CONFIG_FILE_NAME= "ducttape"
 SCRIPT_COMMAND = "ducttape"
 
 # put this into some run-time editable data type
-CHANNELS       = ("freenode-ssl.#ducttape-dev")
+CHANNELS       = ["freenode-ssl.#ducttape-dev"]
 SITE           = "http://ducttape-dev.org/"
 WIKI           = "https://github.com/ducttape/ducttape-engine/wiki"
 DOCS           = "http://ducttape-dev.org/docs/"
