@@ -1,10 +1,8 @@
 " basics
 set nocompatible        " use Vim defaults
-if has("gui_running")
-    set mouse=a             " make sure mouse is used in all cases.
-    set t_Co=256            " set 256 color
-    colorscheme wombat256   " define syntax color scheme
-endif
+set mouse=a             " make sure mouse is used in all cases.
+set t_Co=256            " set 256 color
+colorscheme wombat256   " define syntax color scheme
 set shortmess+=I        " disable the welcome screen
 set clipboard+=unnamed  " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
