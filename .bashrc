@@ -18,7 +18,7 @@ alias svim='sudo vim'
 alias mkchr='sudo extra-i686-build && sudo multilib-build'
 alias mkchr32='sudo extra-i686-build'
 alias mkchr64='sudo multilib-build'
-alias db-aur='ssh sigurd.archlinux.org /arch/db-update'
+alias db-update='ssh nymeria.archlinux.org /srv/repos/svn-community/dbscripts/db-update'
 
 export PS1='\[\e[0;32m\]\u\[\e[1;30m\]@\[\e[0;36m\]\h\[\e[0m\] \[\e[0;33m\]\w\[\e[0;37m\]\$\[\e[0m\] '
 export PATH="/usr/lib/colorgcc/bin:$PATH"

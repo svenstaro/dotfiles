@@ -1,7 +1,7 @@
 " basics
-set t_Co=256            " set 256 color
 set nocompatible        " use Vim defaults
 set mouse=a             " make sure mouse is used in all cases.
+set t_Co=256            " set 256 color
 colorscheme wombat256   " define syntax color scheme
 set shortmess+=I        " disable the welcome screen
 set clipboard+=unnamed  " yank and copy to X clipboard
@@ -17,7 +17,8 @@ set showmatch           " show matching brackets (),{},[]
 set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
 "set background=dark     " we don't like bright white terminals
-set gfn=Bitstream\ Vera\ Sans\ Mono\ 9
+"set gfn=Bitstream\ Vera\ Sans\ Mono\ 8
+set gfn=Tamsyn\ 8
 set number              " show line numbers
 
 " cursor settings
@@ -129,8 +130,11 @@ autocmd FileType python let python_slow_sync = 1
 "autocmd FileType python set expandtab shiftwidth=4 softtabstop=4 
 autocmd Filetype tex,latex :set grepprg=grep\ -nH\ $*
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
-autocmd Filetype tex,latex :set textwidth=79
+autocmd Filetype tex,latex :set textwidth=99
 
 " gui
 set guioptions-=m " remove menubar
 set guioptions-=T " remove toolbar
+
+" additional syntax
+au BufRead,BufNewFile *.qml setfiletype qml

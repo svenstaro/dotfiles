@@ -1,8 +1,12 @@
 [user]
-	name = Sven-Hendrik Haase
-	email = sh@lutzhaase.com
+    name = Sven-Hendrik Haase
+    email = sh@lutzhaase.com
 
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+
+[alias]
+    lg = log --graph --all --format=format:'%C(yellow)%h%C(reset) - %C(cyan)%ci%C(reset) %C(green)(%cr)%C(reset) %C(bold yellow)%d%C(reset)%n          %C(white)%s%C(reset) %C(bold white)- %cn%C(reset)%n' --abbrev-commit --date=relative
