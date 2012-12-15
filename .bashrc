@@ -38,6 +38,8 @@ complete -cf sudo
 export EDITOR=vim
 alias sharedir='python -m http.server'
 
+alias irc='ssh apoc -t "tmux attach"'
+
 if [[ -n "$DISPLAY" ]]; then
 	BROWSER=chromium
 fi
