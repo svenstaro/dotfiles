@@ -6,14 +6,6 @@ alias ll='ls -lh --color=auto'
 alias grep='grep --color=auto'
 alias sys='sudo systemctl'
 
-if [[ $(which pacman-color 2> /dev/null) ]]; then
-	alias pacman='pacman-color'
-	alias spacman='sudo pacman-color'
-else
-	alias pacman='pacman'
-	alias spacman='sudo pacman'
-fi
-
 alias svim='sudo vim'
 
 alias mkchr='sudo extra-i686-build && sudo multilib-build'
