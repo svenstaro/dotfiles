@@ -7,6 +7,7 @@ alias grep='grep --color=auto'
 alias sys='sudo systemctl'
 
 alias svim='sudo vim'
+alias spacman='sudo pacman'
 
 alias mkchr='sudo extra-i686-build && sudo multilib-build'
 alias mkchr32='sudo extra-i686-build'
