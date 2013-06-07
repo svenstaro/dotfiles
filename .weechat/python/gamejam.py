@@ -1,5 +1,5 @@
 # 
-# Game Jam script, version 0.2 for Reddit Game Jam
+# Game Jam script, version 0.3 for Reddit Game Jam
 #
 #   Listens for a few text commands in a channel prefixed by '!' and responds
 #   accordingly. Reports things like contest time.
@@ -47,10 +47,10 @@ def rules_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
 
 def countdown_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
     """ Prints URL to current jam countdown. """
-    site_info = json.load(urllib2.urlopen(SITE_INFO_URL))
+    current_jam_info = json.load(urllib2.urlopen(CURRENT_JAM_INFO_URL))
     buffer_name = weechat.buffer_get_string(buffer, "name")
     if(buffer_name in CHANNELS):
-        weechat.command(buffer, "Countdown: " + SITE + '/jams/' + site_info["slug"] + '/countdown')
+        weechat.command(buffer, "Countdown: " + SITE + '/jams/' + current_jam_info["slug"] + '/countdown')
     return weechat.WEECHAT_RC_OK
 
 def subreddit_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
@@ -126,7 +126,7 @@ if (import_ok and
     weechat.register(SCRIPT_NAME, SCRIPT_AUTHOR, SCRIPT_VERSION,
         SCRIPT_LICENSE, SCRIPT_DESC, "gj_unload_script", "")):
     weechat.hook_print("", "", "!rules", 1, "rules_cb", "")
-    weechat.hook_print("", "", "!countdown", 1, "rules_cb", "")
+    weechat.hook_print("", "", "!countdown", 1, "countdown_cb", "")
     weechat.hook_print("", "", "!subreddit", 1, "subreddit_cb", "")
     weechat.hook_print("", "", "!site", 1, "site_cb", "")
     weechat.hook_print("", "", "!time", 1, "time_cb", "")
