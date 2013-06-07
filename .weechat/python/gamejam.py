@@ -45,6 +45,14 @@ def rules_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
         weechat.command(buffer, "Rules for current contest: " + site_info["rules"])
     return weechat.WEECHAT_RC_OK
 
+def countdown_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
+    """ Prints URL to current jam countdown. """
+    site_info = json.load(urllib2.urlopen(SITE_INFO_URL))
+    buffer_name = weechat.buffer_get_string(buffer, "name")
+    if(buffer_name in CHANNELS):
+        weechat.command(buffer, "Countdown: " + SITE + '/jams/' + site_info["slug"] + '/countdown')
+    return weechat.WEECHAT_RC_OK
+
 def subreddit_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
     """ Prints URL to subreddit. """
     site_info = json.load(urllib2.urlopen(SITE_INFO_URL))
@@ -118,6 +126,7 @@ if (import_ok and
     weechat.register(SCRIPT_NAME, SCRIPT_AUTHOR, SCRIPT_VERSION,
         SCRIPT_LICENSE, SCRIPT_DESC, "gj_unload_script", "")):
     weechat.hook_print("", "", "!rules", 1, "rules_cb", "")
+    weechat.hook_print("", "", "!countdown", 1, "rules_cb", "")
     weechat.hook_print("", "", "!subreddit", 1, "subreddit_cb", "")
     weechat.hook_print("", "", "!site", 1, "site_cb", "")
     weechat.hook_print("", "", "!time", 1, "time_cb", "")
