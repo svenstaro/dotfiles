@@ -126,7 +126,7 @@ if (import_ok and
     weechat.register(SCRIPT_NAME, SCRIPT_AUTHOR, SCRIPT_VERSION,
         SCRIPT_LICENSE, SCRIPT_DESC, "gj_unload_script", "")):
     weechat.hook_print("", "", "!rules", 1, "rules_cb", "")
-    weechat.hook_print("", "", "!countdown", 1, "rules_cb", "")
+    weechat.hook_print("", "", "!countdown", 1, "countdown_cb", "")
     weechat.hook_print("", "", "!subreddit", 1, "subreddit_cb", "")
     weechat.hook_print("", "", "!site", 1, "site_cb", "")
     weechat.hook_print("", "", "!time", 1, "time_cb", "")
