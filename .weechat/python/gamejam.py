@@ -1,5 +1,5 @@
 # 
-# Game Jam script, version 0.2 for Reddit Game Jam
+# Game Jam script, version 0.3 for Reddit Game Jam
 #
 #   Listens for a few text commands in a channel prefixed by '!' and responds
 #   accordingly. Reports things like contest time.
@@ -45,6 +45,14 @@ def rules_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
         weechat.command(buffer, "Rules for current contest: " + site_info["rules"])
     return weechat.WEECHAT_RC_OK
 
+def countdown_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
+    """ Prints URL to current jam countdown. """
+    current_jam_info = json.load(urllib2.urlopen(CURRENT_JAM_INFO_URL))
+    buffer_name = weechat.buffer_get_string(buffer, "name")
+    if(buffer_name in CHANNELS):
+        weechat.command(buffer, "Countdown: " + SITE + '/jams/' + current_jam_info["slug"] + '/countdown')
+    return weechat.WEECHAT_RC_OK
+
 def subreddit_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
     """ Prints URL to subreddit. """
     site_info = json.load(urllib2.urlopen(SITE_INFO_URL))
@@ -84,6 +92,22 @@ def time_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
             weechat.command(buffer, "Last contest is this long ago: "+str(time_left))
     return weechat.WEECHAT_RC_OK
 
+def participants_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
+    """ Prints number of participants in the current jam. """
+    current_jam_info = json.load(urllib2.urlopen(CURRENT_JAM_INFO_URL))
+    buffer_name = weechat.buffer_get_string(buffer, "name")
+    if(buffer_name in CHANNELS):
+        weechat.command(buffer, "Number of participants: "+str(current_jam_info["participants_count"]))
+    return weechat.WEECHAT_RC_OK
+
+def teams_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
+    """ Prints number of teams in the current jam. """
+    current_jam_info = json.load(urllib2.urlopen(CURRENT_JAM_INFO_URL))
+    buffer_name = weechat.buffer_get_string(buffer, "name")
+    if(buffer_name in CHANNELS):
+        weechat.command(buffer, "Number of teams: "+str(current_jam_info["teams_count"]))
+    return weechat.WEECHAT_RC_OK
+
 def sleep_cb(data, buffer, date, tags, displayed, highlight, prefix, message):
     """ Prints 'no' to subreddit. """
     buffer_name = weechat.buffer_get_string(buffer, "name")
@@ -102,9 +126,12 @@ if (import_ok and
     weechat.register(SCRIPT_NAME, SCRIPT_AUTHOR, SCRIPT_VERSION,
         SCRIPT_LICENSE, SCRIPT_DESC, "gj_unload_script", "")):
     weechat.hook_print("", "", "!rules", 1, "rules_cb", "")
+    weechat.hook_print("", "", "!countdown", 1, "countdown_cb", "")
     weechat.hook_print("", "", "!subreddit", 1, "subreddit_cb", "")
     weechat.hook_print("", "", "!site", 1, "site_cb", "")
     weechat.hook_print("", "", "!time", 1, "time_cb", "")
+    weechat.hook_print("", "", "!participants", 1, "participants_cb", "")
+    weechat.hook_print("", "", "!teams", 1, "teams_cb", "")
     weechat.hook_print("", "", "!sleep", 1, "sleep_cb", "")
 else:
     print "failed to load weechat"
