@@ -32,7 +32,8 @@ set lbr                 " line break
 set display=lastline    " don't display @ with long paragraphs
 
 " backup settings
-set backup              " keep a backup file
+set noswapfile
+set nobackup              " keep a backup file
 set backupdir=/tmp      " backup dir
 set directory=/tmp      " swap file directory
 
@@ -77,14 +78,10 @@ set completeopt=menuone,menu,longest,preview
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
-" clang completion
-let g:clang_complete_auto = 1
-"let g:clang_complete_copen = 1
-let g:clang_hl_errors = 1
-
-" super tab
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabDefaultCompletionType = "context"
+let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
@@ -101,6 +98,9 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
+
+" vim-latex-live-preview
+let g:livepreview_previewer = 'okular'
 
 " nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
