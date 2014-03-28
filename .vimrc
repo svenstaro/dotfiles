@@ -18,8 +18,9 @@ set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
 "set background=dark     " we don't like bright white terminals
 "set gfn=Bitstream\ Vera\ Sans\ Mono\ 8
-set gfn=Tamsyn\ 8
+set gfn=TamzenForPowerline\ 13
 set number              " show line numbers
+syntax on               " enable syntax highlighting
 
 " cursor settings
 set cursorline          " highlight cursor line
@@ -27,7 +28,7 @@ set cursorline          " highlight cursor line
 
 " wrap like other editors
 set wrap                " word wrap
-"set textwidth=79        " 
+"set textwidth=79        "
 set lbr                 " line break
 set display=lastline    " don't display @ with long paragraphs
 
@@ -48,7 +49,7 @@ nnoremap <silent> <F2> :set list!<CR>
 inoremap <silent> <F2> <esc>:set list!<CR>a
 
 " command mode
-set wildmenu 
+set wildmenu
 set wildmode=list:longest,full
 
 " searching
@@ -57,12 +58,28 @@ set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
 
-" syntax highlighting
-syntax on               " enable syntax highlighting
 
-" statusline
-"set statusline=%<%f\ %y%h%m%r\ PWD:%{getcwd()}%=%-14.(%l,%c%V%)\ %P
-"set laststatus=2
+" vim-airline
+set laststatus=2
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" vim-unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+nnoremap <C-p> :Unite -buffer-name=files -start-insert file_rec/async <cr>
+nnoremap <C-k> :Unite -buffer-name=grep grep:.<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+    " Enable navigation with control-j and control-k in insert mode
+    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
 
 " plug-in settings
 filetype indent on
@@ -93,12 +110,6 @@ let Tlist_Compart_Format = 1
 let Tlist_Show_Menu = 1
 let Tlist_Exit_OnlyWindow = 1
 
-" minibufexpl
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
 " vim-latex-live-preview
 let g:livepreview_previewer = 'okular'
 
@@ -110,16 +121,16 @@ inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
 map ; :
 
 " spell check
-map <F12> :w<CR>:!aspell -c %<CR><CR>:e<CR><CR> 
+map <F12> :w<CR>:!aspell -c %<CR><CR>:e<CR><CR>
 
 " python script run
 map <F9> :w! <CR> :!python %<CR>
 
 " restore position
 autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+            \ if line("'\"") > 1 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
 augroup END
 
 " file types
@@ -127,7 +138,7 @@ autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
 "autocmd FileType python :set textwidth=79
-"autocmd FileType python set expandtab shiftwidth=4 softtabstop=4 
+"autocmd FileType python set expandtab shiftwidth=4 softtabstop=4
 autocmd Filetype tex,latex :set grepprg=grep\ -nH\ $*
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
 autocmd Filetype tex,latex :set textwidth=99

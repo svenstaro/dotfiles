@@ -29,15 +29,17 @@ shopt -s histappend                      # append to history, don't overwrite it
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-eval `keychain --eval -Q -q SOME KEYS`
+eval `keychain --eval -Q -q id_rsa`
 
 complete -cf sudo
 export EDITOR=vim
 alias sharedir='python -m http.server'
 
-alias irc='ssh apoc -t "tmux attach"'
+alias irc='ssh -C apoc -t "tmux attach"'
 alias steam-win='bash -c "cd .wine/drive_c/Program\ Files/Steam/ && wine steam.exe -no-dwrite"'
 alias mount-mnt0='sshfs -p 225 svenstaro.lolwut.net:/media/data1 mnt0/'
+
+alias wtfparrot='ssh trinity "DISPLAY=:0.0 mpv -fs --hwdec=no http://www.youtube.com/watch?v=fbfzahtZsN8"'
 
 if [[ -n "$DISPLAY" ]]; then
 	BROWSER=chromium
