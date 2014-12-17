@@ -36,6 +36,7 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'luochen1990/rainbow'
 
 " Functionality
 NeoBundle 'vim-scripts/a.vim'
@@ -174,7 +175,11 @@ nmap <C-k> <Plug>CtrlSFPrompt
 " syntastic
 let g:syntastic_check_on_open = 1         " Don't check for errors until save
 let g:syntastic_python_checkers = ['flake8', 'python']
-"
+
+
+" rainbow
+let g:rainbow_active = 1
+
 
 " auto completion stuff
 set ofu=syntaxcomplete#Complete
