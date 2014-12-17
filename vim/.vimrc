@@ -1,5 +1,84 @@
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Shougo/vimproc.vim', {
+    \ 'build' : {
+    \     'linux' : 'make',
+    \   },
+    \ }
+
+" Language support
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'dart-lang/dart-vim-plugin'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
+NeoBundle 'vim-scripts/DoxygenToolkit.vim'
+NeoBundle 'lervag/vim-latex'
+NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'mitsuhiko/vim-jinja'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+
+" Looks
+NeoBundle 'bling/vim-airline'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'gorodinskiy/vim-coloresque'
+
+" Functionality
+NeoBundle 'vim-scripts/a.vim'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'michaeljsmith/vim-indent-object'
+NeoBundle 'Valloric/MatchTagAlways'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'tacahiroy/ctrlp-funky'
+NeoBundle 'dyng/ctrlsf.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'mattn/emmet-vim'
+
+NeoBundle 'Valloric/YouCompleteMe', {
+    \ 'build': {
+    \   'linux': './install.sh --clang-completer --system-libclang --system-boost',
+    \   'directory': 'YouCompleteMe'
+    \   },
+    \ }
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
 " basics
-set nocompatible        " use Vim defaults
+let mapleader = ","
 set mouse=a             " make sure mouse is used in all cases.
 set t_Co=256            " set 256 color
 colorscheme wombat256   " define syntax color scheme
@@ -21,10 +100,11 @@ set mat=5               " show matching brackets for 0.5 seconds
 set gfn=TamzenForPowerline\ 13
 set number              " show line numbers
 syntax on               " enable syntax highlighting
+"set synmaxcol=200       " for performance reason, don't highlight long lines
 
 " cursor settings
-set cursorline          " highlight cursor line
-"set cursorcolumn        " highlight cursor column (breaks completion preview)
+set nocursorline        " don't highlight cursor line (for performance reasons)
+set nocursorcolumn      " don't highlight cursor column (breaks completion preview)
 
 " wrap like other editors
 set wrap                " word wrap
@@ -66,30 +146,35 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 
-" vim-unite
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-nnoremap <C-p> :Unite -buffer-name=files -start-insert file_rec/async <cr>
-nnoremap <C-k> :Unite -buffer-name=grep grep:.<cr>
-nnoremap <space>s :Unite -quick-match buffer<cr>
 
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-    " Enable navigation with control-j and control-k in insert mode
-    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
+" ctrlp
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_user_command = 'ag %s --files-with-matches -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
+let g:ctrlp_extensions = ['funky']
 
-" plug-in settings
-filetype indent on
+" MRU relative to current working directory
+let g:ctrlp_mruf_relative = 1
+
+" ag is fast enough that CtrlP doesn't need to cache
+let g:ctrlp_use_caching = 0
+
+
+" ctrlp-funky
+nnoremap <C-l> :CtrlPFunky<cr>
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
+
+
+" ctrlsf
+nmap <C-k> <Plug>CtrlSFPrompt
+
+
+" syntastic
+let g:syntastic_python_checkers = ['flake8', 'python']
 
 " auto completion stuff
-filetype plugin on
 set ofu=syntaxcomplete#Complete
-
 set complete+=k         " enable dictionary completion
-
 set completeopt=menuone,menu,longest,preview
 
 " automatically open and close the popup menu / preview window
@@ -100,15 +185,7 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-" taglist
-nnoremap <silent> <F8> :TlistToggle<CR>
-inoremap <silent> <F8> <esc>:TlistToggle<CR>a
-nnoremap <silent> <F7> :TlistUpdate<CR>
-inoremap <silent> <F7> <esc>:TlistUpdate<CR>a
-let Tlist_Use_Right_Window = 1
-let Tlist_Compart_Format = 1
-let Tlist_Show_Menu = 1
-let Tlist_Exit_OnlyWindow = 1
+nnoremap <silent> <F8> :TagbarToggle<CR>
 
 " vim-latex-live-preview
 let g:livepreview_previewer = 'okular'
@@ -123,9 +200,6 @@ map ; :
 " spell check
 map <F12> :w<CR>:!aspell -c %<CR><CR>:e<CR><CR>
 
-" python script run
-map <F9> :w! <CR> :!python %<CR>
-
 " restore position
 autocmd BufReadPost *
             \ if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -137,8 +211,6 @@ augroup END
 autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
-"autocmd FileType python :set textwidth=79
-"autocmd FileType python set expandtab shiftwidth=4 softtabstop=4
 autocmd Filetype tex,latex :set grepprg=grep\ -nH\ $*
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
 autocmd Filetype tex,latex :set textwidth=99
@@ -146,6 +218,3 @@ autocmd Filetype tex,latex :set textwidth=99
 " gui
 set guioptions-=m " remove menubar
 set guioptions-=T " remove toolbar
-
-" additional syntax
-au BufRead,BufNewFile *.qml setfiletype qml
