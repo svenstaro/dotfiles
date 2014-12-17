@@ -95,6 +95,7 @@ set cmdheight=1         " set the command height
 set showmatch           " show matching brackets (),{},[]
 set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
+set scrolloff=2         " keep 2 lines spacing between cursor and edge"
 "set background=dark     " we don't like bright white terminals
 "set gfn=Bitstream\ Vera\ Sans\ Mono\ 8
 set gfn=TamzenForPowerline\ 13
@@ -108,13 +109,13 @@ set nocursorcolumn      " don't highlight cursor column (breaks completion previ
 
 " wrap like other editors
 set wrap                " word wrap
-"set textwidth=79        "
+"set textwidth=100        "
 set lbr                 " line break
 set display=lastline    " don't display @ with long paragraphs
 
 " backup settings
 set noswapfile
-set nobackup              " keep a backup file
+set nobackup            " keep a backup file
 set backupdir=/tmp      " backup dir
 set directory=/tmp      " swap file directory
 
@@ -124,6 +125,7 @@ set tabstop=4           " a n-space tab width
 set shiftwidth=4        " allows the use of < and > for VISUAL indenting
 set softtabstop=4       " counts n spaces when DELETE or BCKSPCE is used
 set autoindent          " auto indents next new line
+set smarttab            " remember indent
 set listchars=tab:→,trail:¸ " show trail spaces and tabstchars
 nnoremap <silent> <F2> :set list!<CR>
 inoremap <silent> <F2> <esc>:set list!<CR>a
@@ -170,7 +172,9 @@ nmap <C-k> <Plug>CtrlSFPrompt
 
 
 " syntastic
+let g:syntastic_check_on_open = 1         " Don't check for errors until save
 let g:syntastic_python_checkers = ['flake8', 'python']
+"
 
 " auto completion stuff
 set ofu=syntaxcomplete#Complete
