@@ -179,7 +179,7 @@ let g:syntastic_python_checkers = ['flake8', 'python']
 
 
 " rainbow
-let g:rainbow_active = 1
+let g:rainbow_active = 0
 
 
 " auto completion stuff
