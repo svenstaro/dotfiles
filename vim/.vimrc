@@ -40,7 +40,7 @@ NeoBundle 'luochen1990/rainbow'
 
 " Functionality
 NeoBundle 'vim-scripts/a.vim'
-NeoBundle 'Raimondi/delimitMate'
+"NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'airblade/vim-gitgutter'
