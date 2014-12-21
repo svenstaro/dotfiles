@@ -35,7 +35,7 @@ NeoBundle 'hail2u/vim-css3-syntax'
 " Looks
 NeoBundle 'bling/vim-airline'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'gorodinskiy/vim-coloresque'
+"NeoBundle 'gorodinskiy/vim-coloresque' " breaks . keyword
 NeoBundle 'luochen1990/rainbow'
 
 " Functionality
@@ -62,6 +62,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'xuhdev/vim-latex-live-preview'
 
 NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build': {
@@ -100,7 +101,7 @@ set mat=5               " show matching brackets for 0.5 seconds
 set scrolloff=2         " keep 2 lines spacing between cursor and edge"
 "set background=dark     " we don't like bright white terminals
 "set gfn=Bitstream\ Vera\ Sans\ Mono\ 8
-set gfn=TamzenForPowerline\ 13
+set gfn=GohuFont\ 8
 set number              " show line numbers
 syntax on               " enable syntax highlighting
 "set synmaxcol=200       " for performance reason, don't highlight long lines
@@ -221,7 +222,6 @@ augroup END
 autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
-autocmd Filetype tex,latex :set grepprg=grep\ -nH\ $*
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
 autocmd Filetype tex,latex :set textwidth=99
 
