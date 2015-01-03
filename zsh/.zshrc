@@ -95,7 +95,7 @@ zstyle ':completion:*:history-words' menu yes
 # Correction
 
 setopt correct              # spelling correction for commands
-setopt correctall           # spelling correction for arguments
+#setopt correctall           # spelling correction for arguments
 
 
 # Misc aliases
