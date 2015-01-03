@@ -63,6 +63,7 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'xuhdev/vim-latex-live-preview'
+NeoBundle 'rhysd/vim-clang-format'
 
 NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build': {
@@ -81,7 +82,7 @@ filetype plugin indent on
 NeoBundleCheck
 
 " basics
-let mapleader = ","
+let mapleader = ","     " map leader to ,
 set mouse=a             " make sure mouse is used in all cases.
 set t_Co=256            " set 256 color
 colorscheme wombat256   " define syntax color scheme
@@ -117,8 +118,8 @@ set lbr                 " line break
 set display=lastline    " don't display @ with long paragraphs
 
 " backup settings
-set noswapfile
-set nobackup            " keep a backup file
+set noswapfile          " don't create a swap file
+set nobackup            " don't keep a backup file
 set backupdir=/tmp      " backup dir
 set directory=/tmp      " swap file directory
 
@@ -142,6 +143,22 @@ set hlsearch            " highlight all search results
 set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
+
+
+" vim-clang-format
+let g:clang_format#style_options = {
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "BasedOnStyle" : "LLVM",
+            \ "Standard" : "C++11"}
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
+
+" emmet-vim
+let g:user_emmet_leader_key='<C-X>'
 
 
 " vim-airline
