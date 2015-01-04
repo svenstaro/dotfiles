@@ -31,6 +31,8 @@ setopt nohashdirs           # disable hashing of dirs so we don't have to run
 bindkey -e
 bindkey ';3D' emacs-backward-word
 bindkey ';3C' emacs-forward-word
+bindkey ';5D' emacs-backward-word
+bindkey ';5C' emacs-forward-word
 bindkey '^[[3~' delete-char
 bindkey '^[3;5~' delete-char
 
