@@ -215,6 +215,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
+
+" vim-latex
+let g:latex_fold_enabled = 0
+
+
 " vim-latex-live-preview
 let g:livepreview_previewer = 'okular'
 
