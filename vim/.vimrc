@@ -36,6 +36,7 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'flazz/vim-colorschemes'
 "NeoBundle 'gorodinskiy/vim-coloresque' " breaks . keyword
+NeoBundle 'chrisbra/Colorizer'
 NeoBundle 'luochen1990/rainbow'
 
 " Functionality
@@ -198,6 +199,10 @@ let g:syntastic_python_checkers = ['flake8', 'python']
 
 " rainbow
 let g:rainbow_active = 0
+
+
+" colorizer
+let g:colorizer_auto_color_filetype='css,html'
 
 
 " auto completion stuff
