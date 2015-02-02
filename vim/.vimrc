@@ -65,6 +65,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'xuhdev/vim-latex-live-preview'
 NeoBundle 'rhysd/vim-clang-format'
+NeoBundle 'tpope/vim-speeddating'
 
 NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build': {
@@ -223,6 +224,10 @@ nnoremap <silent> <F8> :TagbarToggle<CR>
 
 " vim-latex
 let g:latex_fold_enabled = 0
+
+
+" vim-markdown
+let g:vim_markdown_folding_disabled=1
 
 
 " vim-latex-live-preview
