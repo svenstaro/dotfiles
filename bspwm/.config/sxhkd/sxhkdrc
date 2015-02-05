@@ -1,10 +1,10 @@
 # bspwm hotkeys
 #
 
-shift + alt + Escape
+alt + shift + Escape
 	bspc quit
 
-shift + alt + q
+alt + shift + q
 	bspc window -c
 
 alt + t
@@ -36,9 +36,6 @@ alt + ctrl + {_,shift + }space
 
 shift + alt + {h,j,k,l}
 	bspc window -e {left -10,down +10,up -10,right +10}
-
-shift + alt + shift + {h,j,k,l}
-	bspc window -e {right -10,up +10,down -10,left +10}
 
 alt + shift + {1-9}
 	bspc window -r 0.{1-9}
