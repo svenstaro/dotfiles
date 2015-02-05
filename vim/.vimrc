@@ -31,6 +31,8 @@ NeoBundle 'mitsuhiko/vim-jinja'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
+NeoBundle 'justinmk/vim-syntax-extra'
 
 " Looks
 NeoBundle 'bling/vim-airline'
@@ -145,6 +147,11 @@ set hlsearch            " highlight all search results
 set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
+
+
+" vim-cpp-enhanced-highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
 
 
 " vim-clang-format
