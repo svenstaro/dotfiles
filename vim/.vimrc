@@ -167,8 +167,7 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 
 " emmet-vim
-let g:user_emmet_leader_key='<C-X>'
-
+let g:user_emmet_leader_key='<C-S>'
 
 " vim-airline
 set laststatus=2
