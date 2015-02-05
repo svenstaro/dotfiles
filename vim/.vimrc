@@ -36,6 +36,7 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'flazz/vim-colorschemes'
 "NeoBundle 'gorodinskiy/vim-coloresque' " breaks . keyword
+NeoBundle 'chrisbra/Colorizer'
 NeoBundle 'luochen1990/rainbow'
 
 " Functionality
@@ -64,6 +65,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'xuhdev/vim-latex-live-preview'
 NeoBundle 'rhysd/vim-clang-format'
+NeoBundle 'tpope/vim-speeddating'
 
 NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build': {
@@ -200,6 +202,10 @@ let g:syntastic_python_checkers = ['flake8', 'python']
 let g:rainbow_active = 0
 
 
+" colorizer
+let g:colorizer_auto_color_filetype='css,html'
+
+
 " auto completion stuff
 set ofu=syntaxcomplete#Complete
 set complete+=k         " enable dictionary completion
@@ -218,6 +224,10 @@ nnoremap <silent> <F8> :TagbarToggle<CR>
 
 " vim-latex
 let g:latex_fold_enabled = 0
+
+
+" vim-markdown
+let g:vim_markdown_folding_disabled=1
 
 
 " vim-latex-live-preview
@@ -246,6 +256,7 @@ autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
 autocmd Filetype tex,latex :set textwidth=99
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 " gui
 set guioptions-=m " remove menubar
