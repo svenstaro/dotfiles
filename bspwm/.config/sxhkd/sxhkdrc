@@ -34,8 +34,11 @@ super + ctrl + {h,j,k,l}
 super + ctrl + {_,shift + }space
 	bspc {window -p cancel,desktop -c}
 
-shift + super + {h,j,k,l}
+super + shift + {h,j,k,l}
 	bspc window -e {left -10,down +10,up -10,right +10}
+
+super + alt + {h,j,k,l}
+	bspc window -w {left,down,up,right}
 
 super + shift + {1-9}
 	bspc window -r 0.{1-9}
