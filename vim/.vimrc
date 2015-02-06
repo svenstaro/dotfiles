@@ -89,7 +89,7 @@ NeoBundleCheck
 let mapleader = ","     " map leader to ,
 set mouse=a             " make sure mouse is used in all cases.
 set t_Co=256            " set 256 color
-colorscheme wombat256   " define syntax color scheme
+colorscheme badwolf   " define syntax color scheme
 set shortmess+=I        " disable the welcome screen
 set clipboard+=unnamed  " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
@@ -106,7 +106,8 @@ set mat=5               " show matching brackets for 0.5 seconds
 set scrolloff=2         " keep 2 lines spacing between cursor and edge"
 "set background=dark     " we don't like bright white terminals
 "set gfn=Bitstream\ Vera\ Sans\ Mono\ 8
-set gfn=GohuFont\ 8
+"set gfn=GohuFont\ 10
+set gfn=Input\ Mono\ 8
 set number              " show line numbers
 syntax on               " enable syntax highlighting
 "set synmaxcol=200       " for performance reason, don't highlight long lines
@@ -227,7 +228,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
-
 " vim-latex
 let g:latex_fold_enabled = 0
 
@@ -265,5 +265,4 @@ autocmd Filetype tex,latex :set textwidth=99
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 " gui
-set guioptions-=m " remove menubar
-set guioptions-=T " remove toolbar
+set guioptions=agi
