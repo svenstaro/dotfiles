@@ -33,6 +33,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'justinmk/vim-syntax-extra'
+NeoBundle 'tfnico/vim-gradle'
 
 " Looks
 NeoBundle 'bling/vim-airline'
@@ -168,7 +169,7 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 
 " emmet-vim
-let g:user_emmet_leader_key='<C-S>'
+let g:user_emmet_leader_key='<C-E>'
 
 " vim-airline
 set laststatus=2
