@@ -34,6 +34,7 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'justinmk/vim-syntax-extra'
 NeoBundle 'tfnico/vim-gradle'
+NeoBundle 'nginx/nginx', {'rtp': 'contrib/vim'}
 
 " Looks
 NeoBundle 'bling/vim-airline'
