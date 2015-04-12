@@ -63,6 +63,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tacahiroy/ctrlp-funky'
 NeoBundle 'dyng/ctrlsf.vim'
+NeoBundle 'gabesoft/vim-ags'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'majutsushi/tagbar'
@@ -200,6 +201,10 @@ let g:ctrlp_funky_syntax_highlight = 1
 
 " ctrlsf
 nmap <C-k> <Plug>CtrlSFPrompt
+
+
+" ags
+nmap <C-j> :Ags 
 
 
 " syntastic
