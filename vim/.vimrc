@@ -71,6 +71,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'xuhdev/vim-latex-live-preview'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'mhinz/vim-sayonara'
 
 NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build': {
@@ -197,6 +198,11 @@ let g:ctrlp_use_caching = 0
 nnoremap <C-l> :CtrlPFunky<cr>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
+
+
+" vim-sayonara
+nnoremap <leader>q :Sayonara<cr>
+nnoremap <leader>Q :Sayonara!<cr>
 
 
 " ctrlsf
