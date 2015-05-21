@@ -7,4 +7,4 @@ Xft.rgba: rgb
 
 xterm*background: #292929
 xterm*foreground: #DBDBDB
-xterm*faceName: tamsyn:normal:pixelsize=10
+xterm*faceName: input:normal:pixelsize=10
