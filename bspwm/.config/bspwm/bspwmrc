@@ -9,7 +9,7 @@ bspc config gapless_monocle     false
 bspc config focus_by_distance   true
 
 bspc config auto_cancel         true
-bspc config presel_border_color "#fa875f"
+bspc config presel_border_color "#ff5555"
 
 bspc monitor VGA-0 -d I II III IV V
 bspc monitor VGA-1 -d VI VII VIII IX X
