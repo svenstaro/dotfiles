@@ -11,8 +11,12 @@ bspc config focus_by_distance   true
 bspc config auto_cancel         true
 bspc config presel_border_color "#ff5555"
 
-bspc monitor VGA-0 -d I II III IV V
-bspc monitor VGA-1 -d VI VII VIII IX X
+if [[ $(hostname) ]]; then
+    bspc monitor eDP1 -d I II III IV V VI VII VIII IX X
+else
+    bspc monitor VGA-0 -d I II III IV V
+    bspc monitor VGA-1 -d VI VII VIII IX X
+fi
 
 #bspc rule -a Gimp desktop=^8 follow=on floating=on
 #bspc rule -a Chromium desktop=^2
