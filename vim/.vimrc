@@ -33,6 +33,8 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'justinmk/vim-syntax-extra'
+NeoBundle 'tfnico/vim-gradle'
+NeoBundle 'nginx/nginx', {'rtp': 'contrib/vim'}
 
 " Looks
 NeoBundle 'bling/vim-airline'
@@ -61,6 +63,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tacahiroy/ctrlp-funky'
 NeoBundle 'dyng/ctrlsf.vim'
+NeoBundle 'gabesoft/vim-ags'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'majutsushi/tagbar'
@@ -68,6 +71,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'xuhdev/vim-latex-live-preview'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'mhinz/vim-sayonara'
 
 NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build': {
@@ -168,7 +172,7 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 
 " emmet-vim
-let g:user_emmet_leader_key='<C-S>'
+let g:user_emmet_leader_key='<C-E>'
 
 " vim-airline
 set laststatus=2
@@ -196,8 +200,17 @@ let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 
 
+" vim-sayonara
+nnoremap <leader>q :Sayonara<cr>
+nnoremap <leader>Q :Sayonara!<cr>
+
+
 " ctrlsf
 nmap <C-k> <Plug>CtrlSFPrompt
+
+
+" ags
+nmap <C-j> :Ags 
 
 
 " syntastic
