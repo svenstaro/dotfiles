@@ -250,7 +250,7 @@ let g:vim_markdown_folding_disabled=1
 
 
 " vim-latex-live-preview
-let g:livepreview_previewer = 'okular'
+let g:livepreview_previewer = 'zathura'
 
 " nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
