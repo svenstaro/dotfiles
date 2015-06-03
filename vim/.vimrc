@@ -25,7 +25,7 @@ NeoBundle 'dart-lang/dart-vim-plugin'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
 NeoBundle 'vim-scripts/DoxygenToolkit.vim'
-NeoBundle 'lervag/vim-latex'
+NeoBundle 'lervag/vimtex'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'mitsuhiko/vim-jinja'
 NeoBundle 'pangloss/vim-javascript'
@@ -241,8 +241,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
-" vim-latex
-let g:latex_fold_enabled = 0
+" vimtex
+let g:vimtex_fold_enabled = 0
 
 
 " vim-markdown
