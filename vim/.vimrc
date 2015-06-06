@@ -62,6 +62,12 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tacahiroy/ctrlp-funky'
+NeoBundle 'nixprime/cpsm', {
+    \ 'build': {
+    \   'linux': './install.sh',
+    \   'directory': 'cpsm'
+    \   },
+    \ }
 NeoBundle 'dyng/ctrlsf.vim'
 NeoBundle 'gabesoft/vim-ags'
 NeoBundle 'thinca/vim-quickrun'
@@ -192,6 +198,9 @@ let g:ctrlp_mruf_relative = 1
 
 " ag is fast enough that CtrlP doesn't need to cache
 let g:ctrlp_use_caching = 0
+
+" cpsm
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 
 
 " ctrlp-funky
