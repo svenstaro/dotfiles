@@ -11,9 +11,9 @@ bspc config focus_by_distance   true
 bspc config auto_cancel         true
 bspc config presel_border_color "#ff5555"
 
-if [[ $(hostname) ]]; then
+if [[ $(hostname) == 'oracle' ]]; then
     bspc monitor eDP1 -d I II III IV V VI VII VIII IX X
-else
+elif [[ $(hostname) == 'smith' ]]; then
     bspc monitor VGA-0 -d I II III IV V
     bspc monitor VGA-1 -d VI VII VIII IX X
 fi
