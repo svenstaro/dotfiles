@@ -25,7 +25,7 @@ NeoBundle 'dart-lang/dart-vim-plugin'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
 NeoBundle 'vim-scripts/DoxygenToolkit.vim'
-NeoBundle 'lervag/vim-latex'
+NeoBundle 'lervag/vimtex'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'mitsuhiko/vim-jinja'
 NeoBundle 'pangloss/vim-javascript'
@@ -62,6 +62,12 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tacahiroy/ctrlp-funky'
+NeoBundle 'nixprime/cpsm', {
+    \ 'build': {
+    \   'linux': './install.sh',
+    \   'directory': 'cpsm'
+    \   },
+    \ }
 NeoBundle 'dyng/ctrlsf.vim'
 NeoBundle 'gabesoft/vim-ags'
 NeoBundle 'thinca/vim-quickrun'
@@ -193,6 +199,9 @@ let g:ctrlp_mruf_relative = 1
 " ag is fast enough that CtrlP doesn't need to cache
 let g:ctrlp_use_caching = 0
 
+" cpsm
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+
 
 " ctrlp-funky
 nnoremap <C-l> :CtrlPFunky<cr>
@@ -241,8 +250,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
-" vim-latex
-let g:latex_fold_enabled = 0
+" vimtex
+let g:vimtex_fold_enabled = 0
 
 
 " vim-markdown
@@ -250,7 +259,7 @@ let g:vim_markdown_folding_disabled=1
 
 
 " vim-latex-live-preview
-let g:livepreview_previewer = 'okular'
+let g:livepreview_previewer = 'zathura'
 
 " nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
