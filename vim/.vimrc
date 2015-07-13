@@ -78,6 +78,8 @@ NeoBundle 'xuhdev/vim-latex-live-preview'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'mhinz/vim-sayonara'
+NeoBundle 'yakiang/excel.vim'
+NeoBundle 'godlygeek/tabular'
 
 NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build': {
@@ -285,6 +287,9 @@ autocmd FileType python let python_slow_sync = 1
 autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
 autocmd Filetype tex,latex :set textwidth=99
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+" vim-excel (stop vim from opening excel files as zip)
+let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*.wsz,*.xap,*.docx,*.docm,*.dotx,*.dotm,*.potx,*.potm,*.ppsx,*.ppsm,*.pptx,*.pptm,*.ppam,*.sldx,*.thmx,*.crtx,*.vdw,*.glox,*.gcsx,*.gqsx'
 
 " gui
 set guioptions=agi
