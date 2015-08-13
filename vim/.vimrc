@@ -78,7 +78,7 @@ NeoBundle 'xuhdev/vim-latex-live-preview'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'mhinz/vim-sayonara'
-NeoBundle 'yakiang/excel.vim'
+NeoBundle 'ryanmorillo/excel.vim'
 NeoBundle 'godlygeek/tabular'
 
 NeoBundle 'Valloric/YouCompleteMe', {
@@ -185,6 +185,8 @@ let g:user_emmet_leader_key='<C-E>'
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
