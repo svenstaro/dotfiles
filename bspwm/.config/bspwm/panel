@@ -6,6 +6,7 @@ set -u
 PANEL_HEIGHT=18
 PANEL_PADDING=12
 PANEL_FONT_FAMILY="Input Mono:style=Bold:size=8"
+PANEL_ICON_FONT="Symbola:size=10"
 PANEL_FIFO="/tmp/panel-fifo"
 
 if [ $(pgrep -cx panel) -gt 1 ] ; then
@@ -29,6 +30,6 @@ panel_width=$((${screen_width} - $((${PANEL_PADDING} * 2))))
 
 source $(dirname $0)/panel_colors
 
-cat "${PANEL_FIFO}" | $(dirname $0)/panel_bar | lemonbar -g ${panel_width}x${PANEL_HEIGHT}+${PANEL_PADDING}+${PANEL_PADDING} -f "${PANEL_FONT_FAMILY}" -F "${COLOR_FOREGROUND}" -B "${COLOR_BACKGROUND}" &
+cat "${PANEL_FIFO}" | $(dirname $0)/panel_bar | lemonbar -g ${panel_width}x${PANEL_HEIGHT}+${PANEL_PADDING}+${PANEL_PADDING} -f "${PANEL_FONT_FAMILY}" -f "${PANEL_ICON_FONT}" -F "${COLOR_FOREGROUND}" -B "${COLOR_BACKGROUND}" &
 
 wait
