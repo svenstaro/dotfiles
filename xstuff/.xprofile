@@ -6,5 +6,5 @@ elif [[ $(hostname) == 'dozer' ]]; then
     xrandr --dpi 144
 fi
 
-./fehbg
+./.fehbg
 compton --config ~/.config/compton.conf -b
