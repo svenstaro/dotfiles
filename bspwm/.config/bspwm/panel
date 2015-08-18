@@ -23,7 +23,7 @@ bspc config -m ^1 top_padding $((${PANEL_HEIGHT} + ${PANEL_PADDING}))
 bspc control --subscribe > "${PANEL_FIFO}" &
 xtitle -sf 'T%s' > "${PANEL_FIFO}" &
 volume -sf 'V%s %i' > "${PANEL_FIFO}" &
-clock -sf 'S%a %H:%M' > "${PANEL_FIFO}" &
+clock -sf 'S%a %Y-%m-%d %H:%M' > "${PANEL_FIFO}" &
 
 screen_width=$(xrandr | grep \* | cut -d'x' -f1 | head -n1 | tr -d ' ')
 panel_width=$((${screen_width} - $((${PANEL_PADDING} * 2))))
