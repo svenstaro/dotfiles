@@ -27,13 +27,13 @@ super + Escape
 #####################
 
 XF86AudioMute
-    amixer sset Master toggle
+    ponymix toggle
 
 XF86AudioLowerVolume
-    amixer sset Master 10%-
+    ponymix decrease 10
 
 XF86AudioRaiseVolume
-    amixer sset Master 10%+
+    ponymix increase 10
 
 XF86AudioMicMute
     amixer sset Capture toggle
