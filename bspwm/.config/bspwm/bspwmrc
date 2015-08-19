@@ -16,6 +16,9 @@ if [[ $(hostname) == 'dozer' ]]; then
 elif [[ $(hostname) == 'smith' ]]; then
     bspc monitor VGA-0 -d I II III IV V
     bspc monitor VGA-1 -d VI VII VIII IX X
+elif [[ $(hostname) == 'neo' ]]; then
+    bspc monitor DVI-I-3 -d VI VII VIII IX X
+    bspc monitor DVI-I-2 -d I II III IV V
 fi
 
 bspc rule -a Gimp follow=on floating=on

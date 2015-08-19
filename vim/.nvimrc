@@ -1,101 +1,64 @@
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'Shougo/vimproc.vim', {
-    \ 'build' : {
-    \     'linux' : 'make',
-    \   },
-    \ }
+call plug#begin(expand('~/.nvim/plug/'))
 
 " Language support
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'dart-lang/dart-vim-plugin'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'plasticboy/vim-markdown', {'depends': 'godlygeek/tabular'}
-NeoBundle 'vim-scripts/DoxygenToolkit.vim'
-NeoBundle 'lervag/vimtex'
-NeoBundle 'chase/vim-ansible-yaml'
-NeoBundle 'mitsuhiko/vim-jinja'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
-NeoBundle 'justinmk/vim-syntax-extra'
-NeoBundle 'tfnico/vim-gradle'
-NeoBundle 'nginx/nginx', {'rtp': 'contrib/vim'}
+Plug 'kchmck/vim-coffee-script'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'groenewege/vim-less'
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'lervag/vimtex'
+Plug 'chase/vim-ansible-yaml'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'justinmk/vim-syntax-extra'
+Plug 'tfnico/vim-gradle'
+Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
 
 " Looks
-NeoBundle 'bling/vim-airline'
-NeoBundle 'flazz/vim-colorschemes'
-"NeoBundle 'gorodinskiy/vim-coloresque' " breaks . keyword
-NeoBundle 'chrisbra/Colorizer'
-NeoBundle 'luochen1990/rainbow'
+Plug 'bling/vim-airline'
+Plug 'flazz/vim-colorschemes'
+"Plug 'gorodinskiy/vim-coloresque' " breaks . keyword
+Plug 'chrisbra/Colorizer'
+Plug 'luochen1990/rainbow'
 
 " Functionality
-NeoBundle 'vim-scripts/a.vim'
-"NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'michaeljsmith/vim-indent-object'
-NeoBundle 'Valloric/MatchTagAlways'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tacahiroy/ctrlp-funky'
-NeoBundle 'nixprime/cpsm', {
-    \ 'build': {
-    \   'linux': './install.sh',
-    \   'directory': 'cpsm'
-    \   },
-    \ }
-NeoBundle 'dyng/ctrlsf.vim'
-NeoBundle 'gabesoft/vim-ags'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'xuhdev/vim-latex-live-preview'
-NeoBundle 'rhysd/vim-clang-format'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'mhinz/vim-sayonara'
-NeoBundle 'ryanmorillo/excel.vim'
-NeoBundle 'godlygeek/tabular'
+Plug 'vim-scripts/a.vim'
+"Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'Valloric/MatchTagAlways'
+Plug 'tomtom/tcomment_vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/syntastic'
+Plug 'vim-scripts/taglist.vim'
+Plug 'SirVer/ultisnips' "| Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'nixprime/cpsm', { 'do': './install.sh' }
+Plug 'dyng/ctrlsf.vim'
+Plug 'gabesoft/vim-ags'
+Plug 'thinca/vim-quickrun'
+Plug 'sjl/gundo.vim'
+Plug 'majutsushi/tagbar'
+Plug 'mattn/emmet-vim'
+Plug 'xuhdev/vim-latex-live-preview'
+Plug 'rhysd/vim-clang-format'
+Plug 'tpope/vim-speeddating'
+Plug 'mhinz/vim-sayonara'
+Plug 'ryanmorillo/excel.vim'
+Plug 'godlygeek/tabular'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --system-libclang --system-boost' }
 
-NeoBundle 'Valloric/YouCompleteMe', {
-    \ 'build': {
-    \   'linux': './install.sh --clang-completer --system-libclang --system-boost',
-    \   'directory': 'YouCompleteMe'
-    \   },
-    \ }
-
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+call plug#end()
 
 " basics
 let mapleader = ","     " map leader to ,
@@ -123,6 +86,7 @@ set gfn=Input\ Mono\ 8
 set number              " show line numbers
 syntax on               " enable syntax highlighting
 "set synmaxcol=200       " for performance reason, don't highlight long lines
+filetype plugin indent on
 
 " cursor settings
 set nocursorline        " don't highlight cursor line (for performance reasons)
