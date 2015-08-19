@@ -11,14 +11,15 @@ bspc config focus_by_distance   true
 bspc config auto_cancel         true
 bspc config presel_border_color "#ff5555"
 
-if [[ $(hostname) == 'oracle' ]]; then
+if [[ $(hostname) == 'dozer' ]]; then
     bspc monitor eDP1 -d I II III IV V VI VII VIII IX X
 elif [[ $(hostname) == 'smith' ]]; then
     bspc monitor VGA-0 -d I II III IV V
     bspc monitor VGA-1 -d VI VII VIII IX X
 fi
 
-#bspc rule -a Gimp desktop=^8 follow=on floating=on
+bspc rule -a Gimp follow=on floating=on
+bspc rule -a Inkscape follow=on floating=on
 #bspc rule -a Chromium desktop=^2
 #bspc rule -a mplayer2 floating=on
 #bspc rule -a Kupfer.py focus=on
