@@ -10,7 +10,8 @@ while read -r line ; do
     case $line in
         S*)
             # clock output
-            sys_infos="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} %{B-}%{F-}"
+            clock=%{F$COLOR_INACTIVE_MONITOR_FG}⌚${F-}
+            clock+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} %{B-}%{F-}"
             ;;
         T*)
             # xtitle output
@@ -18,7 +19,27 @@ while read -r line ; do
             ;;
         V*)
             # volume output
-            volume="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} %{B-}%{F-}"
+            volume=%{F$COLOR_INACTIVE_MONITOR_FG}♪${F-}
+            volume+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} | %{B-}%{F-}"
+            ;;
+        B*)
+            # battery output
+            if [[ ${line:1:1} == "0" ]]; then
+                battery0="%{F$COLOR_INACTIVE_MONITOR_FG}Bat0${F-}"
+                battery0+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line:2} | %{B-}%{F-}"
+            elif [[ ${line:1:1} == "1" ]]; then
+                battery1="%{F$COLOR_INACTIVE_MONITOR_FG}Bat1${F-}"
+                battery1+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line:2} | %{B-}%{F-}"
+            fi
+            ;;
+        E*)
+            # essid output
+            essid=%{F$COLOR_INACTIVE_MONITOR_FG}₸${F-}
+            if [[ -z ${line#?} ]]; then
+                essid+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} <unconnected> | %{B-}%{F-}"
+            else
+                essid+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} | %{B-}%{F-}"
+            fi
             ;;
         W*)
             # bspwm internal state
@@ -74,5 +95,5 @@ while read -r line ; do
             done
             ;;
     esac
-    printf "%s\n" "%{l}${wm_infos}%{c}${title}%{r} %{F$COLOR_INACTIVE_MONITOR_FG}♪${F-}${volume} %{F$COLOR_INACTIVE_MONITOR_FG}⌚${F-}${sys_infos}"
+    printf "%s\n" "%{l}${wm_infos}%{c}${title}%{r}${essid}${battery0}${battery1}${volume}${clock}"
 done
