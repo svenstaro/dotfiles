@@ -22,6 +22,11 @@ while read -r line ; do
             volume=%{F$COLOR_INACTIVE_MONITOR_FG}♪${F-}
             volume+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} | %{B-}%{F-}"
             ;;
+        P*)
+            # power output
+            power=%{F$COLOR_INACTIVE_MONITOR_FG}⚡${F-}
+            power+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} | %{B-}%{F-}"
+            ;;
         B*)
             # battery output
             parsed_line=${line:2}
@@ -110,5 +115,5 @@ while read -r line ; do
             done
             ;;
     esac
-    printf "%s\n" "%{l}${wm_infos}%{c}${title}%{r}${essid}${battery0}${battery1}${volume}${clock}"
+    printf "%s\n" "%{l}${wm_infos}%{c}${title}%{r}${essid}${power}${battery0}${battery1}${volume}${clock}"
 done
