@@ -4,6 +4,7 @@ set -e
 
 while [[ true ]]; do
     format=$1
+    [[ -z ${format} ]] && format="%s %hh%mm %pW"
 
     energy_sum=0
     energy_full_sum=0
@@ -32,6 +33,9 @@ while [[ true ]]; do
 
     if [[ ${status} == "Unknown" ]]; then
         status="Charged"
+        remaining_hours=0
+        remaining_minutes=0
+        formatted_power=0
     else
         if [[ ${status} == "Charging" ]]; then
             remaining=$(( (${energy_full_sum} - ${energy_sum}) * 60 / ${power_now} ))
@@ -44,15 +48,11 @@ while [[ true ]]; do
         formatted_power=$(( ${power_now} / 1000000)).$(( ${power_now} % 1000000 / 10000 ))
     fi
 
-    if [[ -n ${format} ]]; then
-        [[ ${format} == *"%s"* ]] && format=${format/"%s"/${status}}
-        [[ ${format} == *"%p"* ]] && format=${format/"%p"/${formatted_power}}
-        [[ ${format} == *"%h"* ]] && format=${format/"%h"/${remaining_hours}}
-        [[ ${format} == *"%m"* ]] && format=${format/"%m"/${remaining_minutes}}
-        echo "${format}"
-    else
-        echo "${status} ${remaining_hours}:${remaining_minutes}h ${formatted_power}W"
-    fi
+    [[ ${format} == *"%s"* ]] && format=${format/"%s"/${status}}
+    [[ ${format} == *"%p"* ]] && format=${format/"%p"/${formatted_power}}
+    [[ ${format} == *"%h"* ]] && format=${format/"%h"/${remaining_hours}}
+    [[ ${format} == *"%m"* ]] && format=${format/"%m"/${remaining_minutes}}
+    echo ${format}
 
     sleep 5
 done
