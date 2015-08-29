@@ -31,7 +31,7 @@ while [[ true ]]; do
         fi
     done
 
-    if [[ ${status} == "Unknown" ]]; then
+    if [[ ${status} == "Unknown" || ${power_now} -eq 0 ]]; then
         status="Charged"
         remaining_hours=0
         remaining_minutes=0
