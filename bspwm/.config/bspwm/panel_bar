@@ -56,7 +56,7 @@ while read -r line ; do
             # essid output
             essid=%{F$COLOR_INACTIVE_MONITOR_FG}₸${F-}
             if [[ -z ${line#?} ]]; then
-                essid+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} <unconnected> | %{B-}%{F-}"
+                essid+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} <disconnected> | %{B-}%{F-}"
             else
                 essid+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${line#?} | %{B-}%{F-}"
             fi
