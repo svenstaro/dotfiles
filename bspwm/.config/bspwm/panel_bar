@@ -42,7 +42,7 @@ while read -r line ; do
                     battery0+="%{F$COLOR_STATUS_FG}%{B$COLOR_STATUS_BG} ${bat_capacity}%{B-}%{F-} | "
                 fi
             elif [[ ${line:1:1} == "1" ]]; then
-                battery1="%{F$COLOR_INACTIVE_MONITOR_FG}Bat0${F-}"
+                battery1="%{F$COLOR_INACTIVE_MONITOR_FG}Bat1${F-}"
                 if [[ ${bat_status} == "Charging" ]]; then
                     battery1+="%{F$COLOR_POSITIVE_STATUS_FG}%{B$COLOR_STATUS_BG} ${bat_capacity}%{B-}%{F-} | "
                 elif [[ ${bat_status} == "Discharging" ]]; then
