@@ -54,7 +54,7 @@ XF86Search
     lxrandr
 
 XF86LaunchA
-    lxrandr
+    pgrep compton && pkill compton || compton --config ~/.config/compton.conf -b
 
 XF86Explorer
     lxrandr
