@@ -3,6 +3,9 @@
 set -e
 
 while [[ true ]]; do
+    # Exit early if there is no battery in this system
+    [[ $(ls /sys/class/power_supply/BAT* &> /dev/null) ]] || exit 1
+
     format=$1
     [[ -z ${format} ]] && format="%s %hh%mm %pW"
 
@@ -15,6 +18,7 @@ while [[ true ]]; do
 
     remaining=0
     status="Unknown"
+
 
     for battery in /sys/class/power_supply/BAT*; do
         if [[ $(cat ${battery}/present) -eq 1 ]]; then
