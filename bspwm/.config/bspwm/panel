@@ -26,6 +26,7 @@ bspc config -m ^1 top_padding $((${PANEL_HEIGHT} + ${PANEL_PADDING}))
 bspc control --subscribe > "${PANEL_FIFO}" &
 
 xtitle -sf 'T%s' > "${PANEL_FIFO}" &
+${curdir}/layout.sh 'L%s' > "${PANEL_FIFO}" &
 ${curdir}/volume.sh 'V%s' > "${PANEL_FIFO}" &
 battery -sf 'B0%s %i' -n 0 > "${PANEL_FIFO}" &
 battery -sf 'B1%s %i' -n 1 > "${PANEL_FIFO}" &
