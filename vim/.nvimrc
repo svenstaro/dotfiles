@@ -50,7 +50,6 @@ Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
-Plug 'xuhdev/vim-latex-live-preview'
 Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-speeddating'
 Plug 'mhinz/vim-sayonara'
@@ -218,16 +217,15 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
+
 " vimtex
 let g:vimtex_fold_enabled = 0
+let g:vimtex_view_method = 'zathura'
 
 
 " vim-markdown
 let g:vim_markdown_folding_disabled=1
 
-
-" vim-latex-live-preview
-let g:livepreview_previewer = 'zathura'
 
 " nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
