@@ -264,7 +264,7 @@ autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
 autocmd Filetype tex,latex :set textwidth=99
-autocmd Filetype tex,latex :set spell spelllang=en_us
+autocmd Filetype tex,latex :set spell spelllang=en
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 " vim-excel (stop vim from opening excel files as zip)
