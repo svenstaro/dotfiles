@@ -145,6 +145,7 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 " emmet-vim
 let g:user_emmet_leader_key='<C-E>'
 
+
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -240,6 +241,13 @@ let g:vim_markdown_folding_disabled=1
 
 " nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
+
+
+" easymotion
+map <Space> <Plug>(easymotion-prefix)
+let g:EasyMotion_smartcase = 1
+map <Plug>(easymotion-prefix)s <Plug>(easymotion-s2)
+
 
 " map : to ; in normal mode
 map ; :
