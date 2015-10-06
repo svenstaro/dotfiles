@@ -216,6 +216,9 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+nnoremap <C-]> :YcmCompleter GoTo<CR>
+
+" tagbar
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
 " vimtex
@@ -231,7 +234,6 @@ let g:livepreview_previewer = 'zathura'
 
 " nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
-inoremap <silent> <F6> <esc>:NERDTreeToggle<CR>a
 
 " map : to ; in normal mode
 map ; :
