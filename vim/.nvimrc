@@ -50,7 +50,6 @@ Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
-Plug 'xuhdev/vim-latex-live-preview'
 Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-speeddating'
 Plug 'mhinz/vim-sayonara'
@@ -221,25 +220,29 @@ nnoremap <C-]> :YcmCompleter GoTo<CR>
 " tagbar
 nnoremap <silent> <F8> :TagbarToggle<CR>
 
+
 " vimtex
 let g:vimtex_fold_enabled = 0
+let g:vimtex_view_method = 'zathura'
+
+" allow vimtex cite/ref completion with YouCompleteMe
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+            \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*, ?)*'
+            \ ]
 
 
 " vim-markdown
 let g:vim_markdown_folding_disabled=1
 
 
-" vim-latex-live-preview
-let g:livepreview_previewer = 'zathura'
-
 " nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
 
 " map : to ; in normal mode
 map ; :
-
-" spell check
-map <F12> :w<CR>:!aspell -c %<CR><CR>:e<CR><CR>
 
 " restore position
 autocmd BufReadPost *
@@ -252,8 +255,8 @@ augroup END
 autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
-autocmd Filetype tex,latex :set dictionary=~/.vim/dict/latex.dict
 autocmd Filetype tex,latex :set textwidth=99
+autocmd Filetype tex,latex :set spell spelllang=en_us
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 " vim-excel (stop vim from opening excel files as zip)
