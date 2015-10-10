@@ -78,17 +78,15 @@ set showmatch           " show matching brackets (),{},[]
 set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
 set scrolloff=2         " keep 2 lines spacing between cursor and edge"
-"set background=dark     " we don't like bright white terminals
-"set gfn=Bitstream\ Vera\ Sans\ Mono\ 8
-"set gfn=GohuFont\ 10
 set gfn=Input\ Mono\ 8
 set number              " show line numbers
 syntax on               " enable syntax highlighting
 "set synmaxcol=200       " for performance reason, don't highlight long lines
 filetype plugin indent on
+map ; :                 " map : to ; in normal mode
 
 " cursor settings
-set nocursorline        " don't highlight cursor line (for performance reasons)
+set cursorline          " highlight cursor line
 set nocursorcolumn      " don't highlight cursor column (breaks completion preview)
 
 " wrap like other editors
@@ -123,6 +121,7 @@ set hlsearch            " highlight all search results
 set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
+nnoremap <leader><space> :nohlsearch<CR>  " turn off search highlight
 
 
 " vim-cpp-enhanced-highlight
@@ -132,8 +131,9 @@ let g:cpp_experimental_template_highlight = 1
 
 " vim-clang-format
 let g:clang_format#style_options = {
-            \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "AllowShortFunctionsOnASingleLine" : "false",
+            \ "ColumnLimit" : "100",
             \ "BasedOnStyle" : "LLVM",
             \ "Standard" : "C++11"}
 
@@ -248,9 +248,6 @@ map <Space> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
 map <Plug>(easymotion-prefix)s <Plug>(easymotion-s2)
 
-
-" map : to ; in normal mode
-map ; :
 
 " restore position
 autocmd BufReadPost *
