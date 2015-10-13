@@ -6,7 +6,7 @@
 super + Return
     termite
 
-# run demnu
+# run rofi
 super + space
     rofi -show combi -switchers combi -combi-modi window,run,ssh \
     -terminal termite \
