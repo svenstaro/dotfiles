@@ -6,6 +6,9 @@
 super + Return
     termite
 
+Print
+    imgur-screenshot
+
 # run demnu
 super + space
     rofi -show combi -switchers combi -combi-modi window,run,ssh \
