@@ -16,6 +16,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'tfnico/vim-gradle'
 Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
+Plug 'rust-lang/rust.vim'
 
 " Looks
 Plug 'bling/vim-airline'
