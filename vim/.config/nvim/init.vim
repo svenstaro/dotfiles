@@ -201,7 +201,8 @@ let g:rainbow_active = 0
 
 
 " colorizer
-let g:colorizer_auto_color_filetype='css,html'
+let g:colorizer_auto_color = 1
+let g:colorizer_auto_color_filetype='css,html,less,sass'
 
 
 " auto completion stuff
