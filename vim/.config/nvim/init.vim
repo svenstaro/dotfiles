@@ -87,7 +87,7 @@ filetype plugin indent on
 map ; :                 " map : to ; in normal mode
 
 " cursor settings
-set cursorline          " highlight cursor line
+set nocursorline        " don't highlight cursor line (this makes scrolling slow)
 set nocursorcolumn      " don't highlight cursor column (breaks completion preview)
 
 " wrap like other editors
@@ -201,7 +201,7 @@ let g:rainbow_active = 0
 
 
 " colorizer
-let g:colorizer_auto_color = 1
+let g:colorizer_auto_color = 0      " don't auto color, this makes everything slow
 let g:colorizer_auto_color_filetype='css,html,less,sass'
 
 
