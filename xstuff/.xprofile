@@ -6,7 +6,7 @@ elif [[ $(hostname) == 'dozer' ]]; then
     xrandr --dpi 144
 fi
 
-setxkbmap -layout us,de,ru -variant ,,phonetic -option grp:rwin_toggle
+setxkbmap -layout us,de,ru -variant ,,phonetic -option grp:shifts_toggle
 
 ./.fehbg
 compton --config ~/.config/compton.conf -b
