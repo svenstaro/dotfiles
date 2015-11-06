@@ -84,7 +84,8 @@ set number              " show line numbers
 syntax on               " enable syntax highlighting
 "set synmaxcol=200       " for performance reason, don't highlight long lines
 filetype plugin indent on
-map ; :                 " map : to ; in normal mode
+
+map ; :
 
 " cursor settings
 set nocursorline        " don't highlight cursor line (this makes scrolling slow)
