@@ -4,7 +4,7 @@ set -e
 
 while [[ true ]]; do
     # Exit early if there is no battery in this system
-    [[ $(ls /sys/class/power_supply/BAT* &> /dev/null) ]] || exit 1
+    [[ -z $(ls /sys/class/power_supply/BAT0 &> /dev/null) ]] || exit 1
 
     format=$1
     [[ -z ${format} ]] && format="%s %hh%mm %pW"
