@@ -249,7 +249,7 @@ nnoremap <silent> <F6> :NERDTreeToggle<CR>
 " easymotion
 map <Space> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
-map <Plug>(easymotion-prefix)s <Plug>(easymotion-s2)
+map <Plug>(easymotion-prefix)s <Plug>(easymotion-s)
 
 
 " restore position
