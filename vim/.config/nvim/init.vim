@@ -21,8 +21,7 @@ Plug 'rust-lang/rust.vim'
 " Looks
 Plug 'bling/vim-airline'
 Plug 'flazz/vim-colorschemes'
-"Plug 'gorodinskiy/vim-coloresque' " breaks . keyword
-Plug 'chrisbra/Colorizer'
+Plug 'ap/vim-css-color'
 Plug 'luochen1990/rainbow'
 
 " Functionality
@@ -199,11 +198,6 @@ let g:syntastic_python_checkers = ['flake8', 'python']
 
 " rainbow
 let g:rainbow_active = 0
-
-
-" colorizer
-let g:colorizer_auto_color = 0      " don't auto color, this makes everything slow
-let g:colorizer_auto_color_filetype='css,html,less,sass'
 
 
 " auto completion stuff
