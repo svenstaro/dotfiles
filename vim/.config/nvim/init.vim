@@ -1,22 +1,18 @@
 call plug#begin(expand('~/.config/nvim/plug/'))
 
 " Language support
-Plug 'kchmck/vim-coffee-script'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'groenewege/vim-less'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'lervag/vimtex'
 Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/html5.vim'
-Plug 'hail2u/vim-css3-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'tfnico/vim-gradle'
 Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
 Plug 'rust-lang/rust.vim'
+Plug 'sheerun/vim-polyglot'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -139,8 +135,8 @@ let g:clang_format#style_options = {
             \ "Standard" : "C++11"}
 
 " map to <Leader>cf in C++ code
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,objc,cl nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc,cl vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 
 " emmet-vim
