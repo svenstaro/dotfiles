@@ -52,6 +52,7 @@ Plug 'mhinz/vim-sayonara'
 Plug 'ryanmorillo/excel.vim'
 Plug 'godlygeek/tabular'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --system-libclang --system-boost' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 call plug#end()
 
