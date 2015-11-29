@@ -41,7 +41,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'nixprime/cpsm', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
-Plug 'gabesoft/vim-ags'
 Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
 Plug 'majutsushi/tagbar'
@@ -136,8 +135,8 @@ let g:clang_format#style_options = {
             \ "Standard" : "C++11"}
 
 " map to <Leader>cf in C++ code
-autocmd FileType c,cpp,objc,cl nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc,cl vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,objc,opencl nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc,opencl vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 
 " emmet-vim
@@ -182,10 +181,6 @@ nnoremap <leader>Q :Sayonara!<cr>
 
 " ctrlsf
 nmap <C-k> <Plug>CtrlSFPrompt
-
-
-" ags
-nmap <C-j> :Ags 
 
 
 " syntastic
