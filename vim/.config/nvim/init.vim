@@ -43,6 +43,7 @@ Plug 'nixprime/cpsm', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
+Plug 'chrisbra/SudoEdit.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'rhysd/vim-clang-format'
@@ -235,6 +236,10 @@ let g:vim_markdown_folding_disabled=1
 
 " nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
+
+
+" SudoEdit
+:command w!! SudoWrite
 
 
 " easymotion
