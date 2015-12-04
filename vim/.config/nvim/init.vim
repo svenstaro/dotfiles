@@ -238,10 +238,6 @@ let g:vim_markdown_folding_disabled=1
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
 
 
-" SudoEdit
-:command w!! SudoWrite
-
-
 " easymotion
 map <Space> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
