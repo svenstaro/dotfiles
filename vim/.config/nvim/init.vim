@@ -1,17 +1,13 @@
 call plug#begin(expand('~/.config/nvim/plug/'))
 
 " Language support
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'lervag/vimtex'
 Plug 'chase/vim-ansible-yaml'
-Plug 'mitsuhiko/vim-jinja'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'tfnico/vim-gradle'
-Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
-Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 
 " Looks
