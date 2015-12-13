@@ -1,17 +1,12 @@
 call plug#begin(expand('~/.config/nvim/plug/'))
 
 " Language support
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'lervag/vimtex'
 Plug 'chase/vim-ansible-yaml'
-Plug 'mitsuhiko/vim-jinja'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'tfnico/vim-gradle'
-Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
-Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 
 " Looks
@@ -41,9 +36,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'nixprime/cpsm', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
-Plug 'gabesoft/vim-ags'
 Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
+Plug 'chrisbra/SudoEdit.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'rhysd/vim-clang-format'
@@ -182,10 +177,6 @@ nnoremap <leader>Q :Sayonara!<cr>
 
 " ctrlsf
 nmap <C-k> <Plug>CtrlSFPrompt
-
-
-" ags
-nmap <C-j> :Ags 
 
 
 " syntastic
