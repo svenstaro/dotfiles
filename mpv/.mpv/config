@@ -12,4 +12,3 @@ correct-pts=yes
 softvol=yes
 title='${filename}'
 slang=eng
-audio-channels=6
