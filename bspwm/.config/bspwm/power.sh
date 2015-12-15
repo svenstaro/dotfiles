@@ -2,9 +2,11 @@
 
 set -e
 
+power_supply_path="/sys/class/power_supply"
+
 while [[ true ]]; do
     # Exit early if there is no battery in this system
-    [[ -z $(ls /sys/class/power_supply/BAT0 &> /dev/null) ]] || exit 1
+    [[ $(${power_supply_path}/BAT* &> /dev/null) ]] || exit 1
 
     format=$1
     [[ -z ${format} ]] && format="%s %hh%mm %pW"
@@ -19,8 +21,7 @@ while [[ true ]]; do
     remaining=0
     status="Unknown"
 
-
-    for battery in /sys/class/power_supply/BAT*; do
+    for battery in ${power_supply_path}/BAT*; do
         if [[ $(cat ${battery}/present) -eq 1 ]]; then
             [[ $(cat ${battery}/status) == "Charging" ]] && status="Charging"
             [[ $(cat ${battery}/status) == "Discharging" ]] && status="Discharging"
