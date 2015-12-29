@@ -6,7 +6,7 @@ power_supply_path="/sys/class/power_supply"
 
 while [[ true ]]; do
     # Exit early if there is no battery in this system
-    [[ $(${power_supply_path}/BAT* &> /dev/null) ]] || exit 1
+    [[ $(ls ${power_supply_path}/BAT*) ]] &> /dev/null || exit 1
 
     format=$1
     [[ -z ${format} ]] && format="%s %hh%mm %pW"
