@@ -23,7 +23,7 @@ mkfifo "${PANEL_FIFO}"
 
 bspc config -m ^1 top_padding $((${PANEL_HEIGHT} + ${PANEL_PADDING}))
 #bspc config -m ^1 top_padding $(($PANEL_HEIGHT + $(($PANEL_PADDING + $(bspc config border_width)))))
-bspc control --subscribe > "${PANEL_FIFO}" &
+bspc subscribe report > "${PANEL_FIFO}" &
 
 xtitle -sf 'T%s' > "${PANEL_FIFO}" &
 ${curdir}/layout.sh 'L%s' > "${PANEL_FIFO}" &

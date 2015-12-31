@@ -68,6 +68,7 @@ XF86Calculator
 XF86HomePage
     lxrandr
 
+
 ###########
 #  bspwm  #
 ###########
@@ -76,67 +77,82 @@ XF86HomePage
 super + shift + Escape
     bspc quit
 
-# kill window
+# kill node
 super + shift + q
-    bspc window -c
+    bspc node -c
 
-# next tiling mode
-super + t
+# next tiling mode (tiled/monocle)
+super + m
     bspc desktop -l next
 
 # balance
 super + b
-    bspc desktop -B
+    bspc node -B
 
 # toggle floating/fullscreen
-super + {s,f}
-    bspc window -t {floating,fullscreen}
+super + {t,s,f}
+    bspc node -t {tiled,floating,fullscreen}
 
-# move/preselect
-super + {_,ctrl + }{h,j,k,l}
-    bspc window -{f,p} {left,down,up,right}
+# move
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
 
 # swap/transplant
 super + {shift,alt} + {h,j,k,l}
-    bspc window -{s,w} {left,down,up,right}
+    bspc node -{s,w} {west,south,north,east}
 
 # cycle forward/backward
 super + {_,shift + }c
-    bspc window -f {next,prev}
+    bspc node -f {next,prev}
 
 # circulate leaves backward/forward
 super + {comma,period}
-    bspc desktop -C {backward,forward}
+    bspc node -C {backward,forward}
 
 # rotate tree clockwise/counter clockwise
 super + ctrl + {comma,period}
-    bspc desktop -R {270,90}
+    bspc node -R {270,90}
 
 # previous/next desktop
 super + bracket{left,right}
     bspc desktop -f {prev,next}
 
-# cancel window/desktop preselection
-super + ctrl + {_,shift + }space
-    bspc {window -p cancel,desktop -c}
-
-# preselection amount
-super + ctrl + {1-9}
-    bspc window -r 0.{1-9}
-
+# switch desktop/move node to desktop
 super + {_,shift + }{1-9,0}
-    bspc {desktop -f,window -d} ^{1-9,10}
+    bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselection stuff
+#
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# pointer stuff
+#
 
 # mouse click focus
 ~button1
     bspc pointer -g focus
 
-# mouse move/resize side/resize corner
+# start move/resize
 super + button{1-3}
     bspc pointer -g {move,resize_side,resize_corner}
 
-super + !button{1-3}
-    bspc pointer -t %i %i
-
+# end move/resize
 super + @button{1-3}
     bspc pointer -u
