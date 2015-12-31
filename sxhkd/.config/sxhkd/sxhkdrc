@@ -107,11 +107,11 @@ super + {_,shift + }c
 
 # circulate leaves backward/forward
 super + {comma,period}
-    bspc node -C {backward,forward}
+    bspc node @focused:/ -C {backward,forward}
 
 # rotate tree clockwise/counter clockwise
 super + ctrl + {comma,period}
-    bspc node -R {270,90}
+    bspc node @focused:/ -R {270,90}
 
 # previous/next desktop
 super + bracket{left,right}
