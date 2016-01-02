@@ -90,8 +90,8 @@ super + b
     bspc node -B
 
 # toggle floating/fullscreen
-super + {t,s,f}
-    bspc node -t {tiled,floating,fullscreen}
+super + {s,f}
+    bspc node -t '~{floating,fullscreen}'
 
 # move
 super + {h,j,k,l}
