@@ -39,6 +39,9 @@ panel_width=$((${screen_width} - $((${PANEL_PADDING} * 2))))
 
 source $(dirname $0)/panel_colors
 
-cat "${PANEL_FIFO}" | $(dirname $0)/panel_bar | lemonbar -g ${panel_width}x${PANEL_HEIGHT}+${PANEL_PADDING}+${PANEL_PADDING} -f "${PANEL_FONT_FAMILY}" -f "${PANEL_ICON_FONT}" -F "${COLOR_FOREGROUND}" -B "${COLOR_BACKGROUND}" &
+$(dirname $0)/panel_bar < "${PANEL_FIFO}" | \
+    lemonbar -a 20 -g ${panel_width}x${PANEL_HEIGHT}+${PANEL_PADDING}+${PANEL_PADDING} \
+             -f "${PANEL_FONT_FAMILY}" -f "${PANEL_ICON_FONT}" -F "${COLOR_FOREGROUND}" \
+             -B "${COLOR_BACKGROUND}" -n lemonbar
 
 wait

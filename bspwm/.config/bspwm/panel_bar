@@ -80,8 +80,8 @@ while read -r line ; do
                         case $item in
                             m*)
                                 # monitor
-                                FG=$COLOR_MONITOR_FG
-                                BG=$COLOR_MONITOR_BG
+                                FG=$COLOR_INACTIVE_MONITOR_FG
+                                BG=$COLOR_INACTIVE_MONITOR_BG
                                 ;;
                             M*)
                                 # focused monitor
@@ -89,7 +89,7 @@ while read -r line ; do
                                 BG=$COLOR_FOCUSED_MONITOR_BG
                                 ;;
                         esac
-                        wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{B-}%{F-}"
+                        wm="${wm} %{F${FG}}%{B${BG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{B-}%{F-} "
                         ;;
                     [fFoOuU]*)
                         case $item in
@@ -126,10 +126,10 @@ while read -r line ; do
                         esac
                         wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
                         ;;
-                    [LTG]*)
-                        # layout, state and flags
-                        wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${name} %{B-}%{F-}"
-                        ;;
+                    # [LTG]*)
+                    #     # layout, state and flags
+                    #     wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${name} %{B-}%{F-}"
+                    #     ;;
                 esac
                 shift
             done
