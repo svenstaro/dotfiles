@@ -99,7 +99,7 @@ super + {h,j,k,l}
 
 # swap/transplant
 super + {shift,alt} + {h,j,k,l}
-    bspc node -{s,w} {west,south,north,east}
+    bspc node -{s,n} {west,south,north,east}
 
 # cycle forward/backward
 super + {_,shift + }c
