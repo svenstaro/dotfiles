@@ -3,11 +3,11 @@ call plug#begin(expand('~/.config/nvim/plug/'))
 " Language support
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'lervag/vimtex'
 Plug 'chase/vim-ansible-yaml'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'tfnico/vim-gradle'
 Plug 'sheerun/vim-polyglot'
+Plug 'lervag/vimtex'
 
 " Looks
 Plug 'bling/vim-airline'
