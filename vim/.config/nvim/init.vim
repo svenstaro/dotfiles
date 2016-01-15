@@ -117,6 +117,10 @@ set smartcase           " upper-case sensitive search
 nnoremap <leader><space> :nohlsearch<CR>  " turn off search highlight
 
 
+" vim-polyglot
+let g:polyglot_disabled = ['latex']
+
+
 " vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
