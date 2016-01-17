@@ -17,7 +17,7 @@ Plug 'luochen1990/rainbow'
 
 " Functionality
 Plug 'vim-scripts/a.vim'
-"Plug 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'airblade/vim-gitgutter'
