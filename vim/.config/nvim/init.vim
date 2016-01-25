@@ -3,11 +3,11 @@ call plug#begin(expand('~/.config/nvim/plug/'))
 " Language support
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'lervag/vimtex'
 Plug 'chase/vim-ansible-yaml'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'tfnico/vim-gradle'
 Plug 'sheerun/vim-polyglot'
+Plug 'lervag/vimtex'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -18,7 +18,7 @@ Plug 'luochen1990/rainbow'
 " Functionality
 Plug 'mhinz/neovim-remote'
 Plug 'vim-scripts/a.vim'
-"Plug 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'airblade/vim-gitgutter'
@@ -49,6 +49,7 @@ Plug 'ryanmorillo/excel.vim'
 Plug 'godlygeek/tabular'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --system-libclang --system-boost' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'mhinz/neovim-remote'
 
 call plug#end()
 
@@ -117,6 +118,10 @@ set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
 nnoremap <leader><space> :nohlsearch<CR>  " turn off search highlight
+
+
+" vim-polyglot
+let g:polyglot_disabled = ['latex']
 
 
 " vim-cpp-enhanced-highlight
@@ -217,7 +222,9 @@ nnoremap <silent> <F8> :TagbarToggle<CR>
 " vimtex
 let g:vimtex_fold_enabled = 0
 let g:vimtex_view_method = 'zathura'
-let g:vimtex_latexmk_progname = "/home/svenstaro/.config/nvim/plug/neovim-remote/nvr"
+let g:vimtex_latexmk_progname = '/home/svenstaro/.config/nvim/plug/neovim-remote/nvr'
+let g:vimtex_latexmk_options = '-shell-escape'
+let g:vimtex_quickfix_ignore_all_warnings = 1
 
 " allow vimtex cite/ref completion with YouCompleteMe
 if !exists('g:ycm_semantic_triggers')
