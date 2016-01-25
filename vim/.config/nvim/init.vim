@@ -16,6 +16,7 @@ Plug 'ap/vim-css-color'
 Plug 'luochen1990/rainbow'
 
 " Functionality
+Plug 'mhinz/neovim-remote'
 Plug 'vim-scripts/a.vim'
 "Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'
@@ -55,7 +56,8 @@ call plug#end()
 let mapleader = ","     " map leader to ,
 set mouse=a             " make sure mouse is used in all cases.
 set t_Co=256            " set 256 color
-colorscheme badwolf   " define syntax color scheme
+colorscheme gruvbox     " define syntax color scheme
+set background=dark
 set shortmess+=I        " disable the welcome screen
 set clipboard+=unnamed  " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
@@ -215,6 +217,7 @@ nnoremap <silent> <F8> :TagbarToggle<CR>
 " vimtex
 let g:vimtex_fold_enabled = 0
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_latexmk_progname = "/home/svenstaro/.config/nvim/plug/neovim-remote/nvr"
 
 " allow vimtex cite/ref completion with YouCompleteMe
 if !exists('g:ycm_semantic_triggers')
