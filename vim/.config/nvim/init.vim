@@ -3,11 +3,46 @@ call plug#begin(expand('~/.config/nvim/plug/'))
 " Language support
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'chase/vim-ansible-yaml'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'tfnico/vim-gradle'
-Plug 'sheerun/vim-polyglot'
+Plug 'rust-lang/rust.vim'
 Plug 'lervag/vimtex'
+Plug 'chase/vim-ansible-yaml'
+"Plug 'pearofducks/ansible-vim'
+Plug 'sudar/vim-arduino-syntax'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-jp/vim-cpp'
+Plug 'guns/vim-clojure-static'
+Plug 'kchmck/vim-coffee-script'
+Plug 'JulesWang/css.vim'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'honza/dockerfile.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'tpope/vim-git'
+Plug 'tikhomirov/vim-glsl'
+Plug 'fatih/vim-go'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'othree/html5.vim'
+Plug 'digitaltoad/vim-jade'
+Plug 'sheerun/yajs.vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'sheerun/vim-json'
+Plug 'groenewege/vim-less'
+Plug 'nginx/nginx', {'rtp': 'contrib/vim'}
+Plug 'zah/nim.vim'
+Plug 'petRUShka/vim-opencl'
+Plug 'vim-perl/vim-perl'
+Plug 'StanAngeloff/php.vim'
+Plug 'uarun/vim-protobuf'
+Plug 'rodjek/vim-puppet'
+Plug 'mitsuhiko/vim-python-combined'
+Plug 'peterhoeg/vim-qml'
+Plug 'vim-ruby/vim-ruby'
+Plug 'kurayama/systemd-vim-syntax'
+Plug 'leafgarland/typescript-vim'
+Plug 'cespare/vim-toml'
+Plug 'stephpy/vim-yaml'
+
 
 " Looks
 Plug 'bling/vim-airline'
@@ -47,7 +82,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'mhinz/vim-sayonara'
 Plug 'ryanmorillo/excel.vim'
 Plug 'godlygeek/tabular'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --system-libclang --system-boost' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --system-libclang --system-boost --tern-completer --racer-completer' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'mhinz/neovim-remote'
 
@@ -73,7 +108,6 @@ set showmatch           " show matching brackets (),{},[]
 set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
 set scrolloff=2         " keep 2 lines spacing between cursor and edge
-set gfn=Input\ Mono\ 8
 set number              " show line numbers
 syntax on               " enable syntax highlighting
 "set synmaxcol=200       " for performance reason, don't highlight long lines
@@ -118,10 +152,6 @@ set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
 nnoremap <leader><space> :nohlsearch<CR>  " turn off search highlight
-
-
-" vim-polyglot
-let g:polyglot_disabled = ['latex']
 
 
 " vim-cpp-enhanced-highlight
@@ -207,6 +237,7 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " YCM/YouCompleteMe
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = ['~/prj/*']
+let g:ycm_rust_src_path = '/usr/src/rust/src'
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -266,6 +297,3 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 " vim-excel (stop vim from opening excel files as zip)
 let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*.wsz,*.xap,*.docx,*.docm,*.dotx,*.dotm,*.potx,*.potm,*.ppsx,*.ppsm,*.pptx,*.pptm,*.ppam,*.sldx,*.thmx,*.crtx,*.vdw,*.glox,*.gcsx,*.gqsx'
-
-" gui
-set guioptions=agi
