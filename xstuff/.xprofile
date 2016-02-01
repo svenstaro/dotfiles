@@ -3,7 +3,7 @@
 if [[ $(hostname) == 'neo' ]]; then
     xrandr --dpi 96
 elif [[ $(hostname) == 'dozer' ]]; then
-    xrandr --dpi 144
+    xrandr --dpi 160
 fi
 
 setxkbmap -layout us,de,ru -variant ,,phonetic -option grp:shifts_toggle
