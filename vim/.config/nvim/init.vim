@@ -77,7 +77,6 @@ Plug 'sjl/gundo.vim'
 Plug 'chrisbra/SudoEdit.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
-Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-speeddating'
 Plug 'mhinz/vim-sayonara'
 Plug 'ryanmorillo/excel.vim'
@@ -85,6 +84,7 @@ Plug 'godlygeek/tabular'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --system-libclang --system-boost --tern-completer --racer-completer' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'mhinz/neovim-remote'
+Plug 'Chiel92/vim-autoformat'
 
 call plug#end()
 
@@ -159,17 +159,10 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 
 
-" vim-clang-format
-let g:clang_format#style_options = {
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "AllowShortFunctionsOnASingleLine" : "false",
-            \ "ColumnLimit" : "100",
-            \ "BasedOnStyle" : "LLVM",
-            \ "Standard" : "C++11"}
-
-" map to <Leader>cf in C++ code
-autocmd FileType c,cpp,objc,opencl nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc,opencl vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" vim-autoformat
+noremap <Leader>f :Autoformat<CR>
+let g:formatdef_clangformat = "'clang-format -lines='.a:firstline.':'.a:lastline.' --assume-filename='.bufname('%').' -style=\"{BasedOnStyle: LLVM, AlignTrailingComments: true, AlwaysBreakTemplateDeclarations: true, ColumnLimit: 100, AllowShortFunctionsOnASingleLine: false, Standard: C++11, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
+let g:formatters_opencl = ['clangformat']
 
 
 " emmet-vim
