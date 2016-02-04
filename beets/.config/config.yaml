@@ -1,0 +1,22 @@
+import:
+    copy: yes
+    write: yes
+    log: ~/.config/beets/import.log
+
+plugins: chroma fromfilename badfiles duplicates fuzzy missing fetchart lastgenre #acousticbrainz
+
+fetchart:
+    minwidth: 100
+
+lastgenre:
+    canonical: ~/.config/beets/genres.txt
+    source: artist
+    fallback: ''
+
+paths:
+    default: $genre/$albumartist/$album%aunique{}/$track $title
+    singleton: Singletons/$artist - $title
+    comp: $genre/$album/$track $title
+    albumtype:soundtrack: Soundtracks/$album/$track $title
+
+directory: ~/music
