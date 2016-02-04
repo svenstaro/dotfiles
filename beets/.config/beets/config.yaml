@@ -9,7 +9,8 @@ fetchart:
     minwidth: 100
 
 lastgenre:
-    canonical: ~/.config/beets/genres.txt
+    whitelist: ~/.config/beets/genres.txt
+    canonical: yes
     source: artist
     fallback: ''
 
