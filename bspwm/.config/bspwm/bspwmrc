@@ -11,6 +11,8 @@ bspc config history_aware_focus true
 
 bspc config auto_cancel         true
 bspc config presel_feedback_color "#7373ee"
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
 
 if [[ $(hostname) == 'dozer' ]]; then
     bspc monitor eDP1 -d I II III IV V VI VII VIII IX X
