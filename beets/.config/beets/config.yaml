@@ -4,7 +4,7 @@ import:
   log: ~/.config/beets/import.log
   languages: ['en']
 
-plugins: chroma fromfilename badfiles duplicates fuzzy missing fetchart lastgenre #acousticbrainz
+plugins: chroma fromfilename badfiles duplicates fuzzy missing fetchart lastgenre acousticbrainz mbsync
 
 acoustid:
   apikey: 6MIkVhA6GN
