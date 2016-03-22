@@ -13,7 +13,6 @@ if ! zgen saved; then
     zgen save
 fi
 
-
 # General configuration
 autoload -U compinit && compinit
 autoload -U promptinit && promptinit
@@ -131,3 +130,35 @@ alias j='fasd_cd -d'
 
 # ssh keys
 eval $(keychain --eval --agents ssh -Q --quiet arch_rsa id_rsa skeletonkey_rsa)
+
+
+# fzf
+
+# enables CTRL-T and CTRL-R fuzzy stuff
+source /etc/profile.d/fzf.zsh
+
+# unbind ALT-C because we don't want that
+bindkey -r '\ec'
+
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-*} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# fdr - cd to selected parent directory
+fdr() {
+  local declare dirs=()
+  get_parent_dirs() {
+    if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
+    if [[ "${1}" == '/' ]]; then
+      for _dir in "${dirs[@]}"; do echo $_dir; done
+    else
+      get_parent_dirs $(dirname "$1")
+    fi
+  }
+  local DIR=$(get_parent_dirs $(realpath "${1:-$(pwd)}") | fzf-tmux --tac)
+  cd "$DIR"
+}
