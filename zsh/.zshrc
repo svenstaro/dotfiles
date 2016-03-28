@@ -104,6 +104,7 @@ alias ll='ls -lhF --color=auto'
 alias la='ls -lhaF --color=auto'
 alias grep='grep --color=auto'
 alias sys='sudo systemctl'
+alias sysu='systemctl --user'
 
 alias svim='sudo vim'
 alias spacman='sudo pacman'
