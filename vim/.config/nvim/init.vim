@@ -81,7 +81,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'mhinz/vim-sayonara'
 Plug 'ryanmorillo/excel.vim'
 Plug 'godlygeek/tabular'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --system-libclang --system-boost --tern-completer --racer-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --system-libclang --system-boost --all' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'mhinz/neovim-remote'
 Plug 'Chiel92/vim-autoformat'
