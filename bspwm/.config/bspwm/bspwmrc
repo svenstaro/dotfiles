@@ -20,8 +20,8 @@ elif [[ $(hostname) == 'smith' ]]; then
     bspc monitor VGA-0 -d I II III IV V
     bspc monitor VGA-1 -d VI VII VIII IX X
 elif [[ $(hostname) == 'neo' ]]; then
-    bspc monitor DVI-I-3 -d VI VII VIII IX X
-    bspc monitor DVI-I-2 -d I II III IV V
+    bspc monitor DVI-I-1 -d I II III IV V
+    bspc monitor DVI-D-0 -d VI VII VIII IX X
 fi
 
 bspc rule -a Gimp follow=on state=floating
@@ -30,5 +30,7 @@ bspc rule -a Inkscape follow=on state=floating
 #bspc rule -a mplayer2 floating=on
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
+
+bspc wm -r HDMI-0
 
 $(dirname $0)/panel &
