@@ -131,7 +131,7 @@ function! plug#begin(...)
 endfunction
 
 function! s:define_commands()
-  command! -nargs=+ -bar Plug call s:Plug(<args>)
+  command! -nargs=+ -bar Plug call plug#(<args>)
   if !executable('git')
     return s:err('`git` executable not found. Most commands will not be available. To suppress this message, prepend `silent!` to `call plug#begin(...)`.')
   endif
@@ -489,7 +489,7 @@ function! s:lod_map(map, names, prefix)
   call feedkeys(a:prefix . substitute(a:map, '^<Plug>', "\<Plug>", '') . extra)
 endfunction
 
-function! s:Plug(repo, ...)
+function! plug#(repo, ...)
   if a:0 > 1
     return s:err('Invalid number of arguments (1..2)')
   endif
@@ -722,15 +722,25 @@ function! s:assign_name()
   silent! execute 'f' fnameescape(name)
 endfunction
 
+function! s:chsh(swap)
+  let prev = [&shell, &shellredir]
+  if !s:is_win && a:swap
+    set shell=sh shellredir=>%s\ 2>&1
+  endif
+  return prev
+endfunction
+
 function! s:bang(cmd, ...)
   try
+    let [sh, shrd] = s:chsh(a:0)
     " FIXME: Escaping is incomplete. We could use shellescape with eval,
     "        but it won't work on Windows.
-    let cmd = a:0 > 0 ? s:with_cd(a:cmd, a:1) : a:cmd
+    let cmd = a:0 ? s:with_cd(a:cmd, a:1) : a:cmd
     let g:_plug_bang = '!'.escape(cmd, '#!%')
     execute "normal! :execute g:_plug_bang\<cr>\<cr>"
   finally
     unlet g:_plug_bang
+    let [&shell, &shellredir] = [sh, shrd]
   endtry
   return v:shell_error ? 'Exit status: ' . v:shell_error : ''
 endfunction
@@ -1823,10 +1833,7 @@ endfunction
 
 function! s:system(cmd, ...)
   try
-    let [sh, shrd] = [&shell, &shellredir]
-    if !s:is_win
-      set shell=sh shellredir=>%s\ 2>&1
-    endif
+    let [sh, shrd] = s:chsh(1)
     let cmd = a:0 > 0 ? s:with_cd(a:cmd, a:1) : a:cmd
     return system(s:is_win ? '('.cmd.')' : cmd)
   finally
