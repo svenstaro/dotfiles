@@ -2,3 +2,4 @@ logs/
 urls.log
 *.gz
 sec.conf
+ssl/
