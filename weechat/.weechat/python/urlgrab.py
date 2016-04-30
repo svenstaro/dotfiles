@@ -1,5 +1,5 @@
 #
-# UrlGrab, version 1.9 for weechat version 0.3
+# UrlGrab, for weechat version >= 0.3.0
 #
 #   Listens to all channels for URLs, collects them in a list, and launches
 #   them in your favourite web server on the local host or a remote server.
@@ -9,7 +9,7 @@
 # Usage:
 #
 #   The /url command provides access to all UrlGrab functions.  Run
-#   '/url help' for complete command usage.
+#   '/help url' for complete command usage.
 #
 #   In general, use '/url list' to list the entire url list for the current
 #   channel, and '/url <n>' to launch the nth url in the list.  For
@@ -18,7 +18,7 @@
 #
 #   From the server window, you must specify a specific channel for the
 #   list and launch commands, for example:
-#     /url list weechat 
+#     /url list weechat
 #     /url 3 weechat
 #
 # Configuration:
@@ -52,7 +52,7 @@
 #
 #   remotecmd
 #     The command to execute on the remote host for 'remote' mode.  The
-#     default is 'bash -c "DISPLAY=:0.0 firefox %s"'  Which runs bash, sets
+#     default is 'bash -c "DISPLAY=:0.0 firefox '%s'"'  Which runs bash, sets
 #     up the environment to display on the remote host's main X display,
 #     and runs firefox.  As with 'localcmd', the string '%s' will be
 #     replaced with the URL.
@@ -98,13 +98,28 @@
 #  - V1.6 FlashCode <flashcode@flashtux.org>: Increase timeout for hook_process
 #         (from 1 second to 1 minute)
 #  - V1.7 FlashCode <flashcode@flashtux.org>: Update WeeChat site
-#  - V1.8 drubin <drubin [at] smartcube . co.za>: 
+#  - V1.8 drubin <drubin [at] smartcube . co.za>:
 #           - Changed remote cmd to be single option
 #           - Added scrolling on up and down arrow keys for /url show
 #           - Changed remotecmd to include options with public/private keys password auth doesn't work
-#  - V1.9 Specimen <spinifer [at] gmail . com>: 
+#  - V1.9 Specimen <spinifer [at] gmail . com>:
 #           - Changed the default command when /url is run with no arguments to 'show'
-#           - Removed '/url help' command, because /help <command> is the standard way 
+#           - Removed '/url help' command, because /help <command> is the standard way
+#  - V2.0 Xilov: replace "/url help" by "/help url"
+#  - V2.1 nand: Changed default: firefox %s to firefox '%s' (localcmd)
+#  - V2.2 Sebastien Helleu <flashcode@flashtux.org>: fix reload of config file
+#  - V2.3 nand: Allowed trailing )s for unmatched (s in URLs
+#  - V2.4 nand: Escaped URLs via URL-encoding instead of shell escaping, fixes '
+#  - V2.5 nand: Fixed some URLs that got incorrectly mangled by escaping
+#  - V2.6 nesthib: Fixed escaping of "="
+#                  Added missing quotes in default parameter (firefox '%s')
+#                  Removed the mix of tabs and spaces in the file indentation
+#  - V2.7 dobbymoodge <john.w.lamb [at] gmail . com>
+#                     ( https://github.com/dobbymoodge/ ):
+#           - Added 'copycmd' setting, users can set command to pipe into
+#             for '/url copy'
+#  - V2.8 Simmo Saan <simmo.saan@gmail.com>:
+#           - Changed print hook to ignore filtered lines
 #
 # Copyright (C) 2005 David Rubin <drubin AT smartcube dot co dot za>
 #
@@ -135,6 +150,7 @@ except:
     import_ok = False
 import subprocess
 import time
+import urllib
 import re
 from UserDict import UserDict
 
@@ -144,17 +160,28 @@ ipAddr = r'%s(?:\.%s){3}' % (octet, octet)
 # Base domain regex off RFC 1034 and 1738
 label = r'[0-9a-z][-0-9a-z]*[0-9a-z]?'
 domain = r'%s(?:\.%s)*\.[a-z][-0-9a-z]*[a-z]?' % (label, label)
-urlRe = re.compile(r'(\w+://(?:%s|%s)(?::\d+)?(?:/[^\])>\s]*)?)' % (domain, ipAddr), re.I)
+urlRe = re.compile(r'(\w+://(?:%s|%s)(?::\d+)?(?:/[^\]>\s]*)?)' % (domain, ipAddr), re.I)
 
 
 SCRIPT_NAME    = "urlgrab"
 SCRIPT_AUTHOR  = "David Rubin <drubin [At] smartcube [dot] co [dot] za>"
-SCRIPT_VERSION = "1.9"
+SCRIPT_VERSION = "2.8"
 SCRIPT_LICENSE = "GPL"
 SCRIPT_DESC    = "Url functionality Loggin, opening of browser, selectable links"
-CONFIG_FILE_NAME= "urlgrab" 
+CONFIG_FILE_NAME= "urlgrab"
 SCRIPT_COMMAND = "url"
 
+
+def stripParens(url):
+    return dropChar(')', url.count(')') - url.count('('), url[::-1])[::-1]
+
+def dropChar(c, n, xs):
+    if n == 0 or xs == []:
+        return xs
+    elif xs[0] == c:
+        return dropChar(c, n-1, xs[1:])
+    else:
+        return xs
 
 def urlGrabPrint(message):
     bufferd=weechat.current_buffer()
@@ -162,17 +189,17 @@ def urlGrabPrint(message):
         weechat.prnt("","[%s] %s" % ( SCRIPT_NAME, message ) )
     else :
         weechat.prnt(bufferd,"[%s] %s" % ( SCRIPT_NAME, message ) )
-        
+
 def hashBufferName(bufferp):
     if not weechat.buffer_get_string(bufferp, "short_name"):
         bufferd = weechat.buffer_get_string(bufferp, "name")
     else:
         bufferd = weechat.buffer_get_string(bufferp, "short_name")
     return bufferd
-    
+
 def ug_config_reload_cb(data, config_file):
     """ Reload configuration file. """
-    return weechat.config_read(config_file)
+    return weechat.config_reload(config_file)
 
 class UrlGrabSettings(UserDict):
     def __init__(self):
@@ -182,88 +209,96 @@ class UrlGrabSettings(UserDict):
                                         "ug_config_reload_cb", "")
         if not self.config_file:
             return
-            
+
         section_color = weechat.config_new_section(
             self.config_file, "color", 0, 0, "", "", "", "", "", "",
                      "", "", "", "")
         section_default = weechat.config_new_section(
             self.config_file, "default", 0, 0, "", "", "", "", "", "",
                      "", "", "", "")
-                     
+
         self.data['color_buffer']=weechat.config_new_option(
             self.config_file, section_color,
             "color_buffer", "color", "Color to display buffer name", "", 0, 0,
             "red", "red", 0, "", "", "", "", "", "")
-        
+
         self.data['color_url']=weechat.config_new_option(
             self.config_file, section_color,
             "color_url", "color", "Color to display urls", "", 0, 0,
             "blue", "blue", 0, "", "", "", "", "", "")
-         
+
         self.data['color_time']=weechat.config_new_option(
             self.config_file, section_color,
             "color_time", "color", "Color to display time", "", 0, 0,
             "cyan", "cyan", 0, "", "", "", "", "", "")
-       
+
         self.data['color_buffer_selected']=weechat.config_new_option(
             self.config_file, section_color,
-            "color_buffer_selected", "color", 
-            "Color to display buffer selected name", "", 0, 0, "red", "red", 
+            "color_buffer_selected", "color",
+            "Color to display buffer selected name", "", 0, 0, "red", "red",
             0, "", "", "", "", "", "")
-        
+
         self.data['color_url_selected']=weechat.config_new_option(
             self.config_file, section_color,
             "color_url_selected", "color", "Color to display url selected",
              "", 0, 0, "blue", "blue", 0, "", "", "", "", "", "")
-            
+
         self.data['color_time_selected']=weechat.config_new_option(
             self.config_file, section_color,
-            "color_time_selected", "color", "Color to display tim selected", 
-            "", 0, 0, "cyan", "cyan", 0, "", "", "", "", "", "")    
-        
+            "color_time_selected", "color", "Color to display tim selected",
+            "", 0, 0, "cyan", "cyan", 0, "", "", "", "", "", "")
+
         self.data['color_bg_selected']=weechat.config_new_option(
             self.config_file, section_color,
             "color_bg_selected", "color", "Background for selected row", "", 0, 0,
-            "green", "green", 0, "", "", "", "", "", "") 
-            
+            "green", "green", 0, "", "", "", "", "", "")
+
         self.data['historysize']=weechat.config_new_option(
             self.config_file, section_default,
-            "historysize", "integer", "Max number of urls to store per buffer", 
-            "", 0, 999, "10", "10", 0, "", "", "", "", "", "") 
-        
+            "historysize", "integer", "Max number of urls to store per buffer",
+            "", 0, 999, "10", "10", 0, "", "", "", "", "", "")
+
         self.data['method']=weechat.config_new_option(
             self.config_file, section_default,
             "method", "string", """Where to launch URLs
             If 'local', runs %localcmd%.
             If 'remote' runs the following command:
             '%remodecmd%'""", "", 0, 0,
-            "local", "local", 0, "", "", "", "", "", "") 
-            
-            
+            "local", "local", 0, "", "", "", "", "", "")
+
+        self.data['copycmd']=weechat.config_new_option(
+            self.config_file, section_default,
+            "copycmd", "string",
+            "Command to pipe into for 'url copy'. "
+            "E.g. to copy into the CLIPBOARD buffer "
+            "instead of PRIMARY, you can use 'xsel -b "
+            "-i' here.", "", 0, 0,
+            "xsel -i", "xsel -i", 0, "", "", "", "", "", "")
+
         self.data['localcmd']=weechat.config_new_option(
             self.config_file, section_default,
             "localcmd", "string", """Local command to execute""", "", 0, 0,
-            "firefox %s", "firefox %s", 0, "", "", "", "", "", "") 
-        
-        remotecmd="ssh -x localhost -i ~/.ssh/id_rsa -C \"export DISPLAY=\":0.0\" &&  firefox %s\""
+            "firefox '%s'", "firefox '%s'", 0, "", "", "", "", "", "")
+
+        remotecmd="ssh -x localhost -i ~/.ssh/id_rsa -C \"export DISPLAY=\":0.0\" &&  firefox '%s'\""
         self.data['remotecmd']=weechat.config_new_option(
             self.config_file, section_default,
             "remotecmd", "string", remotecmd, "", 0, 0,
             remotecmd, remotecmd, 0, "", "", "", "", "", "")
-            
+
         self.data['url_log']=weechat.config_new_option(
             self.config_file, section_default,
             "url_log", "string", """log location""", "", 0, 0,
             "~/.weechat/urls.log", "~/.weechat/urls.log", 0, "", "", "", "", "", "")
-            
+
         self.data['time_format']=weechat.config_new_option(
             self.config_file, section_default,
             "time_format", "string", """TIme format""", "", 0, 0,
             "%H:%M:%S", "%H:%M:%S", 0, "", "", "", "", "", "")
-            
+
         self.data['output_main_buffer']=weechat.config_new_option(
             self.config_file, section_default,
-            "output_main_buffer", "boolean", 
+            "output_main_buffer", "boolean",
             """Print text to main buffer or current one""", "", 0, 0, "1", "1",
              0, "", "", "", "", "", "")
         weechat.config_read(self.config_file)
@@ -311,21 +346,21 @@ class UrlGrabber:
 
     def addUrl(self, bufferp,url ):
         global urlGrabSettings
-        self.globalUrls.insert(0,{"buffer":bufferp, 
+        self.globalUrls.insert(0,{"buffer":bufferp,
             "url":url, "time":time.strftime(urlGrabSettings["time_format"])})
         #Log urls only if we have set a log path.
         if urlGrabSettings['url_log']:
             try :
-                index = self.globalUrls[0] 
+                index = self.globalUrls[0]
                 logfile = os.path.expanduser(urlGrabSettings['url_log'])
                 dout = open(logfile, "a")
-                dout.write("%s %s %s\n" % (index['time'], 
+                dout.write("%s %s %s\n" % (index['time'],
                                            index['buffer'], index['url']))
                 dout.close()
             except :
                 print "failed to log url check that %s is valid path" % urlGrabSettings['url_log']
                 pass
-        
+
         # check for buffer
         if not bufferp in self.urls:
             self.urls[bufferp] = []
@@ -343,7 +378,7 @@ class UrlGrabber:
 
     def hasBuffer( self, bufferp ):
         return bufferp in self.urls
-    
+
 
     def getUrl(self, bufferp, index):
         url = ""
@@ -351,7 +386,7 @@ class UrlGrabber:
             if len(self.urls[bufferp]) >= index:
                     url = self.urls[bufferp][index-1]
         return url
-        
+
 
     def prnt(self, buff):
         found = True
@@ -372,26 +407,26 @@ class UrlGrabber:
         if not found:
             urlGrabPrint(buff + ": no entries")
 
-def urlGrabCheckMsgline(bufferp, message):
-	global urlGrab, max_buffer_length
-	if not message:
-		return
-	# Ignore output from 'tinyurl.py' and our selfs
-	if ( message.startswith( "[AKA] http://tinyurl.com" ) or 
+def urlGrabCheckMsgline(bufferp, message, isdisplayed):
+    global urlGrab, max_buffer_length
+    if not message or isdisplayed == 0:
+        return
+    # Ignore output from 'tinyurl.py' and our selfs
+    if ( message.startswith( "[AKA] http://tinyurl.com" ) or
         message.startswith("[urlgrab]") ):
-		return
-	# Check for URLs
-	for url in urlRe.findall(message):
-	    urlGrab.addUrl(bufferp,url)
+        return
+    # Check for URLs
+    for url in urlRe.findall(message):
+        urlGrab.addUrl(bufferp,stripParens(url))
         if max_buffer_length < len(bufferp):
             max_buffer_length = len(bufferp)
         if urlgrab_buffer:
             refresh()
-            
+
 
 def urlGrabCheck(data, bufferp, uber_empty, tagsn, isdisplayed, ishilight, prefix, message):
-	urlGrabCheckMsgline(hashBufferName(bufferp), message)
-	return weechat.WEECHAT_RC_OK
+    urlGrabCheckMsgline(hashBufferName(bufferp), message, isdisplayed)
+    return weechat.WEECHAT_RC_OK
 
 def urlGrabCopy(bufferd, index):
     global urlGrab
@@ -408,26 +443,26 @@ def urlGrabCopy(bufferd, index):
         urlGrabPrint("No URL found - Invalid index")
     else:
         try:
-            pipe = os.popen("xsel -i","w")
+            pipe = os.popen(urlGrabSettings['copycmd'],"w")
             pipe.write(url)
             pipe.close()
             urlGrabPrint("Url: %s gone to clipboard." % url)
         except:
-            urlGrabPrint("Url: %s faile to copy to clipboard." % url)
+            urlGrabPrint("Url: %s failed to copy to clipboard." % url)
 
 def urlGrabOpenUrl(url):
     global urlGrab, urlGrabSettings
-    argl = urlGrabSettings.createCmd( url )
+    argl = urlGrabSettings.createCmd( urllib.quote(url, '/:#%?&+=') )
     weechat.hook_process(argl,60000, "ug_open_cb", "")
 
 def ug_open_cb(data, command, code, out, err):
     #print out
     #print err
     return weechat.WEECHAT_RC_OK
-    
+
 
 def urlGrabOpen(bufferd, index):
-    global urlGrab, urlGrabSettings 
+    global urlGrab, urlGrabSettings
     if bufferd == "":
         urlGrabPrint( "No current channel, you must specify one" )
     elif not urlGrab.hasBuffer(bufferd) :
@@ -479,8 +514,8 @@ def urlGrabMain(data, bufferp, args):
         if len(largs) > 1:
             no = int(largs[1])
             urlGrabCopy(bufferd, no)
-	else:
-		urlGrabCopy(bufferd,1)
+        else:
+            urlGrabCopy(bufferd,1)
     else:
         try:
             no = int(largs[0])
@@ -489,10 +524,10 @@ def urlGrabMain(data, bufferp, args):
             else:
                 urlGrabOpen(bufferd, no)
         except ValueError:
-            #not a valid number so try opening it as a url.. 
+            #not a valid number so try opening it as a url..
             for url in urlRe.findall(largs[0]):
-                urlGrabOpenUrl(url)
-            urlGrabPrint( "Unknown command '%s'.  Try '/url help' for usage" % largs[0])
+                urlGrabOpenUrl(stripParens(url))
+            urlGrabPrint( "Unknown command '%s'.  Try '/help url' for usage" % largs[0])
     return weechat.WEECHAT_RC_OK
 
 def buffer_input(*kwargs):
@@ -525,7 +560,7 @@ def keyEvent (data, bufferp, args):
         refresh_line (temp_current)
         refresh_line (current_line)
         weechat.command(urlgrab_buffer, "/window scroll_top")
-        pass 
+        pass
     elif args == "scroll_bottom":
         temp_current = current_line
         current_line =  len(urlGrab.globalUrls)
@@ -540,7 +575,7 @@ def refresh_line (y):
     global urlGrab , urlGrabSettings, urlgrab_buffer, current_line, max_buffer_length
     #Print format  Time(space)buffer(max4 spaces, but lined up)url
     format = "%%s%%s %%s%%-%ds%%s%%s" % (max_buffer_length+4)
-    
+
     #non selected colors
     color_buffer = urlGrabSettings["color_buffer"]
     color_url = urlGrabSettings["color_url"]
@@ -549,32 +584,32 @@ def refresh_line (y):
     color_buffer_selected = urlGrabSettings["color_buffer_selected"]
     color_url_selected = urlGrabSettings["color_url_selected"]
     color_time_selected = urlGrabSettings["color_time_selected"]
-    
+
     color_bg_selected = urlGrabSettings["color_bg_selected"]
-    
+
     color1 = color_time
     color2 = color_buffer
     color3 = color_url
-    
+
     #If this line is selected we change the colors.
     if y == current_line:
           color1 = "%s,%s" % (color_time_selected, color_bg_selected)
           color2 = "%s,%s" % (color_buffer_selected, color_bg_selected)
           color3 = "%s,%s" % (color_url_selected, color_bg_selected)
-          
+
     color1 = weechat.color(color1)
     color2 = weechat.color(color2)
     color3 = weechat.color(color3)
     text = format % (color1,
                     urlGrab.globalUrls[y]['time'],
-                    color2, 
+                    color2,
                     urlGrab.globalUrls[y]['buffer'],
-                    color3, 
+                    color3,
                     urlGrab.globalUrls[y]['url'] )
     weechat.prnt_y(urlgrab_buffer,y,text)
-    
+
 def ugCheckLineOutsideWindow():
-    global urlGrab , urlGrabSettings, urlgrab_buffer, current_line, max_buffer_length   
+    global urlGrab , urlGrabSettings, urlgrab_buffer, current_line, max_buffer_length
     if (urlgrab_buffer):
         infolist = weechat.infolist_get("window", "", "current")
         if (weechat.infolist_next(infolist)):
@@ -585,7 +620,7 @@ def ugCheckLineOutsideWindow():
             elif(start_line_y <= current_line - chat_height):
                 weechat.command(urlgrab_buffer, "/window scroll +%i"%(current_line - start_line_y - chat_height + 1))
         weechat.infolist_free(infolist)
-    
+
 
 def refresh():
     global urlGrab
@@ -593,8 +628,8 @@ def refresh():
     for x in urlGrab.globalUrls:
         refresh_line (y)
         y += 1
-    
-    
+
+
 def init():
     global urlGrab , urlGrabSettings, urlgrab_buffer
     if not urlgrab_buffer:
@@ -627,7 +662,7 @@ def ug_unload_script():
     return weechat.WEECHAT_RC_OK
 
 #Main stuff
-if ( import_ok and 
+if ( import_ok and
     weechat.register(SCRIPT_NAME, SCRIPT_AUTHOR, SCRIPT_VERSION,
         SCRIPT_LICENSE,SCRIPT_DESC, "ug_unload_script", "") ):
     urlgrab_buffer = None
