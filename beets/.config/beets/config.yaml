@@ -24,4 +24,4 @@ paths:
   comp: $genre/$album/$track $title
   albumtype:soundtrack: Soundtracks/$album/$track $title
 
-directory: ~/music
+directory: /storage/svenstaro/Music

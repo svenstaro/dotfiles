@@ -8,8 +8,10 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 export FZF_CTRL_R_OPTS=-s
 
-# Workaround core-utils not currently supporting termite
-if $(tput -T xterm-termite colors &> /dev/null); then
+# Workaround for core-utils not currently supporting termite
+if [[ -n $TMUX ]]; then
+    export TERM=tmux-256color
+elif $(tput -T xterm-termite colors &> /dev/null); then
     export TERM=xterm-termite
 else
     export TERM=xterm-256color

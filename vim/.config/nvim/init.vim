@@ -42,7 +42,7 @@ Plug 'kurayama/systemd-vim-syntax'
 Plug 'leafgarland/typescript-vim'
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
-
+Plug 'Firef0x/PKGBUILD.vim'
 
 " Looks
 Plug 'bling/vim-airline'
