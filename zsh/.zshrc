@@ -136,7 +136,7 @@ eval $(keychain --eval --agents ssh -Q --quiet arch_rsa id_rsa skeletonkey_rsa)
 # fzf
 
 # enables CTRL-T and CTRL-R fuzzy stuff
-source /etc/profile.d/fzf.zsh
+source /usr/share/fzf/fzf.zsh
 
 # unbind ALT-C because we don't want that
 bindkey -r '\ec'
