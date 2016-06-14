@@ -85,6 +85,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --system-libclang --s
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'mhinz/neovim-remote'
 Plug 'Chiel92/vim-autoformat'
+Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
 
