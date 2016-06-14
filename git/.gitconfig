@@ -1,6 +1,7 @@
 [user]
     name = Sven-Hendrik Haase
     email = svenstaro@gmail.com
+    signingkey = E62EB915
 
 [color]
     diff = auto
