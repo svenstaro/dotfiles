@@ -155,6 +155,18 @@ set smartcase           " upper-case sensitive search
 nnoremap <leader><space> :nohlsearch<CR>  " turn off search highlight
 
 
+" nvim terminal binds
+tnoremap <Esc> <C-\><C-n>
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+
 " vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
