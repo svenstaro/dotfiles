@@ -182,6 +182,10 @@ let g:formatters_opencl = ['clangformat']
 let g:user_emmet_leader_key='<C-E>'
 
 
+" vim-better-whitespace
+let g:better_whitespace_filetypes_blacklist=['ctrlsf']
+
+
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
