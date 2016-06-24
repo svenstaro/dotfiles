@@ -115,6 +115,8 @@ syntax on               " enable syntax highlighting
 filetype plugin indent on
 
 map ; :
+nnoremap <silent> <leader>n :cnext <CR>
+nnoremap <silent> <leader>p :cprevious <CR>
 
 " cursor settings
 set nocursorline        " don't highlight cursor line (this makes scrolling slow)
