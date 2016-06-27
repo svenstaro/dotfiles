@@ -229,7 +229,7 @@ nmap <C-k> <Plug>CtrlSFPrompt
 
 
 " syntastic
-let g:syntastic_check_on_open = 1         " Don't check for errors until save
+let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['flake8', 'python']
 
 
@@ -258,6 +258,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <C-]> :YcmCompleter GoTo<CR>
+autocmd FileType help unmap <C-]>
 
 " tagbar
 nnoremap <silent> <F8> :TagbarToggle<CR>
