@@ -166,6 +166,9 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
+" Always enter terminal in insert mode
+autocmd BufWinEnter,WinEnter term://* startinsert
+
 
 " vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
