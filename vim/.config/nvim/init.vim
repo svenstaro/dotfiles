@@ -86,6 +86,7 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'mhinz/neovim-remote'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'metakirby5/codi.vim'
 
 call plug#end()
 
