@@ -215,7 +215,8 @@ let g:ctrlp_use_caching = 0
 
 " cpsm
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
-
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " ctrlp-funky
 nnoremap <C-l> :CtrlPFunky<cr>
