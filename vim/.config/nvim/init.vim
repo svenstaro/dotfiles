@@ -87,6 +87,7 @@ Plug 'mhinz/neovim-remote'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'metakirby5/codi.vim'
+Plug 'bronson/vim-visual-star-search'
 
 call plug#end()
 
