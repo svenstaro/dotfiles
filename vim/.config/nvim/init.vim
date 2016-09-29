@@ -183,6 +183,7 @@ let g:cpp_experimental_template_highlight = 1
 noremap <Leader>f :Autoformat<CR>
 let g:formatdef_clangformat = "'clang-format -lines='.a:firstline.':'.a:lastline.' --assume-filename='.bufname('%').' -style=\"{BasedOnStyle: LLVM, AlignTrailingComments: true, AlwaysBreakTemplateDeclarations: true, ColumnLimit: 100, AllowShortFunctionsOnASingleLine: false, Standard: C++11, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
 let g:formatters_opencl = ['clangformat']
+let g:formatters_glsl = ['clangformat']
 
 
 " emmet-vim
@@ -314,6 +315,7 @@ autocmd FileType python let python_slow_sync = 1
 autocmd Filetype tex,latex :set textwidth=99
 autocmd Filetype tex,latex :set spell spelllang=en
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufRead,BufNewFile *.comp set filetype=glsl
 
 " vim-excel (stop vim from opening excel files as zip)
 let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*.wsz,*.xap,*.docx,*.docm,*.dotx,*.dotm,*.potx,*.potm,*.ppsx,*.ppsm,*.pptx,*.pptm,*.ppam,*.sldx,*.thmx,*.crtx,*.vdw,*.glox,*.gcsx,*.gqsx'
