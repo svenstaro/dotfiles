@@ -8,6 +8,5 @@ fi
 
 setxkbmap -layout us,ru -variant altgr-intl,phonetic -option grp:shifts_toggle
 
-sxhkd &
-./.fehbg
+./.fehbg &
 compton --config ~/.config/compton.conf -b
