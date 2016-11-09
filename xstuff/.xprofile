@@ -10,3 +10,4 @@ setxkbmap -layout us,ru -variant altgr-intl,phonetic -option grp:shifts_toggle
 
 ./.fehbg &
 compton --config ~/.config/compton.conf -b
+dunst &
