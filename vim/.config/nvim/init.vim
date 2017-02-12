@@ -257,7 +257,6 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " YCM/YouCompleteMe
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = ['~/prj/*']
-let g:ycm_rust_src_path = '/usr/src/rust/src'
 let g:ycm_goto_buffer_command = 'horizontal-split'
 
 " ultisnips
