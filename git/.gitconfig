@@ -16,3 +16,6 @@
 	default = simple
 [github]
 	user = svenstaro
+
+[lfs]
+    concurrenttransfers = 20
