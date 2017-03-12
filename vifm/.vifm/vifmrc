@@ -1,23 +1,11 @@
-" Selected color scheme
-colorscheme ph
-
-" This is how many directories to store in the directory history.
-set history=100
-
-" Natural sort of (version) numbers within text.
-set sortnumbers
-
-" Maximum number of changes that can be undone.
-set undolevels=100
-
-" Use KiB, MiB, ... instead of KB, MB, ...
-set noiec
-
-" Show list of matches on tab completion in command-line mode
-set wildmenu
-
-" Display completions in a form of popup with descriptions of the matches
-set wildstyle=popup
+colorscheme ph                          " Selected color scheme
+set history=100                         " This is how many directories to store in the directory history.
+set sortnumbers                         " Natural sort of (version) numbers within text.
+set undolevels=100                      " Maximum number of changes that can be undone.
+set noiec                               " Use KiB, MiB, ... instead of KB, MB, ...
+set wildmenu                            " Show list of matches on tab completion in command-line mode
+set wildstyle=popup                     " Display completions in a form of popup with descriptions of the matches
+set scrolloff=2                         " Try to leave some space from cursor to upper/lower border in lists
 
 " Display suggestions in normal, visual and view modes for keys, marks and
 " registers (at most 5 files).  In other view, when available.
@@ -27,9 +15,6 @@ set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 " letter
 set ignorecase
 set smartcase
-
-" Try to leave some space from cursor to upper/lower border in lists
-set scrolloff=2
 
 " Don't do too many requests to slow file systems
 if !has('win')
@@ -264,3 +249,5 @@ nnoremap ,w :set wrap!<cr>
 
 " Use ag (the silver searcher) instead of grep
 set grepprg=ag\ --line-numbers\ %i\ %a\ %s
+
+nmap ; :
