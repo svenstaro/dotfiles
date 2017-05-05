@@ -43,6 +43,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'Firef0x/PKGBUILD.vim'
+Plug 'Quramy/tsuquyomi'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -88,6 +89,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'metakirby5/codi.vim'
 Plug 'bronson/vim-visual-star-search'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 call plug#end()
 
