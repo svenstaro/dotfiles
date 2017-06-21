@@ -255,6 +255,10 @@ set completeopt=menuone,menu,longest,preview
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
+" force cursor to be in proper I shape in insert mode even if neovim thinks
+" that the terminal doesn't support it.
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+
 
 " YCM/YouCompleteMe
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
