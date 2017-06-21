@@ -59,7 +59,7 @@ unsetopt menu_complete      # do not autoselect the first completion entry
 unsetopt flow_control       # disable start/stop characters in shell editor
 
 ## Group matches and describe.
-# zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
