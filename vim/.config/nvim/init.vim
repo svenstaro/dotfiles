@@ -64,7 +64,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'vim-scripts/taglist.vim'
 Plug 'SirVer/ultisnips' "| Plug 'honza/vim-snippets'
 Plug 'honza/vim-snippets'
@@ -234,12 +234,6 @@ nnoremap <leader>Q :Sayonara!<cr>
 
 " ctrlsf
 nmap <C-k> <Plug>CtrlSFPrompt
-
-
-" syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_python_checkers = ['flake8', 'python']
-let g:syntastic_rust_checkers = ['cargo']
 
 
 " rainbow
