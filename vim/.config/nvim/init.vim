@@ -84,7 +84,6 @@ Plug 'ryanmorillo/excel.vim'
 Plug 'godlygeek/tabular'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --system-libclang --system-boost --all' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-Plug 'mhinz/neovim-remote'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'metakirby5/codi.vim'
