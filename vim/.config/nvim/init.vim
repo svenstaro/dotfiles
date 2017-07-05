@@ -8,7 +8,6 @@ Plug 'tfnico/vim-gradle'
 Plug 'rust-lang/rust.vim'
 Plug 'lervag/vimtex'
 Plug 'chase/vim-ansible-yaml'
-"Plug 'pearofducks/ansible-vim'
 Plug 'sudar/vim-arduino-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-jp/vim-cpp'
@@ -55,6 +54,8 @@ Plug 'luochen1990/rainbow'
 Plug 'mhinz/neovim-remote'
 Plug 'vim-scripts/a.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'airblade/vim-gitgutter'
@@ -118,8 +119,6 @@ syntax on               " enable syntax highlighting
 filetype plugin indent on
 
 map ; :
-nnoremap <silent> <leader>n :cnext <CR>
-nnoremap <silent> <leader>p :cprevious <CR>
 
 " cursor settings
 set nocursorline        " don't highlight cursor line (this makes scrolling slow)
