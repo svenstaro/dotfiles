@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [[ $(hostname) == "dozer" ]]; then
+    xrandr --dpi 140
+fi
+
 setxkbmap -layout us,ru -variant altgr-intl,phonetic -option grp:shifts_toggle
 
 ./.fehbg &
