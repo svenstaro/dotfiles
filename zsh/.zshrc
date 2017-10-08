@@ -143,8 +143,8 @@ source /usr/share/fzf/key-bindings.zsh
 # unbind ALT-C because we don't want that
 bindkey -r '\ec'
 
-# fd - cd to selected directory
-fd() {
+# fdd - cd to selected directory
+fdd() {
   local dir
   dir=$(find ${1:-*} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
