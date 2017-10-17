@@ -37,7 +37,7 @@ bindkey '^[3;5~' delete-char
 
 # History
 HISTFILE=~/.zsh_history
-HISTSIZE=2000
+HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 setopt inc_append_history   # write to history immediately
 setopt hist_ignore_dups     # ignore second instance of same event
