@@ -310,8 +310,8 @@ augroup END
 autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
-autocmd Filetype tex,latex :set textwidth=99
-autocmd Filetype tex,latex :set spell spelllang=en
+autocmd FileType tex,latex :set textwidth=99
+autocmd FileType tex,latex :set spell spelllang=en
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufRead,BufNewFile *.comp set filetype=glsl  " required until https://github.com/tikhomirov/vim-glsl/pull/10 is merged
 
