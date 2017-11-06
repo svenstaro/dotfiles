@@ -37,7 +37,7 @@ bindkey '^[3;5~' delete-char
 
 # History
 HISTFILE=~/.zsh_history
-HISTSIZE=2000
+HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 setopt inc_append_history   # write to history immediately
 setopt hist_ignore_dups     # ignore second instance of same event
@@ -59,7 +59,7 @@ unsetopt menu_complete      # do not autoselect the first completion entry
 unsetopt flow_control       # disable start/stop characters in shell editor
 
 ## Group matches and describe.
-# zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
@@ -102,6 +102,8 @@ setopt correct              # spelling correction for commands
 alias ls='ls -F --color=auto'
 alias ll='ls -lhF --color=auto'
 alias la='ls -lhaF --color=auto'
+alias e='exa'
+alias ee='exa -lg'
 alias grep='grep --color=auto'
 alias sys='sudo systemctl'
 alias sysu='systemctl --user'
@@ -122,6 +124,8 @@ alias pyserve='python -m http.server'
 alias irc='ssh -C oracle -t "tmux attach -t irc"'
 alias steam-win='bash -c "cd .wine/drive_c/Program\ Files/Steam/ && wine steam.exe -no-dwrite"'
 alias mount-mnt0='sshfs -p 225 svenstaro.crabdance.com:/media/data1 mnt0/'
+alias weather='curl wttr.in'
+alias moon='curl wttr.in/Moon'
 
 
 # fasd
@@ -141,8 +145,8 @@ source /usr/share/fzf/key-bindings.zsh
 # unbind ALT-C because we don't want that
 bindkey -r '\ec'
 
-# fd - cd to selected directory
-fd() {
+# fdd - cd to selected directory
+fdd() {
   local dir
   dir=$(find ${1:-*} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&

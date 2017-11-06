@@ -8,7 +8,6 @@ Plug 'tfnico/vim-gradle'
 Plug 'rust-lang/rust.vim'
 Plug 'lervag/vimtex'
 Plug 'chase/vim-ansible-yaml'
-"Plug 'pearofducks/ansible-vim'
 Plug 'sudar/vim-arduino-syntax'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-jp/vim-cpp'
@@ -43,6 +42,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'Firef0x/PKGBUILD.vim'
+Plug 'Quramy/tsuquyomi'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -54,6 +54,8 @@ Plug 'luochen1990/rainbow'
 Plug 'mhinz/neovim-remote'
 Plug 'vim-scripts/a.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'airblade/vim-gitgutter'
@@ -63,14 +65,15 @@ Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-abolish'
+Plug 'w0rp/ale'
 Plug 'vim-scripts/taglist.vim'
-Plug 'SirVer/ultisnips' "| Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'nixprime/cpsm', { 'do': './install.sh' }
+Plug 'svenstaro/cpsm', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
@@ -83,11 +86,11 @@ Plug 'ryanmorillo/excel.vim'
 Plug 'godlygeek/tabular'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --system-libclang --system-boost --all' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-Plug 'mhinz/neovim-remote'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'metakirby5/codi.vim'
 Plug 'bronson/vim-visual-star-search'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 call plug#end()
 
@@ -117,8 +120,6 @@ syntax on               " enable syntax highlighting
 filetype plugin indent on
 
 map ; :
-nnoremap <silent> <leader>n :cnext <CR>
-nnoremap <silent> <leader>p :cprevious <CR>
 
 " cursor settings
 set nocursorline        " don't highlight cursor line (this makes scrolling slow)
@@ -181,7 +182,7 @@ let g:cpp_experimental_template_highlight = 1
 
 " vim-autoformat
 noremap <Leader>f :Autoformat<CR>
-let g:formatdef_clangformat = "'clang-format -lines='.a:firstline.':'.a:lastline.' --assume-filename='.bufname('%').' -style=\"{BasedOnStyle: LLVM, AlignTrailingComments: true, AlwaysBreakTemplateDeclarations: true, ColumnLimit: 100, AllowShortFunctionsOnASingleLine: false, Standard: C++11, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
+"let g:formatdef_clangformat = "'clang-format -lines='.a:firstline.':'.a:lastline.' --assume-filename='.bufname('%').' -style=\"{BasedOnStyle: LLVM, AlignTrailingComments: true, AlwaysBreakTemplateDeclarations: true, ColumnLimit: 100, AllowShortFunctionsOnASingleLine: false, Standard: C++11, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
 let g:formatters_opencl = ['clangformat']
 let g:formatters_glsl = ['clangformat']
 
@@ -198,10 +199,10 @@ let g:better_whitespace_filetypes_blacklist=['ctrlsf']
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
+let g:airline_left_alt_sep=''
 let g:airline_right_sep=''
+let g:airline_right_alt_sep=''
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
 
 
 " ctrlp
@@ -235,11 +236,6 @@ nnoremap <leader>Q :Sayonara!<cr>
 nmap <C-k> <Plug>CtrlSFPrompt
 
 
-" syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_python_checkers = ['flake8', 'python']
-
-
 " rainbow
 let g:rainbow_active = 0
 
@@ -252,11 +248,14 @@ set completeopt=menuone,menu,longest,preview
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
+" force cursor to be in proper I shape in insert mode even if neovim thinks
+" that the terminal doesn't support it.
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+
 
 " YCM/YouCompleteMe
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = ['~/prj/*']
-let g:ycm_rust_src_path = '/usr/src/rust/src'
 let g:ycm_goto_buffer_command = 'horizontal-split'
 
 " ultisnips
@@ -276,7 +275,6 @@ let g:vimtex_fold_enabled = 0
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_latexmk_progname = '/home/svenstaro/.config/nvim/plug/neovim-remote/nvr'
 let g:vimtex_latexmk_options = '-pdf -verbose -file-line-error -synctex=1 -interaction=nonstopmode -shell-escape'
-let g:vimtex_quickfix_ignore_all_warnings = 1
 
 " allow vimtex cite/ref completion with YouCompleteMe
 if !exists('g:ycm_semantic_triggers')
@@ -312,8 +310,8 @@ augroup END
 autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
-autocmd Filetype tex,latex :set textwidth=99
-autocmd Filetype tex,latex :set spell spelllang=en
+autocmd FileType tex,latex :set textwidth=99
+autocmd FileType tex,latex :set spell spelllang=en
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufRead,BufNewFile *.comp set filetype=glsl  " required until https://github.com/tikhomirov/vim-glsl/pull/10 is merged
 
