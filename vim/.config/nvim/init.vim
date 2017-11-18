@@ -209,7 +209,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " ctrlp
 let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_user_command = 'ag %s --files-with-matches -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
+let g:ctrlp_user_command = 'rg %s --files -i --color=never --glob ''!.git'' --glob ''!.DS_Store'' --glob ''!node_modules'' --no-messages --hidden -g ""'
 let g:ctrlp_extensions = ['funky']
 
 " MRU relative to current working directory
