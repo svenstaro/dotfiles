@@ -23,7 +23,6 @@ Plug 'fatih/vim-go'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-jade'
-Plug 'sheerun/yajs.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'sheerun/vim-json'
 Plug 'groenewege/vim-less'
@@ -38,11 +37,14 @@ Plug 'mitsuhiko/vim-python-combined'
 Plug 'peterhoeg/vim-qml'
 Plug 'vim-ruby/vim-ruby'
 Plug 'kurayama/systemd-vim-syntax'
-Plug 'leafgarland/typescript-vim'
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'Firef0x/PKGBUILD.vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -207,7 +209,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " ctrlp
 let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_user_command = 'ag %s --files-with-matches -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
+let g:ctrlp_user_command = 'rg %s --files -i --color=never --glob ''!.git'' --glob ''!.DS_Store'' --glob ''!node_modules'' --no-messages --hidden -g ""'
 let g:ctrlp_extensions = ['funky']
 
 " MRU relative to current working directory
@@ -310,8 +312,8 @@ augroup END
 autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
-autocmd Filetype tex,latex :set textwidth=99
-autocmd Filetype tex,latex :set spell spelllang=en
+autocmd FileType tex,latex :set textwidth=99
+autocmd FileType tex,latex :set spell spelllang=en
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufRead,BufNewFile *.comp set filetype=glsl  " required until https://github.com/tikhomirov/vim-glsl/pull/10 is merged
 

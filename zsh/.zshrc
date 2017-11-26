@@ -111,9 +111,7 @@ alias sysu='systemctl --user'
 alias svim='sudo vim'
 alias spacman='sudo pacman'
 
-alias mkchr='sudo extra-i686-build && sudo multilib-build'
-alias mkchr32='sudo extra-i686-build'
-alias mkchr64='sudo multilib-build'
+alias mkchr='sudo multilib-build'
 
 alias db-move-packages='ssh repos.archlinux.org /packages/db-move'
 alias db-move-community='ssh repos.archlinux.org /community/db-move'
@@ -124,6 +122,8 @@ alias pyserve='python -m http.server'
 alias irc='ssh -C oracle -t "tmux attach -t irc"'
 alias steam-win='bash -c "cd .wine/drive_c/Program\ Files/Steam/ && wine steam.exe -no-dwrite"'
 alias mount-mnt0='sshfs -p 225 svenstaro.crabdance.com:/media/data1 mnt0/'
+alias weather='curl wttr.in'
+alias moon='curl wttr.in/Moon'
 
 
 # fasd
@@ -165,3 +165,12 @@ fdr() {
   local DIR=$(get_parent_dirs $(realpath "${1:-$(pwd)}") | fzf-tmux --tac)
   cd "$DIR"
 }
+
+transfer() {
+  # write to output to tmpfile because of progress bar
+  tmpfile=$( mktemp -t transferXXX )
+  curl -w '\n' --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
+  cat $tmpfile;
+  rm -f $tmpfile;
+}
+alias transfer=transfer
