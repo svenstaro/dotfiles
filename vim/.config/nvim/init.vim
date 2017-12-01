@@ -314,8 +314,6 @@ autocmd FileType python let python_highlight_space_errors = 1
 autocmd FileType python let python_slow_sync = 1
 autocmd FileType tex,latex :set textwidth=99
 autocmd FileType tex,latex :set spell spelllang=en
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-autocmd BufRead,BufNewFile *.comp set filetype=glsl  " required until https://github.com/tikhomirov/vim-glsl/pull/10 is merged
 
 " vim-excel (stop vim from opening excel files as zip)
 let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*.wsz,*.xap,*.docx,*.docm,*.dotx,*.dotm,*.potx,*.potm,*.ppsx,*.ppsm,*.pptx,*.pptm,*.ppam,*.sldx,*.thmx,*.crtx,*.vdw,*.glox,*.gcsx,*.gqsx'
