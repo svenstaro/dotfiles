@@ -166,11 +166,11 @@ fdr() {
   cd "$DIR"
 }
 
-transfer() {
+transfer_() {
   # write to output to tmpfile because of progress bar
   tmpfile=$( mktemp -t transferXXX )
   curl -w '\n' --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
   cat $tmpfile;
   rm -f $tmpfile;
 }
-alias transfer=transfer
+alias transfer=transfer_
