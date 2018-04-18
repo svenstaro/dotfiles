@@ -4,7 +4,7 @@ source "$HOME/.zgen/zgen.zsh"
 if ! zgen saved; then
     echo "Creating a zgen save"
 
-    zgen load robbyrussell/oh-my-zsh plugins/colored-man
+    zgen load robbyrussell/oh-my-zsh plugins/colored-man-pages
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load nojhan/liquidprompt
     zgen load chrissicool/zsh-256color
