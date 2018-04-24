@@ -45,7 +45,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
-Plug 'tomlion/vim-solidity'
 
 " Looks
 Plug 'bling/vim-airline'
