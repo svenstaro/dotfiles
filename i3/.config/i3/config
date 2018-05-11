@@ -27,7 +27,7 @@ bindsym $mod+Shift+q kill
 # applications
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+f exec i3-easyfocus -a
-bindsym $mod+space exec --no-startup-id "rofi -show combi -switchers combi -combi-modi 'window,run' -terminal termite -font 'Input Mono 10' -color-enabled -color-window '#34322e,#a3a6ab' -color-normal '#34322e,#a3a6ab,#2a2a2a,#58c5f1,#343223' -color-urgent '#94322e,#a3a6ab,#94322e,#58c5f1,#343223' -color-active '#555555,#a3a6ab,#555555,#28aaff,#343223'"
+bindsym $mod+space exec --no-startup-id "rofi -show combi -switchers combi -combi-modi 'window,run'"
 
 # change focus
 bindsym $mod+h focus left
