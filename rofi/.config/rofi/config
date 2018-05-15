@@ -1,1 +1,4 @@
 rofi.theme: /usr/share/rofi/themes/purple.rasi
+rofi.show-icons: true
+rofi.matching: fuzzy
+rofi.sort: true
