@@ -28,7 +28,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+f exec i3-easyfocus -a
 bindsym $mod+space exec --no-startup-id "rofi -show combi -switchers combi -combi-modi 'window,run'"
-bindsym $mod+c exec --no-startup-id "LC_MONETARY=de_DE.UTF-8 rofi -show calc -modi calc -no-show-match -no-sort"
+bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
 
 # change focus
 bindsym $mod+h focus left
