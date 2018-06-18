@@ -1,17 +1,14 @@
-# zgen stuff
-source "$HOME/.zgen/zgen.zsh"
+# zplug stuff
+zstyle ':prezto:module:terminal' auto-title 'yes'
 
-if ! zgen saved; then
-    echo "Creating a zgen save"
-
-    zgen load robbyrussell/oh-my-zsh plugins/colored-man-pages
-    zgen load zsh-users/zsh-syntax-highlighting
-    zgen load nojhan/liquidprompt
-    zgen load chrissicool/zsh-256color
-    zgen load zsh-users/zsh-completions src
-
-    zgen save
-fi
+source "$HOME/.zplug/init.zsh"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "plugins/colored-man-pages", from:oh-my-zsh
+zplug "nojhan/liquidprompt"
+zplug "chrissicool/zsh-256color"
+zplug "zsh-users/zsh-completions", use:src
+zplug "modules/terminal", from:prezto
+zplug load
 
 # General configuration
 autoload -U compinit && compinit
@@ -90,7 +87,6 @@ zstyle ':completion:*:history-words' stop yes
 zstyle ':completion:*:history-words' remove-all-dups yes
 zstyle ':completion:*:history-words' list false
 zstyle ':completion:*:history-words' menu yes
-
 
 # Correction
 
