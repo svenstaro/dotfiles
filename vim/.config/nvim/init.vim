@@ -45,6 +45,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
+Plug 'vim-scripts/JavaDecompiler.vim'
 
 " Looks
 Plug 'bling/vim-airline'
