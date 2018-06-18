@@ -118,10 +118,7 @@ alias db-move-community='ssh repos.archlinux.org /community/db-move'
 alias db-update-packages='ssh repos.archlinux.org /packages/db-update'
 alias db-update-community='ssh repos.archlinux.org /community/db-update'
 
-alias pyserve='python -m http.server'
 alias irc='ssh -C oracle -t "tmux attach -t irc"'
-alias steam-win='bash -c "cd .wine/drive_c/Program\ Files/Steam/ && wine steam.exe -no-dwrite"'
-alias mount-mnt0='sshfs -p 225 svenstaro.crabdance.com:/media/data1 mnt0/'
 alias weather='curl wttr.in'
 alias moon='curl wttr.in/Moon'
 
