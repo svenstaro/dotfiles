@@ -106,7 +106,7 @@ set t_Co=256            " set 256 color
 colorscheme gruvbox     " define syntax color scheme
 set background=dark
 set shortmess+=I        " disable the welcome screen
-set clipboard+=unnamed  " yank and copy to X clipboard
+set clipboard+=unnamedplus " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
 set history=100         " 100 lines of command line history
 set ruler               " ruler display in status line
