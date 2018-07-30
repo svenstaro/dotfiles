@@ -102,7 +102,7 @@ call plug#end()
 " basics
 let mapleader = ","     " map leader to ,
 set mouse=a             " make sure mouse is used in all cases.
-set t_Co=256            " set 256 color
+set termguicolors       " true color
 colorscheme gruvbox     " define syntax color scheme
 set background=dark
 set shortmess+=I        " disable the welcome screen
