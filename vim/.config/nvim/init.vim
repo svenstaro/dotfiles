@@ -78,7 +78,7 @@ Plug 'honza/vim-snippets'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'nixprime/cpsm', { 'do': './install.sh' }
+Plug 'ptzz/cpsm', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
