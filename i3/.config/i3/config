@@ -29,6 +29,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+f exec i3-easyfocus -a
 bindsym $mod+space exec --no-startup-id "rofi -show combi -switchers combi -combi-modi 'window,run' -dpi 180"
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort -dpi 180"
+bindsym $mod+p exec --no-startup-id "rofi-pass"
 
 # change focus
 bindsym $mod+h focus left
