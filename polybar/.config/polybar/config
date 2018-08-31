@@ -176,7 +176,7 @@ format-connected = <label-connected>
 format-connected-underline = #55aa55
 format-connected-prefix = "Eth "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %ifname% %local_ip% (↓ %downspeed% | ↑ %upspeed% | %linkspeed%)
+label-connected = %local_ip% (↓ %downspeed% | ↑ %upspeed% | %linkspeed%)
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
