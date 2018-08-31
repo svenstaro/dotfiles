@@ -1,3 +1,5 @@
 *.kbx*
 *.gpg
+random_seed
 crls.d
+private-keys*
