@@ -252,11 +252,6 @@ format-full-prefix = "Full "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = .
-ramp-capacity-1 = :
-ramp-capacity-2 = D
-ramp-capacity-foreground = ${colors.foreground-alt}
-
 [module/bat1]
 type = internal/battery
 battery = BAT1
