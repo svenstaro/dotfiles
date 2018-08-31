@@ -148,7 +148,7 @@ interval = 5
 format-connected = <label-connected> 📶 <ramp-signal> )
 format-connected-prefix = "Wlan "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-format-connected-underline = #9f78e1
+format-connected-underline = #55aa55
 label-connected = %essid% %local_ip% (↓ %downspeed% | ↑ %upspeed% |
 
 format-disconnected =
