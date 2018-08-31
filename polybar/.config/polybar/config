@@ -142,12 +142,14 @@ ramp-used-7 = █
 
 [module/wlan]
 type = internal/network
-interface = net1
-interval = 3.0
+interface = wlp4s0
+interval = 5
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected> 📶 <ramp-signal> )
+format-connected-prefix = "Wlan "
+format-connected-prefix-foreground = ${colors.foreground-alt}
 format-connected-underline = #9f78e1
-label-connected = %essid%
+label-connected = %essid% %local_ip% (↓ %downspeed% | ↑ %upspeed% |
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -155,23 +157,26 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-0 = ▁
+ramp-signal-1 = ▂
+ramp-signal-2 = ▃
+ramp-signal-3 = ▄
+ramp-signal-4 = ▅
+ramp-signal-5 = ▆
+ramp-signal-6 = ▇
+ramp-signal-7 = █
+ramp-signal-foreground = ${colors.foreground}
 
 [module/eth]
 type = internal/network
 interface = enp0s31f6
-interval = 3.0
+interval = 5
 
 format-connected = <label-connected>
 format-connected-underline = #55aa55
 format-connected-prefix = "Eth "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %ifname% %local_ip% (%linkspeed%)
+label-connected = %ifname% %local_ip% (↓ %downspeed% | ↑ %upspeed% | %linkspeed%)
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
