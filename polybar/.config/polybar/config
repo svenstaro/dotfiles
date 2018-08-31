@@ -230,16 +230,23 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/bat0]
 type = internal/battery
 battery = BAT0
-adapter = ADP1
+adapter = AC
 full-at = 98
+poll-interval = 20
 
-format-prefix = "Bat0 "
+time-format = %H:%M
 
-format-charging = Chr <label-charging>
+label-charging = ↑%percentage% (%time%h | %consumption%W)
+format-charging = <label-charging>
 format-charging-underline = #ffb52a
+format-charging-prefix = "Bat0 "
+format-charging-prefix-foreground = ${colors.foreground-alt}
 
-format-discharging = Dis <label-discharging>
+label-discharging = ↓%percentage% (%time%h | %consumption%W)
+format-discharging = <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
+format-discharging-prefix = "Bat0 "
+format-discharging-prefix-foreground = ${colors.foreground-alt}
 
 format-full-prefix = "Full "
 format-full-prefix-foreground = ${colors.foreground-alt}
@@ -253,25 +260,27 @@ ramp-capacity-foreground = ${colors.foreground-alt}
 [module/bat1]
 type = internal/battery
 battery = BAT1
-adapter = ADP1
+adapter = AC
 full-at = 98
+poll-interval = 20
 
-format-prefix = "Bat1 "
+time-format = %H:%M
 
-format-charging = Chr <label-charging>
+label-charging = ↑%percentage% (%time%h | %consumption%W)
+format-charging = <label-charging>
 format-charging-underline = #ffb52a
+format-charging-prefix = "Bat1 "
+format-charging-prefix-foreground = ${colors.foreground-alt}
 
-format-discharging = Dis <label-discharging>
+label-discharging = ↓%percentage% (%time%h | %consumption%W)
+format-discharging = <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
+format-discharging-prefix = "Bat1 "
+format-discharging-prefix-foreground = ${colors.foreground-alt}
 
 format-full-prefix = "Full "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = .
-ramp-capacity-1 = :
-ramp-capacity-2 = D
-ramp-capacity-foreground = ${colors.foreground-alt}
 
 [module/temperature]
 type = internal/temperature
@@ -280,7 +289,7 @@ warn-temperature = 75
 interval = 5
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 
-format =  <label>
+format = <label>
 format-prefix = "Temp "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
