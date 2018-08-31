@@ -236,13 +236,13 @@ poll-interval = 20
 
 time-format = %H:%M
 
-label-charging = ↑%percentage% (%time%h | %consumption%W)
+label-charging = ↑%percentage%% (%time%h | %consumption%W)
 format-charging = <label-charging>
 format-charging-underline = #ffb52a
 format-charging-prefix = "Bat0 "
 format-charging-prefix-foreground = ${colors.foreground-alt}
 
-label-discharging = ↓%percentage% (%time%h | %consumption%W)
+label-discharging = ↓%percentage%% (%time%h | %consumption%W)
 format-discharging = <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 format-discharging-prefix = "Bat0 "
@@ -261,13 +261,13 @@ poll-interval = 20
 
 time-format = %H:%M
 
-label-charging = ↑%percentage% (%time%h | %consumption%W)
+label-charging = ↑%percentage%% (%time%h | %consumption%W)
 format-charging = <label-charging>
 format-charging-underline = #ffb52a
 format-charging-prefix = "Bat1 "
 format-charging-prefix-foreground = ${colors.foreground-alt}
 
-label-discharging = ↓%percentage% (%time%h | %consumption%W)
+label-discharging = ↓%percentage%% (%time%h | %consumption%W)
 format-discharging = <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 format-discharging-prefix = "Bat1 "
