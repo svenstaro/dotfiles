@@ -47,6 +47,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 Plug 'vim-scripts/JavaDecompiler.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " Looks
 Plug 'bling/vim-airline'
