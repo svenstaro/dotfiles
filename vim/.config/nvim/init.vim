@@ -48,6 +48,7 @@ Plug 'ianks/vim-tsx'
 Plug 'vim-scripts/JavaDecompiler.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'pest-parser/pest.vim'
 
 " Looks
 Plug 'bling/vim-airline'
