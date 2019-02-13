@@ -18,9 +18,6 @@ setopt autocd               # cd without writing cd
 setopt extended_glob        # extended glob syntax
 setopt nomatch              # print error if pattern matches nothing
 setopt notify               # report status of background jobs immediately
-setopt nohashdirs           # disable hashing of dirs so we don't have to run
-                            # rehash after installing new binaries (performance hit?)
-
 
 # Key stuff
 bindkey -e
@@ -68,6 +65,7 @@ zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
+zstyle ':completion:*' rehash true  # Find new commands automatically
 
 ## Fuzzy match mistyped completions.
 zstyle ':completion:*' completer _complete _match _approximate
