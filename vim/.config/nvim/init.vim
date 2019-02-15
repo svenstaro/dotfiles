@@ -97,6 +97,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'metakirby5/codi.vim'
 Plug 'bronson/vim-visual-star-search'
+Plug 'machakann/vim-highlightedyank'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 call plug#end()
