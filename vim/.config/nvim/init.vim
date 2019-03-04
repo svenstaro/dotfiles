@@ -89,7 +89,6 @@ Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-speeddating'
 Plug 'mhinz/vim-sayonara'
-Plug 'ryanmorillo/excel.vim'
 Plug 'godlygeek/tabular'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --system-libclang --system-boost --all' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
@@ -226,7 +225,7 @@ let g:ctrlp_use_caching = 0
 
 " cpsm
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
-let g:python_host_prog = '/usr/bin/python2'
+let g:loaded_python_provider = 1        " disable Python 2 support
 let g:python3_host_prog = '/usr/bin/python3'
 
 " ctrlp-funky
