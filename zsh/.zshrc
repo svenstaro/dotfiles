@@ -105,7 +105,8 @@ alias sysu='systemctl --user'
 alias svim='sudo vim'
 alias spacman='sudo pacman'
 
-alias mkchr='sudo multilib-build'
+alias mkchr='multilib-build'
+alias offload='prj/arch-contrib/build/offload-build'
 
 alias db-move-packages='ssh repos.archlinux.org /packages/db-move'
 alias db-move-community='ssh repos.archlinux.org /community/db-move'
