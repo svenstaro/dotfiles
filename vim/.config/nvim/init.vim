@@ -48,6 +48,7 @@ Plug 'vim-scripts/JavaDecompiler.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'pest-parser/pest.vim'
+Plug 'thosakwe/vim-flutter'
 
 " Looks
 Plug 'bling/vim-airline'
@@ -292,10 +293,18 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ 'dart': ['dart_language_server'],
     \ 'sh': ['bash-language-server', 'start'],
+    \ 'c': ['clangd'],
+    \ 'cpp': ['clangd'],
+    \ 'cuda': ['clangd'],
+    \ 'obcj': ['clangd'],
     \ }
 
+let $RUST_BACKTRACE = 1
+let g:LanguageClient_loggingLevel = 'INFO'
+let g:LanguageClient_loggingFile = expand('~/.local/share/nvim/LanguageClient.log')
+let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
+
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
