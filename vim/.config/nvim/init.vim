@@ -298,6 +298,7 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['clangd'],
     \ 'cuda': ['clangd'],
     \ 'obcj': ['clangd'],
+    \ 'java': ['jdtls', '-data', getcwd()],
     \ }
 
 let $RUST_BACKTRACE = 1
