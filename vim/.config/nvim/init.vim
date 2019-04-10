@@ -9,8 +9,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'lervag/vimtex'
 Plug 'pearofducks/ansible-vim'
 Plug 'sudar/vim-arduino-syntax'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'vim-jp/vim-cpp'
+Plug 'bfrg/vim-cpp-modern'
 Plug 'guns/vim-clojure-static'
 Plug 'kchmck/vim-coffee-script'
 Plug 'JulesWang/css.vim'
@@ -54,7 +53,6 @@ Plug 'pest-parser/pest.vim'
 Plug 'bling/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'ap/vim-css-color'
-Plug 'luochen1990/rainbow'
 
 " Functionality
 Plug 'mhinz/neovim-remote'
@@ -90,15 +88,24 @@ Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-speeddating'
 Plug 'mhinz/vim-sayonara'
 Plug 'godlygeek/tabular'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --system-libclang --system-boost --all' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-ultisnips'
+Plug 'ncm2/ncm2-html-subscope'
+Plug 'ncm2/ncm2-markdown-subscope'
+Plug 'ncm2/ncm2-rst-subscope'
+Plug 'roxma/nvim-yarp'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'metakirby5/codi.vim'
 Plug 'bronson/vim-visual-star-search'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 call plug#end()
 
 " basics
@@ -165,6 +172,18 @@ set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " upper-case sensitive search
 nnoremap <leader><space> :nohlsearch<CR>  " turn off search highlight
+
+" restore last position in file
+autocmd BufReadPost *
+            \ if line("'\"") > 1 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
+augroup END
+
+" file type specific stuff
+autocmd FileType python let python_highlight_all = 1
+autocmd FileType tex,latex :set textwidth=99
+autocmd FileType tex,latex :set spell spelllang=en
 
 
 " nvim terminal binds
@@ -243,35 +262,18 @@ nnoremap <leader>Q :Sayonara!<cr>
 nmap <C-k> <Plug>CtrlSFPrompt
 
 
-" rainbow
-let g:rainbow_active = 0
-
-
-" auto completion stuff
-set ofu=syntaxcomplete#Complete
-set complete+=k         " enable dictionary completion
-set completeopt=menuone,menu,longest,preview
-
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-
 " force cursor to be in proper I shape in insert mode even if neovim thinks
 " that the terminal doesn't support it.
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
-
-" YCM/YouCompleteMe
-let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
-let g:ycm_extra_conf_globlist = ['~/prj/*']
-let g:ycm_goto_buffer_command = 'horizontal-split'
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-nnoremap <C-]> :YcmCompleter GoTo<CR>
 autocmd FileType help unmap <C-]>
+
 
 " tagbar
 nnoremap <silent> <F8> :TagbarToggle<CR>
@@ -283,13 +285,64 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_latexmk_progname = '/home/svenstaro/.config/nvim/plug/neovim-remote/nvr'
 let g:vimtex_latexmk_options = '-pdf -verbose -file-line-error -synctex=1 -interaction=nonstopmode -shell-escape'
 
-" allow vimtex cite/ref completion with YouCompleteMe
-if !exists('g:ycm_semantic_triggers')
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = [
-            \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*, ?)*'
-            \ ]
+
+" LanguageClient-neovim
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rls'],
+    \ 'python': ['pyls'],
+    \ 'dart': ['dart_language_server'],
+    \ 'sh': ['bash-language-server', 'start'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+
+" ncm2
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
+
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" wrap existing omnifunc
+" Note that omnifunc does not run in background and may probably block the
+" editor. If you don't want to be blocked by omnifunc too often, you could
+" add 180ms delay before the omni wrapper:
+"  'on_complete': ['ncm2#on_complete#delay', 180,
+"               \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+" au User Ncm2Plugin call ncm2#register_source({
+"         \ 'name' : 'css',
+"         \ 'priority': 9,
+"         \ 'subscope_enable': 1,
+"         \ 'scope': ['css','scss'],
+"         \ 'mark': 'css',
+"         \ 'word_pattern': '[\w\-]+',
+"         \ 'complete_pattern': ':\s*',
+"         \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+"         \ })
 
 
 " vim-markdown
@@ -304,21 +357,3 @@ nnoremap <silent> <F6> :NERDTreeToggle<CR>
 map <Space> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
 map <Plug>(easymotion-prefix)s <Plug>(easymotion-s)
-
-
-" restore position
-autocmd BufReadPost *
-            \ if line("'\"") > 1 && line("'\"") <= line("$") |
-            \   exe "normal! g`\"" |
-            \ endif
-augroup END
-
-" file types
-autocmd FileType python let python_highlight_all = 1
-autocmd FileType python let python_highlight_space_errors = 1
-autocmd FileType python let python_slow_sync = 1
-autocmd FileType tex,latex :set textwidth=99
-autocmd FileType tex,latex :set spell spelllang=en
-
-" vim-excel (stop vim from opening excel files as zip)
-let g:zipPlugin_ext = '*.zip,*.jar,*.xpi,*.ja,*.war,*.ear,*.celzip,*.oxt,*.kmz,*.wsz,*.xap,*.docx,*.docm,*.dotx,*.dotm,*.potx,*.potm,*.ppsx,*.ppsm,*.pptx,*.pptm,*.ppam,*.sldx,*.thmx,*.crtx,*.vdw,*.glox,*.gcsx,*.gqsx'
