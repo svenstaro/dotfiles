@@ -315,7 +315,7 @@ endfunction()
 
 augroup LSP
   autocmd!
-  autocmd FileType rust,python,dart,sh,c,cpp,cude,obj call SetLSPShortcuts()
+  autocmd FileType rust,python,dart,sh,c,cpp,cude,obj,java call SetLSPShortcuts()
 augroup END
 
 
