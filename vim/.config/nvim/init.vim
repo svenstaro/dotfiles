@@ -130,6 +130,7 @@ set matchpairs+=<:>     " match < and > as well
 set mat=5               " show matching brackets for 0.5 seconds
 set scrolloff=2         " keep 2 lines spacing between cursor and edge
 set number              " show line numbers
+set signcolumn=yes      " always show signcolumn
 syntax on               " enable syntax highlighting
 "set synmaxcol=200       " for performance reason, don't highlight long lines
 filetype plugin indent on
@@ -304,10 +305,17 @@ let g:LanguageClient_loggingLevel = 'INFO'
 let g:LanguageClient_loggingFile = expand('~/.local/share/nvim/LanguageClient.log')
 let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+function SetLSPShortcuts()
+  nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+endfunction()
+
+augroup LSP
+  autocmd!
+  autocmd FileType rust,python,dart,sh,c,cpp,cude,obj call SetLSPShortcuts()
+augroup END
 
 
 " ncm2
