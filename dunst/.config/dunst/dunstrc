@@ -182,7 +182,7 @@
     dmenu = /usr/bin/rofi -dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = chromium
+    browser = firefox
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
