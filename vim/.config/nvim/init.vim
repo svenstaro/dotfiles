@@ -103,6 +103,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'bronson/vim-visual-star-search'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'junegunn/fzf'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
