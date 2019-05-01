@@ -59,8 +59,8 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 
 " Web
 filextype *.html,*.htm
-        \ {Open with dwb}
-        \ chromium %f %i &,
+        \ {Open with Firefox}
+        \ firefox %f %i &,
 filetype *.html,*.htm links, lynx
 
 " Object
