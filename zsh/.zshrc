@@ -118,10 +118,9 @@ alias weather='curl wttr.in'
 alias moon='curl wttr.in/Moon'
 
 
-# fasd
-eval "$(fasd --init auto)"
-alias j='fasd_cd -d'
-unalias sd
+# pazi
+source <(pazi init zsh)
+alias j='z'
 
 
 # ssh keys
