@@ -84,7 +84,6 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
 Plug 'chrisbra/SudoEdit.vim'
-Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-speeddating'
 Plug 'mhinz/vim-sayonara'
@@ -275,10 +274,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 autocmd FileType help unmap <C-]>
-
-
-" tagbar
-nnoremap <silent> <F8> :TagbarToggle<CR>
 
 
 " vimtex
