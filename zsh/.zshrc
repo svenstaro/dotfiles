@@ -121,6 +121,7 @@ alias moon='curl wttr.in/Moon'
 # fasd
 eval "$(fasd --init auto)"
 alias j='fasd_cd -d'
+unalias sd
 
 
 # ssh keys
