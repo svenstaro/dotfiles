@@ -264,6 +264,10 @@ nnoremap <leader>Q :Sayonara!<cr>
 nmap <C-k> <Plug>CtrlSFPrompt
 
 
+" gitgutter
+set updatetime=250
+
+
 " force cursor to be in proper I shape in insert mode even if neovim thinks
 " that the terminal doesn't support it.
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
