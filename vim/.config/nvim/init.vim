@@ -152,6 +152,7 @@ set noswapfile          " don't create a swap file
 set nobackup            " don't keep a backup file
 set backupdir=/tmp      " backup dir
 set directory=/tmp      " swap file directory
+set backupcopy=yes      " to make parceljs happy (https://en.parceljs.org/hmr.html#safe-write)
 
 " tabs and indenting
 set expandtab           " insert spaces instead of tab chars
