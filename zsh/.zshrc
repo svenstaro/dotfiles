@@ -96,7 +96,7 @@ setopt correct              # spelling correction for commands
 alias ls='ls -F --color=auto'
 alias ll='ls -lhF --color=auto'
 alias la='ls -lhaF --color=auto'
-alias e='exa'
+alias e='exa -F'
 alias ee='exa -lgF'
 alias grep='grep --color=auto'
 alias sys='sudo systemctl'
