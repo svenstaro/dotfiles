@@ -3,3 +3,4 @@
 random_seed
 crls.d
 private-keys*
+tofu.db
