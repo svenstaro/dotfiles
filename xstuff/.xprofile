@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
 if [[ $(hostname) == "dozer" ]]; then
     xrandr --dpi 140
 fi
