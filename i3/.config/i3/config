@@ -31,6 +31,7 @@ bindsym $mod+space exec --no-startup-id "rofi -show combi -switchers combi -comb
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort -dpi 180"
 bindsym $mod+p exec --no-startup-id "rofi-pass"
 bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3lock -k --ignore-empty-password -c 444444 --insidevercolor=6666FFAA --insidewrongcolor=FF333322 --insidecolor=333333EE --timepos="ix:iy + 300" --timecolor=FFFFFFDD --time-font="Input Mono" --timesize=40 --datestr="%F" --datecolor=FFFFFFAA --date-font="Input Mono" --datesize=25 --redraw-thread
+bindsym Print exec --no-startup-id flameshot gui
 
 # change focus
 bindsym $mod+h focus left
