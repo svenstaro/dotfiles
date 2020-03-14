@@ -118,9 +118,8 @@ alias weather='curl wttr.in'
 alias moon='curl wttr.in/Moon'
 
 
-# pazi
-source <(pazi init zsh)
-alias j='z'
+# zoxide
+source <(zoxide init zsh)
 
 
 # ssh keys
