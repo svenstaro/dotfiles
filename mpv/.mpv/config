@@ -1,14 +1,7 @@
-# Write your default config options here!
-
-cache=262144
-#cache-min=1
 alang=jpn
-vo=vdpau
-hwdec=vdpau
-#vc=ffmpeg12vdpau,ffwmv3vdpau,ffvc1vdpau,ffh264vdpau,ffodivxvdpau,
-ass=yes
+vo=gpu
+sub-ass=yes
 embeddedfonts=yes
 correct-pts=yes
-softvol=yes
 title='${filename}'
 slang=eng
