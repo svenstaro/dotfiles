@@ -135,6 +135,9 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 5%"
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5%"
 bindsym XF86Display exec arandr
 
+# window rules
+for_window [class="rdesktop"] floating enable
+
 exec_always --no-startup-id $HOME/.config/polybar/launch-polybar.sh
 
 # vim: set syntax=conf:
