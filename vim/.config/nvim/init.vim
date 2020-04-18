@@ -291,7 +291,7 @@ let g:vimtex_latexmk_options = '-pdf -verbose -file-line-error -synctex=1 -inter
 
 " LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rls'],
+    \ 'rust': ['rust-analyzer'],
     \ 'python': ['pyls'],
     \ 'dart': ['dart_language_server'],
     \ 'sh': ['bash-language-server', 'start'],
