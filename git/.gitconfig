@@ -34,3 +34,5 @@
     diff = /usr/share/git/diff-highlight/diff-highlight | less
 [commit]
 	gpgsign = true
+[pull]
+	rebase = false
