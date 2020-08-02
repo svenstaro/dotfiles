@@ -2,7 +2,6 @@ call plug#begin(expand('~/.config/nvim/plug/'))
 
 " Language support
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'tfnico/vim-gradle'
 Plug 'rust-lang/rust.vim'
