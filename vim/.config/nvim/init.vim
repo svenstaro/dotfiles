@@ -172,6 +172,9 @@ autocmd FileType python let python_highlight_all = 1
 autocmd FileType tex,latex :set textwidth=99
 autocmd FileType tex,latex :set spell spelllang=en
 
+" make sure that we get system Python for neovim itself even if we are in a virtualenv
+let g:python3_host_prog = '/usr/bin/python3'
+
 
 " nvim terminal binds
 au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
