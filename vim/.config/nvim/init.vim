@@ -68,10 +68,6 @@ Plug 'dense-analysis/ale'               " various syntax checkers
 Plug 'SirVer/ultisnips'                 " snippet engine
 Plug 'honza/vim-snippets'               " snippet collections
 Plug 'Lokaltog/vim-easymotion'          " some fun motions like jump-to-letter
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'nixprime/cpsm', { 'do': './install.sh' }
-Plug 'dyng/ctrlsf.vim'
 Plug 'sjl/gundo.vim'                    " undo-tree visualizer
 Plug 'chrisbra/SudoEdit.vim'            " add :SudoWrite to save file with sudo
 Plug 'tpope/vim-speeddating'            " allow C-X and C-A to also work on dates
@@ -89,7 +85,9 @@ Plug 'ntpeters/vim-better-whitespace'   " visualize trailing whitespaces
 Plug 'bronson/vim-visual-star-search'   " allow for searching by current visual seleciton
 Plug 'machakann/vim-highlightedyank'    " highlight what was just yanked
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf'                     " fzf support
+Plug 'junegunn/fzf.vim'                 " sweet fzf integration using :Files and such
+Plug 'dyng/ctrlsf.vim'                  " search files for content and allow editing in search results
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -176,7 +174,8 @@ autocmd FileType tex,latex :set spell spelllang=en
 
 
 " nvim terminal binds
-tnoremap <Esc> <C-\><C-n>
+au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+au FileType fzf tunmap <buffer> <Esc>
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
@@ -197,14 +196,6 @@ let g:formatters_opencl = ['clangformat']
 let g:formatters_glsl = ['clangformat']
 
 
-" emmet-vim
-let g:user_emmet_leader_key='<C-E>'
-
-
-" vim-better-whitespace
-let g:better_whitespace_filetypes_blacklist=['ctrlsf']
-
-
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -215,36 +206,9 @@ let g:airline_right_alt_sep=''
 let g:airline#extensions#tabline#enabled = 1
 
 
-" ctrlp
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_user_command = 'rg %s --files -i --color=never --glob ''!.git'' --glob ''!.DS_Store'' --glob ''!node_modules'' --no-messages --hidden -g ""'
-let g:ctrlp_extensions = ['funky']
-
-" MRU relative to current working directory
-let g:ctrlp_mruf_relative = 1
-
-" No one needs caching when you have rg
-let g:ctrlp_use_caching = 0
-let g:ctrlp_clear_cache_on_exit = 1
-
-" cpsm
-let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
-let g:loaded_python_provider = 1        " disable Python 2 support
-let g:python3_host_prog = '/usr/bin/python3'
-
-" ctrlp-funky
-nnoremap <C-l> :CtrlPFunky<cr>
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_syntax_highlight = 1
-
-
 " vim-sayonara
 nnoremap <leader>q :Sayonara<cr>
 nnoremap <leader>Q :Sayonara!<cr>
-
-
-" ctrlsf
-nmap <C-k> <Plug>CtrlSFPrompt
 
 
 " gitgutter
@@ -361,3 +325,24 @@ nnoremap <silent> <F6> :NERDTreeFind<CR>
 map <Space> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
 map <Plug>(easymotion-prefix)s <Plug>(easymotion-s)
+
+
+" vim-better-whitespace
+let g:better_whitespace_filetypes_blacklist=['ctrlsf']
+
+
+" fzf.vim
+nnoremap <C-p> :Files<Cr>
+" use proximity-sort to make sure that files are sorted according
+function! s:list_cmd()
+  let base = fnamemodify(expand('%'), ':h:.:S')
+  return base == '.' ? 'fd -t f' : printf('fd -t f | proximity-sort %s', expand('%'))
+endfunction
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': s:list_cmd(),
+  \                               'options': '--tiebreak=index'}), <bang>0)
+
+
+" ctrlsf.vim
+nmap <C-k> <Plug>CtrlSFPrompt
