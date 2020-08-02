@@ -72,7 +72,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'nixprime/cpsm', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
-Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'                    " undo-tree visualizer
 Plug 'chrisbra/SudoEdit.vim'            " add :SudoWrite to save file with sudo
 Plug 'tpope/vim-speeddating'            " allow C-X and C-A to also work on dates
