@@ -52,7 +52,7 @@ Plug 'ap/vim-css-color'
 Plug 'mhinz/neovim-remote'              " for vimtex remote editor
 Plug 'vim-scripts/a.vim'                " alternate between headers and implementations
 Plug 'Raimondi/delimitMate'             " automatically place closing parenthesis and such
-Plug 'terryma/vim-multiple-cursors'     " multicursor supports via C-X, C-N
+Plug 'mg979/vim-visual-multi'           " multicursor supports via C-X
 Plug 'tpope/vim-unimpaired'             " better bracket mappings
 Plug 'tpope/vim-fugitive'               " git functionality
 Plug 'tpope/vim-rhubarb'                " GitHub addon for fugitibe :Gbrowse
