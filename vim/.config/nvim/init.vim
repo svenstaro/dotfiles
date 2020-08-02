@@ -355,6 +355,7 @@ let g:vim_markdown_folding_disabled=1
 
 " nerdtree
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
+nnoremap <silent> <F6> :NERDTreeFind<CR>
 
 
 " easymotion
