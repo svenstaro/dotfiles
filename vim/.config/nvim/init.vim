@@ -64,7 +64,7 @@ Plug 'scrooloose/nerdtree'              " file browser
 Plug 'tpope/vim-repeat'                 " allow . to repeat more stuff
 Plug 'tpope/vim-surround'               " neat surround motions
 Plug 'tpope/vim-abolish'                " better substitutions
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'               " various syntax checkers
 Plug 'vim-scripts/taglist.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
