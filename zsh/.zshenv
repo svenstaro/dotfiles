@@ -7,6 +7,7 @@ export LC_TIME=en_US.UTF-8
 export LC_MONETARY=de_DE.UTF-8
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export FZF_CTRL_R_OPTS=-s
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 export PATH=${PATH}:~/.cargo/bin:~/.yarn/bin:~/.pub-cache/bin:~/flutter/bin
 
