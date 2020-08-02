@@ -291,6 +291,8 @@ let g:vimtex_latexmk_options = '-pdf -verbose -file-line-error -synctex=1 -inter
 
 " LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
     \ 'rust': ['rust-analyzer'],
     \ 'python': ['pyls'],
     \ 'dart': ['dart_language_server'],
@@ -316,7 +318,7 @@ endfunction()
 
 augroup LSP
   autocmd!
-  autocmd FileType rust,python,dart,sh,c,cpp,cude,obj,java call SetLSPShortcuts()
+  autocmd FileType typescript,javascript,rust,python,dart,sh,c,cpp,cude,obj,java call SetLSPShortcuts()
 augroup END
 
 
