@@ -242,8 +242,9 @@ let g:ctrlp_extensions = ['funky']
 " MRU relative to current working directory
 let g:ctrlp_mruf_relative = 1
 
-" ag is fast enough that CtrlP doesn't need to cache
+" No one needs caching when you have rg
 let g:ctrlp_use_caching = 0
+let g:ctrlp_clear_cache_on_exit = 1
 
 " cpsm
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
