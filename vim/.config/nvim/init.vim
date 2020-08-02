@@ -72,41 +72,23 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'vim-scripts/taglist.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'nixprime/cpsm', { 'do': './install.sh' }
-Plug 'dyng/ctrlsf.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
 Plug 'chrisbra/SudoEdit.vim'
-Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-speeddating'
 Plug 'mhinz/vim-sayonara'
 Plug 'godlygeek/tabular'
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'ncm2/ncm2-html-subscope'
-Plug 'ncm2/ncm2-markdown-subscope'
-Plug 'ncm2/ncm2-rst-subscope'
-Plug 'roxma/nvim-yarp'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'metakirby5/codi.vim'
-Plug 'bronson/vim-visual-star-search'
-Plug 'machakann/vim-highlightedyank'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'bronson/vim-visual-star-search' " allow for searching by current visual selection
+Plug 'machakann/vim-highlightedyank'  " highlight what was just yanked
 Plug 'junegunn/fzf'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " basics
@@ -215,14 +197,6 @@ let g:formatters_opencl = ['clangformat']
 let g:formatters_glsl = ['clangformat']
 
 
-" emmet-vim
-let g:user_emmet_leader_key='<C-E>'
-
-
-" vim-better-whitespace
-let g:better_whitespace_filetypes_blacklist=['ctrlsf']
-
-
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -233,36 +207,9 @@ let g:airline_right_alt_sep=''
 let g:airline#extensions#tabline#enabled = 1
 
 
-" ctrlp
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_user_command = 'rg %s --files -i --color=never --glob ''!.git'' --glob ''!.DS_Store'' --glob ''!node_modules'' --no-messages --hidden -g ""'
-let g:ctrlp_extensions = ['funky']
-
-" MRU relative to current working directory
-let g:ctrlp_mruf_relative = 1
-
-" No one needs caching when you have rg
-let g:ctrlp_use_caching = 0
-let g:ctrlp_clear_cache_on_exit = 1
-
-" cpsm
-let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
-let g:loaded_python_provider = 1        " disable Python 2 support
-let g:python3_host_prog = '/usr/bin/python3'
-
-" ctrlp-funky
-nnoremap <C-l> :CtrlPFunky<cr>
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_syntax_highlight = 1
-
-
 " vim-sayonara
 nnoremap <leader>q :Sayonara<cr>
 nnoremap <leader>Q :Sayonara!<cr>
-
-
-" ctrlsf
-nmap <C-k> <Plug>CtrlSFPrompt
 
 
 " gitgutter
@@ -287,83 +234,6 @@ let g:vimtex_fold_enabled = 0
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_latexmk_progname = '/home/svenstaro/.config/nvim/plug/neovim-remote/nvr'
 let g:vimtex_latexmk_options = '-pdf -verbose -file-line-error -synctex=1 -interaction=nonstopmode -shell-escape'
-
-
-" LanguageClient-neovim
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'rust': ['rust-analyzer'],
-    \ 'python': ['pyls'],
-    \ 'dart': ['dart_language_server'],
-    \ 'sh': ['bash-language-server', 'start'],
-    \ 'c': ['clangd'],
-    \ 'cpp': ['clangd'],
-    \ 'cuda': ['clangd'],
-    \ 'obcj': ['clangd'],
-    \ 'java': ['jdtls', '-data', getcwd()],
-    \ }
-
-let $RUST_BACKTRACE = 1
-let g:LanguageClient_loggingLevel = 'INFO'
-let g:LanguageClient_loggingFile = expand('~/.local/share/nvim/LanguageClient.log')
-let g:LanguageClient_serverStderr = expand('~/.local/share/nvim/LanguageServer.log')
-
-function SetLSPShortcuts()
-  nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-endfunction()
-
-augroup LSP
-  autocmd!
-  autocmd FileType typescript,javascript,rust,python,dart,sh,c,cpp,cude,obj,java call SetLSPShortcuts()
-augroup END
-
-
-" ncm2
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" IMPORTANT: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
-
-" NOTE: you need to install completion sources to get completions. Check
-" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-
-" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
-" found' messages
-set shortmess+=c
-
-" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-inoremap <c-c> <ESC>
-
-" When the <Enter> key is pressed while the popup menu is visible, it only
-" hides the menu. Use this mapping to close the menu and also start a new
-" line.
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" wrap existing omnifunc
-" Note that omnifunc does not run in background and may probably block the
-" editor. If you don't want to be blocked by omnifunc too often, you could
-" add 180ms delay before the omni wrapper:
-"  'on_complete': ['ncm2#on_complete#delay', 180,
-"               \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-" au User Ncm2Plugin call ncm2#register_source({
-"         \ 'name' : 'css',
-"         \ 'priority': 9,
-"         \ 'subscope_enable': 1,
-"         \ 'scope': ['css','scss'],
-"         \ 'mark': 'css',
-"         \ 'word_pattern': '[\w\-]+',
-"         \ 'complete_pattern': ':\s*',
-"         \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-"         \ })
 
 
 " vim-markdown
