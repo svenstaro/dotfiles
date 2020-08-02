@@ -49,22 +49,22 @@ Plug 'flazz/vim-colorschemes'
 Plug 'ap/vim-css-color'
 
 " Functionality
-Plug 'mhinz/neovim-remote'
-Plug 'vim-scripts/a.vim'
-Plug 'Raimondi/delimitMate'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
+Plug 'mhinz/neovim-remote'              " for vimtex remote editor
+Plug 'vim-scripts/a.vim'                " alternate between headers and implementations
+Plug 'Raimondi/delimitMate'             " automatically place closing parenthesis and such
+Plug 'terryma/vim-multiple-cursors'     " multicursor supports via C-X, C-N
+Plug 'tpope/vim-unimpaired'             " better bracket mappings
+Plug 'tpope/vim-fugitive'               " git functionality
+Plug 'tpope/vim-rhubarb'                " GitHub addon for fugitibe :Gbrowse
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'Valloric/MatchTagAlways'
-Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-abolish'
+Plug 'airblade/vim-gitgutter'           " show git gutter
+Plug 'michaeljsmith/vim-indent-object'  " make indentation level into a text object
+Plug 'Valloric/MatchTagAlways'          " show matching tags
+Plug 'tomtom/tcomment_vim'              " language-aware commetning
+Plug 'scrooloose/nerdtree'              " file browser
+Plug 'tpope/vim-repeat'                 " allow . to repeat more stuff
+Plug 'tpope/vim-surround'               " neat surround motions
+Plug 'tpope/vim-abolish'                " better substitutions
 Plug 'w0rp/ale'
 Plug 'vim-scripts/taglist.vim'
 Plug 'SirVer/ultisnips'
