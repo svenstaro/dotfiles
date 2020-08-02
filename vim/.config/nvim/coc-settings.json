@@ -1,0 +1,4 @@
+{
+	"python.jediEnabled": false,
+	"rust-analyzer.serverPath": "/usr/bin/rust-analyzer"
+}
