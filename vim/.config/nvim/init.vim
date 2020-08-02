@@ -65,18 +65,18 @@ Plug 'tpope/vim-repeat'                 " allow . to repeat more stuff
 Plug 'tpope/vim-surround'               " neat surround motions
 Plug 'tpope/vim-abolish'                " better substitutions
 Plug 'dense-analysis/ale'               " various syntax checkers
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'SirVer/ultisnips'                 " snippet engine
+Plug 'honza/vim-snippets'               " snippet collections
+Plug 'Lokaltog/vim-easymotion'          " some fun motions like jump-to-letter
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'nixprime/cpsm', { 'do': './install.sh' }
 Plug 'dyng/ctrlsf.vim'
 Plug 'thinca/vim-quickrun'
-Plug 'sjl/gundo.vim'
-Plug 'chrisbra/SudoEdit.vim'
-Plug 'tpope/vim-speeddating'
-Plug 'mhinz/vim-sayonara'
+Plug 'sjl/gundo.vim'                    " undo-tree visualizer
+Plug 'chrisbra/SudoEdit.vim'            " add :SudoWrite to save file with sudo
+Plug 'tpope/vim-speeddating'            " allow C-X and C-A to also work on dates
+Plug 'mhinz/vim-sayonara'               " close buffers and make them actually disappear
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
@@ -85,10 +85,10 @@ Plug 'ncm2/ncm2-html-subscope'
 Plug 'ncm2/ncm2-markdown-subscope'
 Plug 'ncm2/ncm2-rst-subscope'
 Plug 'roxma/nvim-yarp'
-Plug 'Chiel92/vim-autoformat'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'bronson/vim-visual-star-search'
-Plug 'machakann/vim-highlightedyank'
+Plug 'Chiel92/vim-autoformat'           " automatic formatting depending on filetype
+Plug 'ntpeters/vim-better-whitespace'   " visualize trailing whitespaces
+Plug 'bronson/vim-visual-star-search'   " allow for searching by current visual seleciton
+Plug 'machakann/vim-highlightedyank'    " highlight what was just yanked
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'junegunn/fzf'
 Plug 'autozimu/LanguageClient-neovim', {
