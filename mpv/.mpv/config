@@ -1,4 +1,5 @@
 alang=jpn
+cache-secs=300
 vo=gpu
 sub-ass=yes
 embeddedfonts=yes
