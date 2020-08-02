@@ -65,7 +65,6 @@ Plug 'tpope/vim-repeat'                 " allow . to repeat more stuff
 Plug 'tpope/vim-surround'               " neat surround motions
 Plug 'tpope/vim-abolish'                " better substitutions
 Plug 'dense-analysis/ale'               " various syntax checkers
-Plug 'vim-scripts/taglist.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Lokaltog/vim-easymotion'
@@ -76,7 +75,6 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'thinca/vim-quickrun'
 Plug 'sjl/gundo.vim'
 Plug 'chrisbra/SudoEdit.vim'
-Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-speeddating'
 Plug 'mhinz/vim-sayonara'
 Plug 'ncm2/ncm2'
@@ -89,7 +87,6 @@ Plug 'ncm2/ncm2-rst-subscope'
 Plug 'roxma/nvim-yarp'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'metakirby5/codi.vim'
 Plug 'bronson/vim-visual-star-search'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
