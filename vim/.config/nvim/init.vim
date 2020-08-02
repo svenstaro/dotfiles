@@ -132,7 +132,6 @@ set scrolloff=2         " keep 2 lines spacing between cursor and edge
 set number              " show line numbers
 set signcolumn=yes      " always show signcolumn
 syntax on               " enable syntax highlighting
-"set synmaxcol=200       " for performance reason, don't highlight long lines
 filetype plugin indent on
 
 map ; :
