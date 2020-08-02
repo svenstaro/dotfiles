@@ -56,7 +56,6 @@ Plug 'terryma/vim-multiple-cursors'     " multicursor supports via C-X, C-N
 Plug 'tpope/vim-unimpaired'             " better bracket mappings
 Plug 'tpope/vim-fugitive'               " git functionality
 Plug 'tpope/vim-rhubarb'                " GitHub addon for fugitibe :Gbrowse
-Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'airblade/vim-gitgutter'           " show git gutter
 Plug 'michaeljsmith/vim-indent-object'  " make indentation level into a text object
 Plug 'Valloric/MatchTagAlways'          " show matching tags
