@@ -139,7 +139,7 @@ map ; :
 
 " cursor settings
 set nocursorline        " don't highlight cursor line (this makes scrolling slow)
-set nocursorcolumn      " don't highlight cursor column (breaks completion preview)
+set cursorcolumn      " don't highlight cursor column (breaks completion preview)
 
 " wrap like other editors
 set wrap                " word wrap
