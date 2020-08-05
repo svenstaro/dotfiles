@@ -250,7 +250,7 @@ nnoremap <C-p> :Files<Cr>
 " use proximity-sort to make sure that files are sorted according
 function! s:list_cmd()
   let base = fnamemodify(expand('%'), ':h:.:S')
-  return base == '.' ? 'fd -t f' : printf('fd -t f | proximity-sort %s', expand('%'))
+  return base == '.' ? 'fd -t f -H' : printf('fd -t f -H | proximity-sort %s', expand('%'))
 endfunction
 
 command! -bang -nargs=? -complete=dir Files
