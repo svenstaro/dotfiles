@@ -5,7 +5,6 @@ Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'tfnico/vim-gradle'
 Plug 'rust-lang/rust.vim'
-Plug 'lervag/vimtex'
 Plug 'pearofducks/ansible-vim'
 Plug 'sudar/vim-arduino-syntax'
 Plug 'bfrg/vim-cpp-modern'
@@ -49,7 +48,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'ap/vim-css-color'
 
 " Functionality
-Plug 'mhinz/neovim-remote'              " for vimtex remote editor
 Plug 'vim-scripts/a.vim'                " alternate between headers and implementations
 Plug 'Raimondi/delimitMate'             " automatically place closing parenthesis and such
 Plug 'mg979/vim-visual-multi'           " multicursor supports via C-X
@@ -226,13 +224,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 autocmd FileType help unmap <C-]>
-
-
-" vimtex
-let g:vimtex_fold_enabled = 0
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_latexmk_progname = '/home/svenstaro/.config/nvim/plug/neovim-remote/nvr'
-let g:vimtex_latexmk_options = '-pdf -verbose -file-line-error -synctex=1 -interaction=nonstopmode -shell-escape'
 
 
 " vim-markdown
