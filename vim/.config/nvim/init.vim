@@ -250,12 +250,23 @@ let g:better_whitespace_filetypes_blacklist=['ctrlsf']
 
 
 " fzf.vim
-nnoremap <C-p> :Files<Cr>
 " use proximity-sort to make sure that files are sorted according
 function! s:list_cmd()
   let base = fnamemodify(expand('%'), ':h:.:S')
   return base == '.' ? 'fd -t f -H -E .git -E node_modules' : printf('fd -t f -H -E .git -E node_modules | proximity-sort %s', expand('%'))
 endfunction
+
+" run GFiles on the toplevel git dir, if found, otherwise fallback to Files from the current directory.
+function! s:find_files()
+    let git_dir = system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+    if git_dir != ''
+        execute 'GFiles' git_dir
+    else
+        execute 'Files'
+    endif
+endfunction
+command! ProjectFiles execute s:find_files()
+nnoremap <C-p> :ProjectFiles<Cr>
 
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': s:list_cmd(),
