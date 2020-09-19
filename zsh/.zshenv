@@ -8,7 +8,6 @@ export LC_MONETARY=de_DE.UTF-8
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export FZF_CTRL_R_OPTS=-s
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude node_modules'
-export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 export PATH=${PATH}:~/.cargo/bin:~/.yarn/bin:~/.pub-cache/bin:~/flutter/bin
 
 # Workaround for core-utils not currently supporting termite
