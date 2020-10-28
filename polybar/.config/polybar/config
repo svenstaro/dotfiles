@@ -142,7 +142,7 @@ ramp-used-7 = █
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = wlan0
 interval = 5
 
 format-connected = <label-connected> 📶 <ramp-signal> )
