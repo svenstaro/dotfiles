@@ -79,6 +79,7 @@ Plug 'junegunn/fzf.vim'                 " sweet fzf integration using :Files and
 Plug 'dyng/ctrlsf.vim'                  " search files for content and allow editing in search results
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " lots of LSP magic
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
