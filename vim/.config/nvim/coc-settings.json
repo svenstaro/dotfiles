@@ -1,4 +1,5 @@
 {
-	"python.jediEnabled": false,
-	"rust-analyzer.serverPath": "/usr/bin/rust-analyzer"
+    "python.jediEnabled": false,
+    "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
+    "rust-analyzer.lens.methodReferences": true
 }
