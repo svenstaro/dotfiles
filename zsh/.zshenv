@@ -1,4 +1,5 @@
-export AWS_VAULT_BACKEND=file
+export AWS_VAULT_BACKEND=pass
+export AWS_VAULT_PASS_PREFIX=aws-vault
 export ANSIBLE_NOCOWS=1
 export EDITOR=vim
 export BROWSER=firefox
