@@ -1,5 +1,17 @@
 {
     "python.jediEnabled": false,
     "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
-    "rust-analyzer.lens.methodReferences": true
+    "rust-analyzer.lens.methodReferences": true,
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-ls",
+            "args": ["serve"],
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {},
+            "settings": {}
+        }
+    }
 }
