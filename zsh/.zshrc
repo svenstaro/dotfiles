@@ -157,12 +157,3 @@ fdr() {
   local DIR=$(get_parent_dirs $(realpath "${1:-$(pwd)}") | fzf-tmux --tac)
   cd "$DIR"
 }
-
-transfer_() {
-  # write to output to tmpfile because of progress bar
-  tmpfile=$( mktemp -t transferXXX )
-  curl -w '\n' --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
-  cat $tmpfile;
-  rm -f $tmpfile;
-}
-alias transfer=transfer_
