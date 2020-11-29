@@ -44,7 +44,7 @@ Plug 'thosakwe/vim-flutter'
 
 " Looks
 Plug 'bling/vim-airline'
-Plug 'flazz/vim-colorschemes'
+Plug 'srcery-colors/srcery-vim'
 Plug 'ap/vim-css-color'
 
 " Functionality
@@ -97,9 +97,6 @@ call plug#end()
 " basics
 let mapleader = ","     " map leader to ,
 set mouse=a             " make sure mouse is used in all cases.
-set termguicolors       " true color
-colorscheme gruvbox     " define syntax color scheme
-set background=dark
 set shortmess+=I        " disable the welcome screen
 set clipboard+=unnamedplus " yank and copy to X clipboard
 set backspace=2         " full backspacing capabilities
@@ -120,6 +117,14 @@ syntax on               " enable syntax highlighting
 filetype plugin indent on
 
 map ; :
+
+" color settings
+set termguicolors       " true color
+colorscheme srcery      " define syntax color scheme
+set background=dark
+let g:srcery_italic=1
+let g:srcery_inverse_matches=1      " inverse search matches
+let g:srcery_inverse_match_paren=1  " inverse matching delimiters
 
 " cursor settings
 set nocursorline        " don't highlight cursor line (this makes scrolling slow)
