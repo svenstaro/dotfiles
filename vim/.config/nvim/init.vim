@@ -120,11 +120,11 @@ map ; :
 
 " color settings
 set termguicolors       " true color
-colorscheme srcery      " define syntax color scheme
 set background=dark
 let g:srcery_italic=1
 let g:srcery_inverse_matches=1      " inverse search matches
 let g:srcery_inverse_match_paren=1  " inverse matching delimiters
+colorscheme srcery      " define syntax color scheme
 
 " cursor settings
 set nocursorline        " don't highlight cursor line (this makes scrolling slow)
