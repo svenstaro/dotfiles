@@ -32,42 +32,43 @@ cursor_shape = block
 [colors]
 
 # special
-foreground      = #f1ebeb
-foreground_bold = #f1ebeb
-cursor          = #f1ebeb
-background      = rgba(15, 15, 15, 0.8)
+foreground        = #fce8c3
+foreground_bold   = #fce8c3
+cursor            = #fbb829
+cursor_foreground = #1c1b19
+background        = #1c1b19
 
 # black
-color0  = #48483e
-color8  = #76715e
+color0  = #1c1b19
+color8  = #918175
 
 # red
-color1  = #dc2566
-color9  = #fa2772
+color1  = #ef2f27
+color9  = #f75341
 
 # green
-color2  = #8fc029
-color10 = #a7e22e
+color2  = #519f50
+color10 = #98bc37
 
 # yellow
-color3  = #d4c96e
-color11 = #e7db75
+color3  = #fbb829
+color11 = #fed06e
 
 # blue
-color4  = #258cce
-color12 = #36c9ee
+color4  = #2c78bf
+color12 = #68a8e4
 
 # magenta
-color5  = #9358fe
-color13 = #ae82ff
+color5  = #e02c6d
+color13 = #ff5c8f
 
 # cyan
-color6  = #56b7a5
-color14 = #66efd5
+color6  = #0aaeb3
+color14 = #53fde9
 
 # white
-color7  = #acada1
-color15 = #cfd0c2
+color7  = #d0bfa1
+color15 = #fce8c3
 
 # if unset, will reverse foreground and background
 #highlight = #2f2f2f
