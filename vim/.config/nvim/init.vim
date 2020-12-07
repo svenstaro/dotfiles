@@ -44,7 +44,7 @@ Plug 'thosakwe/vim-flutter'
 
 " Looks
 Plug 'bling/vim-airline'
-Plug 'srcery-colors/srcery-vim'
+Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
 
 " Functionality
@@ -121,10 +121,10 @@ map ; :
 " color settings
 set termguicolors       " true color
 set background=dark
-let g:srcery_italic=1
-let g:srcery_inverse_matches=1      " inverse search matches
-let g:srcery_inverse_match_paren=1  " inverse matching delimiters
-colorscheme srcery      " define syntax color scheme
+" gruvbox settings. See https://github.com/morhetz/gruvbox/wiki/Configuration
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_sign_column='bg0'
+colorscheme gruvbox      " define syntax color scheme
 
 " cursor settings
 set nocursorline        " don't highlight cursor line (this makes scrolling slow)
