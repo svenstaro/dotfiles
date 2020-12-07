@@ -7,8 +7,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-#font = Source Code Pro for Powerline 8
-font = Input Mono 12
+font = Input Mono 8
 scrollback_lines = 1000
 search_wrap = true
 #icon_name = terminal
@@ -30,48 +29,44 @@ cursor_shape = block
 #modify_other_keys = false
 
 [colors]
+# hard contrast: background = #1d2021
+background = #131516
+; background = #282828
+# soft contrast: background = #32302f
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
 
-# special
-foreground        = #fce8c3
-foreground_bold   = #fce8c3
-cursor            = #fbb829
-cursor_foreground = #1c1b19
-background        = #1c1b19
+# dark0 + gray
+color0 = #282828
+color8 = #928374
 
-# black
-color0  = #1c1b19
-color8  = #918175
+# neutral_red + bright_red
+color1 = #cc241d
+color9 = #fb4934
 
-# red
-color1  = #ef2f27
-color9  = #f75341
+# neutral_green + bright_green
+color2 = #98971a
+color10 = #b8bb26
 
-# green
-color2  = #519f50
-color10 = #98bc37
+# neutral_yellow + bright_yellow
+color3 = #d79921
+color11 = #fabd2f
 
-# yellow
-color3  = #fbb829
-color11 = #fed06e
+# neutral_blue + bright_blue
+color4 = #458588
+color12 = #83a598
 
-# blue
-color4  = #2c78bf
-color12 = #68a8e4
+# neutral_purple + bright_purple
+color5 = #b16286
+color13 = #d3869b
 
-# magenta
-color5  = #e02c6d
-color13 = #ff5c8f
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #8ec07c
 
-# cyan
-color6  = #0aaeb3
-color14 = #53fde9
-
-# white
-color7  = #d0bfa1
-color15 = #fce8c3
-
-# if unset, will reverse foreground and background
-#highlight = #2f2f2f
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2
 
 [hints]
 #font = Monospace 12
