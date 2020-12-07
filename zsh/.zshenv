@@ -1,5 +1,8 @@
 export AWS_VAULT_BACKEND=pass
 export AWS_VAULT_PASS_PREFIX=aws-vault
+export AWS_SESSION_TOKEN_TTL=4h
+export AWS_ASSUME_ROLE_TTL=4h
+export AWS_FEDERATION_TOKEN_TTL=4h
 export ANSIBLE_NOCOWS=1
 export EDITOR=vim
 export BROWSER=firefox
