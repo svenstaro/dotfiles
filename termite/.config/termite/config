@@ -29,44 +29,44 @@ cursor_shape = block
 #modify_other_keys = false
 
 [colors]
-# hard contrast: background = #1d2021
-background = #131516
-; background = #282828
-# soft contrast: background = #32302f
-foreground = #ebdbb2
-foreground_bold = #ebdbb2
 
-# dark0 + gray
-color0 = #282828
-color8 = #928374
+# special
+foreground      = #f1ebeb
+foreground_bold = #f1ebeb
+cursor          = #f1ebeb
+background      = rgba(15, 15, 15, 0.8)
 
-# neutral_red + bright_red
-color1 = #cc241d
-color9 = #fb4934
+# black
+color0  = #48483e
+color8  = #76715e
 
-# neutral_green + bright_green
-color2 = #98971a
-color10 = #b8bb26
+# red
+color1  = #dc2566
+color9  = #fa2772
 
-# neutral_yellow + bright_yellow
-color3 = #d79921
-color11 = #fabd2f
+# green
+color2  = #8fc029
+color10 = #a7e22e
 
-# neutral_blue + bright_blue
-color4 = #458588
-color12 = #83a598
+# yellow
+color3  = #d4c96e
+color11 = #e7db75
 
-# neutral_purple + bright_purple
-color5 = #b16286
-color13 = #d3869b
+# blue
+color4  = #258cce
+color12 = #36c9ee
 
-# neutral_aqua + faded_aqua
-color6 = #689d6a
-color14 = #8ec07c
+# magenta
+color5  = #9358fe
+color13 = #ae82ff
 
-# light4 + light1
-color7 = #a89984
-color15 = #ebdbb2
+# cyan
+color6  = #56b7a5
+color14 = #66efd5
+
+# white
+color7  = #acada1
+color15 = #cfd0c2
 
 [hints]
 #font = Monospace 12
