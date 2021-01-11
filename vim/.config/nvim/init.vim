@@ -281,7 +281,7 @@ command! -bang -nargs=? -complete=dir Files
 
 
 " ctrlsf.vim
-nmap <C-S-f> <Plug>CtrlSFPrompt
+nmap <S-F> <Plug>CtrlSFPrompt
 
 
 " coc.nvim - everything below!
