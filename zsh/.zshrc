@@ -118,6 +118,9 @@ alias irc='ssh -C tank -t "tmux attach -t irc"'
 alias weather='curl wttr.in'
 alias moon='curl wttr.in/Moon'
 
+# Trans
+alias t="trans de:en"
+alias te="trans :en"
 
 # zoxide
 source <(zoxide init zsh)
