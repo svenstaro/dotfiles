@@ -101,6 +101,7 @@ alias ee='exa -lgF --git'
 alias grep='grep --color=auto'
 alias sys='sudo systemctl'
 alias sysu='systemctl --user'
+alias ht='ht-rust'
 
 alias svim='sudo vim'
 alias spacman='sudo pacman'
