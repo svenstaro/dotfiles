@@ -204,6 +204,9 @@ noremap <Leader>f :Autoformat<CR>
 let g:formatters_opencl = ['clangformat']
 let g:formatters_glsl = ['clangformat']
 
+autocmd BufWritePre *.rs :Autoformat
+autocmd BufWritePre *.tf,*.tfvars :Autoformat
+
 
 " vim-airline
 set laststatus=2
