@@ -58,7 +58,7 @@ Plug 'airblade/vim-gitgutter'           " show git gutter
 Plug 'michaeljsmith/vim-indent-object'  " make indentation level into a text object
 Plug 'Valloric/MatchTagAlways'          " show matching tags
 Plug 'tomtom/tcomment_vim'              " language-aware commetning
-Plug 'scrooloose/nerdtree'              " file browser
+Plug 'preservim/nerdtree'               " file browser
 Plug 'tpope/vim-repeat'                 " allow . to repeat more stuff
 Plug 'tpope/vim-surround'               " neat surround motions
 Plug 'tpope/vim-abolish'                " better substitutions
