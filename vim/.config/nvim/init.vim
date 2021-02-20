@@ -41,6 +41,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'pest-parser/pest.vim'
 Plug 'thosakwe/vim-flutter'
+Plug 'nfnty/vim-nftables'
 
 " Looks
 Plug 'bling/vim-airline'
