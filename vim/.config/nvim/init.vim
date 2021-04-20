@@ -207,6 +207,7 @@ let g:formatters_glsl = ['clangformat']
 
 autocmd BufWritePre *.rs :Autoformat
 autocmd BufWritePre *.tf,*.tfvars :Autoformat
+autocmd BufWritePre *.pkr.hcl :Autoformat terraform
 
 
 " vim-airline
