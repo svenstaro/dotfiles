@@ -205,6 +205,7 @@ noremap <Leader>f :Autoformat<CR>
 let g:formatters_opencl = ['clangformat']
 let g:formatters_glsl = ['clangformat']
 
+autocmd BufNewFile,BufRead *.tf,*.tfvars set filetype=terraform
 autocmd BufWritePre *.rs :Autoformat
 autocmd BufWritePre *.tf,*.tfvars :Autoformat
 autocmd BufWritePre *.pkr.hcl :Autoformat terraform
