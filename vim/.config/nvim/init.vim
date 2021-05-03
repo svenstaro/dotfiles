@@ -178,6 +178,9 @@ autocmd FileType python let python_highlight_all = 1
 autocmd FileType tex,latex :set textwidth=99
 autocmd FileType markdown :set textwidth=99
 autocmd FileType tex,latex :set spell spelllang=en
+augroup filetypedetect
+  au BufNewFile,BufRead Justfile,justfile setf make
+augroup END
 
 " make sure that we get system Python for neovim itself even if we are in a virtualenv
 let g:python3_host_prog = '/usr/bin/python3'
