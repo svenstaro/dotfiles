@@ -123,6 +123,8 @@ alias moon='curl wttr.in/Moon'
 alias t="trans de:en"
 alias te="trans :en"
 
+alias ssh="TERM=xterm-256color ssh"
+
 # zoxide
 source <(zoxide init zsh)
 
