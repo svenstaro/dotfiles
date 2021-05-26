@@ -124,6 +124,7 @@ alias t="trans de:en"
 alias te="trans :en"
 
 alias ssh="TERM=xterm-256color ssh"
+alias hcloud="TERM=xterm-256color hcloud"
 
 # zoxide
 source <(zoxide init zsh)
