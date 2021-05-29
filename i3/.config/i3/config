@@ -30,7 +30,7 @@ bindsym $mod+Shift+f exec wmfocus
 bindsym $mod+space exec --no-startup-id "rofi -show combi -switchers combi -combi-modi 'window,run' -dpi 180"
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort -dpi 180"
 bindsym $mod+p exec --no-startup-id "rofi-pass"
-bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3lock -k --ignore-empty-password -c 444444 --insidevercolor=6666FFAA --insidewrongcolor=FF333322 --insidecolor=333333EE --timepos="ix:iy + 300" --timecolor=FFFFFFDD --time-font="Input Mono" --timesize=40 --datestr="%F" --datecolor=FFFFFFAA --date-font="Input Mono" --datesize=25 --redraw-thread
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3lock -k --ignore-empty-password -c 444444 --insidever-color=6666FFAA --insidewrong-color=FF333322 --inside-color=333333EE --time-pos="ix:iy + 300" --time-color=FFFFFFDD --time-font="Input Mono" --time-size=40 --date-str="%F" --date-color=FFFFFFAA --date-font="Input Mono" --date-size=25 --redraw-thread
 bindsym Print exec --no-startup-id flameshot gui
 
 # change focus
