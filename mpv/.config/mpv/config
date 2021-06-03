@@ -1,6 +1,6 @@
 alang=jpn
 cache-secs=300
-vo=gpu
+hwdec=auto
 sub-ass=yes
 embeddedfonts=yes
 correct-pts=yes
