@@ -115,10 +115,6 @@ alias db-move-community='ssh repos.archlinux.org /community/db-move'
 alias db-update-packages='ssh repos.archlinux.org /packages/db-update'
 alias db-update-community='ssh repos.archlinux.org /community/db-update'
 
-alias irc='ssh -C tank -t "tmux attach -t irc"'
-alias weather='curl wttr.in'
-alias moon='curl wttr.in/Moon'
-
 # Trans
 alias t="trans de:en"
 alias te="trans :en"
