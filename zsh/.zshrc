@@ -104,12 +104,13 @@ alias sysu='systemctl --user'
 alias ht='ht-rust'
 alias locate='plocate'
 
+# Sudo shortcuts
 alias svim='sudo vim'
 alias spacman='sudo pacman'
 
+# Arch stuff
 alias mkchr='multilib-build'
 alias offload='offload-build'
-
 alias db-move-packages='ssh repos.archlinux.org /packages/db-move'
 alias db-move-community='ssh repos.archlinux.org /community/db-move'
 alias db-update-packages='ssh repos.archlinux.org /packages/db-update'
