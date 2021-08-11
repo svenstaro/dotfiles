@@ -102,6 +102,8 @@ alias grep='grep --color=auto'
 alias sys='sudo systemctl'
 alias sysu='systemctl --user'
 alias locate='plocate'
+alias vpnoff='sudo networkctl down vpn'
+alias vpnon='sudo networkctl up vpn'
 
 # Sudo shortcuts
 alias svim='sudo vim'
