@@ -105,6 +105,10 @@ alias locate='plocate'
 alias vpnoff='sudo networkctl down vpn'
 alias vpnon='sudo networkctl up vpn'
 
+# Git aliases
+alias gpf='git push --force-with-lease'
+alias gpu='git publish'
+
 # Sudo shortcuts
 alias svim='sudo vim'
 alias spacman='sudo pacman'
