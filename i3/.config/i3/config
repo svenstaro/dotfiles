@@ -131,8 +131,8 @@ bindsym XF86AudioMute exec "ponymix toggle"
 bindsym XF86AudioLowerVolume exec "ponymix decrease 10"
 bindsym XF86AudioRaiseVolume exec "ponymix increase 10"
 bindsym XF86AudioMicMute exec "amixer sset Capture toggle"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 5%"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 5%"
+bindsym XF86MonBrightnessDown exec "brightnessctl s 5%-"
+bindsym XF86MonBrightnessUp exec "brightnessctl s +5%"
 bindsym XF86Display exec arandr
 
 # window rules
