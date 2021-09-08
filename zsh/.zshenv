@@ -14,6 +14,7 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export FZF_CTRL_R_OPTS=-s
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude node_modules'
 export PATH=${PATH}:~/.cargo/bin:~/.yarn/bin:~/.pub-cache/bin:~/flutter/bin
+export ADB_LIBUSB=1
 
 # Workaround for core-utils not currently supporting termite
 if [[ -n $TMUX ]]; then
