@@ -4,6 +4,7 @@
     "rust-analyzer.lens.methodReferences": true,
     "rust-analyzer.cargo.allFeatures": true,
     "rust-analyzer.procMacro.enable": true,
+    "rust-analyzer.diagnostics.disabled": ["unresolved-macro-call"],
     "rust-analyzer.cargo.runBuildScripts": true,
     "languageserver": {
         "terraform": {
