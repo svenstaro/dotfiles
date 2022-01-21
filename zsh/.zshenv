@@ -15,3 +15,6 @@ export FZF_CTRL_R_OPTS=-s
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude node_modules'
 export PATH=${PATH}:~/.cargo/bin:~/.yarn/bin:~/.pub-cache/bin:~/flutter/bin
 export ADB_LIBUSB=1
+
+# Stop pip from asking to use the Keyring.
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
