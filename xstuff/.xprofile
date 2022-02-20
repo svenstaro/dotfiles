@@ -14,3 +14,8 @@ compton --config ~/.config/compton.conf -b
 dunst &
 slack &
 telegram-desktop &
+export XSECURELOCK_SAVER=saver_mpv
+export XSECURELOCK_SHOW_DATETIME=1
+export XSECURELOCK_LIST_VIDEOS_COMMAND="find ~/Videos/Fractals/ -type f"
+export XSECURELOCK_VIDEOS_FLAGS="--panscan=1.0"
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
