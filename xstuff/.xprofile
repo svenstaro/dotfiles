@@ -8,7 +8,8 @@ fi
 
 setxkbmap -layout us,ru -variant altgr-intl,phonetic -option grp:shifts_toggle
 
-redshift-gtk &
+# We start redshift-gtk via systemd user service nowadays.
+# redshift-gtk &
 numlockx &
 ./.fehbg &
 dunst &
