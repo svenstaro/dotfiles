@@ -10,7 +10,6 @@ setxkbmap -layout us,ru -variant altgr-intl,phonetic -option grp:shifts_toggle
 
 numlockx &
 ./.fehbg &
-compton --config ~/.config/compton.conf -b
 dunst &
 slack &
 telegram-desktop &
