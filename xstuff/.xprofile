@@ -8,11 +8,21 @@ fi
 
 setxkbmap -layout us,ru -variant altgr-intl,phonetic -option grp:shifts_toggle
 
+redshift-gtk &
 numlockx &
 ./.fehbg &
 dunst &
+
+# Messengers
 slack &
 telegram-desktop &
+discord &
+signal-desktop &
+teams --no-sandbox &
+element-desktop &
+
+sleep 5 && easyeffects --gapplication-service &
+
 export XSECURELOCK_SAVER=saver_mpv
 export XSECURELOCK_SHOW_DATETIME=1
 export XSECURELOCK_LIST_VIDEOS_COMMAND="find ~/Videos/Fractals/ -type f"
