@@ -1,0 +1,59 @@
+theme = "slick"
+icons = "awesome"
+
+[[block]]
+block = "disk_space"
+info_type = "available"
+unit = "GB"
+format = "{icon} {used}/{total} ({available} free)"
+interval = 20
+
+[[block]]
+block = "net"
+format = "{ssid} {signal_strength} {frequency} {ip} {speed_down;K*B} {speed_up;K*B}"
+hide_missing = true
+hide_inactive = true
+interval = 1
+
+[[block]]
+block = "battery"
+format = "{percentage} {time}h {power}"
+device = "/sys/class/power_supply/BAT0"
+if_command = "test -e /sys/class/power_supply/BAT0"
+
+[[block]]
+block = "battery"
+format = "{percentage} {time}h {power}"
+device = "/sys/class/power_supply/BAT1"
+if_command = "test -e /sys/class/power_supply/BAT1"
+
+[[block]]
+block = "temperature"
+collapsed = false
+interval = 10
+format = "{max}"
+good = 35
+idle = 50
+info = 60
+warning = 70
+
+[[block]]
+block = "cpu"
+format = "CPU {utilization:5#100}"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "MEM {mem_used_percents:5#100}"
+format_swap = "MEM {swap_used_percents:5#100}"
+
+[[block]]
+block = "sound"
+format = "{volume} {volume:10#100}"
+on_click = "ponymix toggle"
+headphones_indicator = true
+
+[[block]]
+block = "time"
+interval = 5
+format = "%F %R"
