@@ -133,8 +133,8 @@ source <(zoxide init zsh)
 
 
 # ssh keys
-eval $(keychain --eval --timeout 600 --agents ssh -Q --quiet --noask arch_rsa id_rsa skeletonkey_rsa)
-alias auth='eval $(keychain --eval --timeout 600 --agents ssh -Q --quiet arch_rsa id_rsa skeletonkey_rsa)'
+eval $(keychain --eval --timeout 600 --agents ssh -Q --quiet --noask arch_rsa id_ed25519 skeletonkey_rsa)
+alias auth='eval $(keychain --eval --timeout 600 --agents ssh -Q --quiet arch_rsa id_ed25519 skeletonkey_rsa)'
 
 
 # fzf
