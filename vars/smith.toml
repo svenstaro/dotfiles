@@ -1,1 +1,2 @@
 profile = "smith"
+makepkg_jobs = "9"

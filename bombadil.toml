@@ -29,3 +29,22 @@ xprofile = { source = "x11/xprofile", target = ".xprofile" }
 
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
 zshenv = { source = "zsh/zshenv", target = ".zshenv" }
+
+[profiles.neo]
+vars = [ "vars/neo.toml" ]
+
+[profiles.neo.dots]
+makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
+
+[profiles.smith]
+vars = [ "vars/smith.toml" ]
+
+[profiles.smith.dots]
+makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
+
+[profiles.dozer]
+vars = [ "vars/dozer.toml" ]
+
+[profiles.dozer.dots]
+beets = { source = "beets/config.yaml", target = ".config/beets/config.yaml" }
+beets_genres = { source = "beets/genres.txt", target = ".config/beets/genres.txt" }

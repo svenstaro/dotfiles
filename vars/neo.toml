@@ -1,0 +1,2 @@
+profile = "neo"
+makepkg_jobs = "65"
