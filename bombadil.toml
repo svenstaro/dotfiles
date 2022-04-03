@@ -7,6 +7,10 @@ vars = [ "vars/base.toml" ]
 vars = [ "vars/smith.toml" ]
 
 [settings.dots]
+vim_coc_settings = { source = "vim/coc-settings.json", target = ".config/nvim/coc-settings.json" }
+vim_init = { source = "vim/init.vim", target = ".config/nvim/init.vim" }
+vim_plug = { source = "vim/plug.vim", target = ".config/nvim/autoload/plug.vim" }
+
 git = { source = "git/gitconfig", target = ".gitconfig" }
 
 gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
