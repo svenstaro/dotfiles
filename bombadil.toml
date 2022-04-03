@@ -4,25 +4,15 @@ gpg_user_id = "svenstaro@gmail.com"
 [settings]
 vars = [ "vars/base.toml" ]
 
-[profiles.smith]
-vars = [ "vars/smith.toml" ]
-
-[profiles.dozer]
-vars = [ "vars/dozer.toml" }
-
-[profiles.dozer.dots]
-beets = { source = "beets/config.yaml", target = ".config/beets/config.yaml" }
-beets_genres = { source = "beets/genres.txt", target = ".config/beets/genres.txt" }
-
 [settings.dots]
-vim_coc_settings = { source = "vim/coc-settings.json", target = ".config/nvim/coc-settings.json" }
-vim_init = { source = "vim/init.vim", target = ".config/nvim/init.vim" }
-vim_plug = { source = "vim/plug.vim", target = ".config/nvim/autoload/plug.vim" }
-
 git = { source = "git/gitconfig", target = ".gitconfig" }
 
 gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
 gnupg = { source = "gnupg/gpg.conf", target = ".gnupg/gpg.conf" }
+
+vim_coc_settings = { source = "vim/coc-settings.json", target = ".config/nvim/coc-settings.json" }
+vim_init = { source = "vim/init.vim", target = ".config/nvim/init.vim" }
+vim_plug = { source = "vim/plug.vim", target = ".config/nvim/autoload/plug.vim" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
 xprofile = { source = "x11/xprofile", target = ".xprofile" }
