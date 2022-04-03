@@ -12,6 +12,8 @@ git = { source = "git/gitconfig", target = ".gitconfig" }
 gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
 gnupg = { source = "gnupg/gpg.conf", target = ".gnupg/gpg.conf" }
 
+termite = { source = "termite/config", target = ".config/termite/config" }
+
 tmux = { source = "tmux/tmux.conf", target = ".config/tmux/tmux.conf" }
 tmate = { source = "tmux/tmate.conf", target = ".tmate.conf" }
 
