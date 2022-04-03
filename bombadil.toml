@@ -1,0 +1,5 @@
+dotfiles_dir = "dotfiles"
+
+[settings.dots]
+zsh = { source = "zsh/zshrc", target = ".zshrc" }
+zshenv = { source = "zsh/zshenv", target = ".zshenv" }
