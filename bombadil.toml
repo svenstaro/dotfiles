@@ -1,4 +1,5 @@
 dotfiles_dir = ".dotfiles"
+gpg_user_id = "svenstaro@gmail.com"
 
 [settings]
 vars = [ "vars/base.toml" ]
