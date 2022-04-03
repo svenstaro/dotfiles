@@ -10,6 +10,10 @@ vars = [ "vars/smith.toml" ]
 [profiles.dozer]
 vars = [ "vars/dozer.toml" }
 
+[profiles.dozer.dots]
+beets = { source = "beets/config.yaml", target = ".config/beets/config.yaml" }
+beets_genres = { source = "beets/genres.txt", target = ".config/beets/genres.txt" }
+
 [settings.dots]
 vim_coc_settings = { source = "vim/coc-settings.json", target = ".config/nvim/coc-settings.json" }
 vim_init = { source = "vim/init.vim", target = ".config/nvim/init.vim" }
