@@ -1,5 +1,19 @@
-dotfiles_dir = "dotfiles"
+dotfiles_dir = ".dotfiles"
+
+[settings]
+vars = [ "vars/base.toml" ]
+
+[profiles.smith]
+vars = [ "vars/smith.toml" ]
 
 [settings.dots]
+git = { source = "git/gitconfig", target = ".gitconfig" }
+
+gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
+gnupg = { source = "gnupg/gpg.conf", target = ".gnupg/gpg.conf" }
+
+xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
+xprofile = { source = "x11/xprofile", target = ".xprofile" }
+
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
 zshenv = { source = "zsh/zshenv", target = ".zshenv" }

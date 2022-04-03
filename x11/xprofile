@@ -1,10 +1,9 @@
 #!/bin/bash
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
-
-if [[ $(hostname) == "dozer" ]]; then
-    xrandr --dpi 140
-fi
+{%- if profile == "smith" %}
+xrandr --dpi 140
+{%- endif %}
 
 setxkbmap -layout us,ru -variant altgr-intl,phonetic -option grp:shifts_toggle
 
@@ -19,10 +18,11 @@ slack &
 telegram-desktop &
 discord &
 signal-desktop &
-teams --no-sandbox &
+teams --disable-seccomp-filter-sandbox &
 element-desktop &
+systemctl is-enabled bluetooth && blueman-applet &
 
-sleep 5 && easyeffects --gapplication-service &
+# sleep 5 && easyeffects --gapplication-service &
 
 export XSECURELOCK_SAVER=saver_mpv
 export XSECURELOCK_SHOW_DATETIME=1
