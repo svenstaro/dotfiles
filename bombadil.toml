@@ -7,6 +7,9 @@ vars = [ "vars/base.toml" ]
 [profiles.smith]
 vars = [ "vars/smith.toml" ]
 
+[profiles.dozer]
+vars = [ "vars/dozer.toml" }
+
 [settings.dots]
 vim_coc_settings = { source = "vim/coc-settings.json", target = ".config/nvim/coc-settings.json" }
 vim_init = { source = "vim/init.vim", target = ".config/nvim/init.vim" }
