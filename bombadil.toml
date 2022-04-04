@@ -21,9 +21,6 @@ vim_coc_settings = { source = "vim/coc-settings.json", target = ".config/nvim/co
 vim_init = { source = "vim/init.vim", target = ".config/nvim/init.vim" }
 vim_plug = { source = "vim/plug.vim", target = ".config/nvim/autoload/plug.vim" }
 
-xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
-xprofile = { source = "x11/xprofile", target = ".xprofile" }
-
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
 zshenv = { source = "zsh/zshenv", target = ".zshenv" }
 
@@ -35,6 +32,10 @@ makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.co
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
+xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
+xprofile = { source = "x11/xprofile", target = ".xprofile" }
+xresources = { source = "x11/Xresources", target = ".Xresources"}
+
 [profiles.smith]
 vars = [ "vars/smith.toml" ]
 
@@ -42,6 +43,10 @@ vars = [ "vars/smith.toml" ]
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 termite = { source = "termite/config", target = ".config/termite/config" }
+
+xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
+xprofile = { source = "x11/xprofile", target = ".xprofile" }
+xresources = { source = "x11/Xresources", target = ".Xresources"}
 
 [profiles.dozer]
 vars = [ "vars/dozer.toml" ]
