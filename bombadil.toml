@@ -12,6 +12,8 @@ git = { source = "git/gitconfig", target = ".gitconfig" }
 gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
 gnupg = { source = "gnupg/gpg.conf", target = ".gnupg/gpg.conf" }
 
+subversion = { source = "svn/config", target = ".subversion/config" }
+
 tmux = { source = "tmux/tmux.conf", target = ".config/tmux/tmux.conf" }
 tmate = { source = "tmux/tmate.conf", target = ".tmate.conf" }
 
