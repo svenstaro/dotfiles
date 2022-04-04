@@ -31,8 +31,8 @@ vars = [ "vars/neo.toml" ]
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
+rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 termite = { source = "termite/config", target = ".config/termite/config" }
-
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
 xprofile = { source = "x11/xprofile", target = ".xprofile" }
 xresources = { source = "x11/Xresources", target = ".Xresources"}
@@ -44,8 +44,8 @@ vars = [ "vars/smith.toml" ]
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
+rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 termite = { source = "termite/config", target = ".config/termite/config" }
-
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
 xprofile = { source = "x11/xprofile", target = ".xprofile" }
 xresources = { source = "x11/Xresources", target = ".Xresources"}
