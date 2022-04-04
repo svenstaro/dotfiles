@@ -28,8 +28,9 @@ zshenv = { source = "zsh/zshenv", target = ".zshenv" }
 vars = [ "vars/neo.toml" ]
 
 [profiles.neo.dots]
-makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
+fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
+makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
@@ -40,8 +41,9 @@ xresources = { source = "x11/Xresources", target = ".Xresources"}
 vars = [ "vars/smith.toml" ]
 
 [profiles.smith.dots]
-makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
+fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
+makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
