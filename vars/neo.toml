@@ -1,2 +1,3 @@
 profile = "neo"
 makepkg_jobs = "65"
+termite_font = "Input Mono 8"

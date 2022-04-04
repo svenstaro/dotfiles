@@ -1,2 +1,3 @@
 profile = "smith"
 makepkg_jobs = "9"
+termite_font = "Input Mono 9"
