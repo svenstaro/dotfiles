@@ -7,14 +7,10 @@ vars = [ "vars/base.toml" ]
 [settings.dots]
 btop = { source = "btop/btop.conf", target = ".config/btop/btop.conf" }
 
-dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
-
 git = { source = "git/gitconfig", target = ".gitconfig" }
 
 gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
 gnupg = { source = "gnupg/gpg.conf", target = ".gnupg/gpg.conf" }
-
-termite = { source = "termite/config", target = ".config/termite/config" }
 
 tmux = { source = "tmux/tmux.conf", target = ".config/tmux/tmux.conf" }
 tmate = { source = "tmux/tmate.conf", target = ".tmate.conf" }
@@ -34,12 +30,16 @@ vars = [ "vars/neo.toml" ]
 
 [profiles.neo.dots]
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
+dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
+termite = { source = "termite/config", target = ".config/termite/config" }
 
 [profiles.smith]
 vars = [ "vars/smith.toml" ]
 
 [profiles.smith.dots]
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
+dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
+termite = { source = "termite/config", target = ".config/termite/config" }
 
 [profiles.dozer]
 vars = [ "vars/dozer.toml" ]
