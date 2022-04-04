@@ -7,6 +7,8 @@ vars = [ "vars/base.toml" ]
 [settings.dots]
 btop = { source = "btop/btop.conf", target = ".config/btop/btop.conf" }
 
+dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
+
 git = { source = "git/gitconfig", target = ".gitconfig" }
 
 gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
