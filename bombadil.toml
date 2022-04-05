@@ -32,6 +32,7 @@ dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
+helix = { source = "helix/config.toml", target = ".config/helix/config.toml" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 termite = { source = "termite/config", target = ".config/termite/config" }
@@ -47,6 +48,7 @@ dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
+helix = { source = "helix/config.toml", target = ".config/helix/config.toml" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 termite = { source = "termite/config", target = ".config/termite/config" }
