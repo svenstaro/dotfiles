@@ -42,6 +42,7 @@ i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-
 
 inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
+mpv = { source = "mpv/config", target = ".config/mpv/config" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
@@ -67,6 +68,7 @@ i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-
 
 inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
+mpv = { source = "mpv/config", target = ".config/mpv/config" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
