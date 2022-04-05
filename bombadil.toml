@@ -12,6 +12,11 @@ git = { source = "git/gitconfig", target = ".gitconfig" }
 gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
 gnupg = { source = "gnupg/gpg.conf", target = ".gnupg/gpg.conf" }
 
+helix = { source = "helix/config.toml", target = ".config/helix/config.toml" }
+hg = { source = "hg/hgrc", target = ".hgrc" }
+htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
+poetry = { source = "poetry/config.toml", target = ".config/poetry/config.toml" }
+psql = { source = "psql/psqlrc", target = ".psqlrc" }
 subversion = { source = "svn/config", target = ".subversion/config" }
 
 tmux = { source = "tmux/tmux.conf", target = ".config/tmux/tmux.conf" }
@@ -32,9 +37,6 @@ dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
-helix = { source = "helix/config.toml", target = ".config/helix/config.toml" }
-hg = { source = "hg/hgrc", target = ".hgrc" }
-htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
 
 i3 = { source = "i3/config", target = ".config/i3/config"}
 i3_dmrc = { source = "i3/dmrc", target = ".dmrc"}
@@ -43,7 +45,6 @@ i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-
 inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
-poetry = { source = "poetry/config.toml", target = ".config/poetry/config.toml" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
@@ -59,9 +60,6 @@ dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
-helix = { source = "helix/config.toml", target = ".config/helix/config.toml" }
-hg = { source = "hg/hgrc", target = ".hgrc" }
-htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
 
 i3 = { source = "i3/config", target = ".config/i3/config"}
 i3_dmrc = { source = "i3/dmrc", target = ".dmrc"}
@@ -70,7 +68,6 @@ i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-
 inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
-poetry = { source = "poetry/config.toml", target = ".config/poetry/config.toml" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
