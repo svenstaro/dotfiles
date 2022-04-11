@@ -6,6 +6,8 @@ export AWS_FEDERATION_TOKEN_TTL=4h
 export ANSIBLE_NOCOWS=1
 export EDITOR=vim
 export BROWSER=firefox
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 export LANG=en_US.UTF-8
 export LC_COLLATE=en_US.UTF-8
 export LC_TIME=en_US.UTF-8
