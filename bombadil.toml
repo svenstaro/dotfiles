@@ -3,25 +3,31 @@ gpg_user_id = "svenstaro@gmail.com"
 
 [settings]
 vars = [ "vars/base.toml" ]
+posthooks = [
+  "systemctl --user daemon-reload",
+  "systemctl --user enable dotfiles-deploy.service",
+]
 
 [settings.dots]
+dotfiles_deploy_service = { source = "user-services/dotfiles-deploy.service", target = ".config/systemd/user/dotfiles-deploy.service" }
+dotfiles_deploy_path = { source = "user-services/dotfiles-deploy.path", target = ".config/systemd/user/dotfiles-deploy.path" }
+
 btop = { source = "btop/btop.conf", target = ".config/btop/btop.conf" }
+htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
 
 git = { source = "git/gitconfig", target = ".gitconfig" }
-
-gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
-gnupg = { source = "gnupg/gpg.conf", target = ".gnupg/gpg.conf" }
-
-helix = { source = "helix/config.toml", target = ".config/helix/config.toml" }
 hg = { source = "hg/hgrc", target = ".hgrc" }
-htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
 poetry = { source = "poetry/config.toml", target = ".config/poetry/config.toml" }
 psql = { source = "psql/psqlrc", target = ".psqlrc" }
 subversion = { source = "svn/config", target = ".subversion/config" }
 
+gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
+gnupg = { source = "gnupg/gpg.conf", target = ".gnupg/gpg.conf" }
+
 tmux = { source = "tmux/tmux.conf", target = ".config/tmux/tmux.conf" }
 tmate = { source = "tmux/tmate.conf", target = ".tmate.conf" }
 
+helix = { source = "helix/config.toml", target = ".config/helix/config.toml" }
 vim_coc_settings = { source = "vim/coc-settings.json", target = ".config/nvim/coc-settings.json" }
 vim_init = { source = "vim/init.vim", target = ".config/nvim/init.vim" }
 vim_plug = { source = "vim/plug.vim", target = ".config/nvim/autoload/plug.vim" }
@@ -33,11 +39,13 @@ zshenv = { source = "zsh/zshenv", target = ".zshenv" }
 vars = [ "vars/neo.toml" ]
 
 [profiles.neo.dots]
-dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
 
+dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
+rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
+redshift = { source = "redshift/redshift", target = ".config/redshift/redshift" }
 i3 = { source = "i3/config", target = ".config/i3/config"}
 i3_dmrc = { source = "i3/dmrc", target = ".dmrc"}
 i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-rust/config.toml" }
@@ -45,8 +53,9 @@ i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-
 inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
-redshift = { source = "redshift/redshift", target = ".config/redshift/redshift" }
-rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
+
+starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
+sheldon = { source = "sheldon/plugins.toml", target = ".sheldon/plugins.toml" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
@@ -57,11 +66,13 @@ xresources = { source = "x11/Xresources", target = ".Xresources"}
 vars = [ "vars/smith.toml" ]
 
 [profiles.smith.dots]
-dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
 
+dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
+rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
+redshift = { source = "redshift/redshift.conf", target = ".config/redshift/redshift.conf" }
 i3 = { source = "i3/config", target = ".config/i3/config"}
 i3_dmrc = { source = "i3/dmrc", target = ".dmrc"}
 i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-rust/config.toml" }
@@ -69,8 +80,9 @@ i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-
 inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
-redshift = { source = "redshift/redshift.conf", target = ".config/redshift/redshift.conf" }
-rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
+
+starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
+sheldon = { source = "sheldon/plugins.toml", target = ".sheldon/plugins.toml" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }

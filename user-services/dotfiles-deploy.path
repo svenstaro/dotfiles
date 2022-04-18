@@ -1,0 +1,5 @@
+[Path]
+PathChanged=%h/.dotfiles
+
+[Install]
+WantedBy=default.target

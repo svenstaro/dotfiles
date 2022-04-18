@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch and deploy dotfiles using bombadil
+
+[Service]
+Type=oneshot
+ExecStart=bombadil link -p {{profile}}
+
+[Install]
+WantedBy=default.target

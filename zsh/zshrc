@@ -1,14 +1,8 @@
-# zplug stuff
 zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:terminal:window-title' format '%s'
 
-source "$HOME/.zplug/init.zsh"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "plugins/colored-man-pages", from:oh-my-zsh
-zplug "nojhan/liquidprompt"
-zplug "chrissicool/zsh-256color"
-zplug "zsh-users/zsh-completions", use:src
-zplug "modules/terminal", from:prezto
-zplug load
+eval "$(sheldon source)"
+eval "$(starship init zsh)"
 
 # General configuration
 autoload -U compinit && compinit
