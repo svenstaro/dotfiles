@@ -1,4 +1,4 @@
 profile = "neo"
 makepkg_jobs = "65"
 termite_font = "Input Mono 8"
-wmfocus_font = "Input 72"
+wmfocus_font = "Input:72"
