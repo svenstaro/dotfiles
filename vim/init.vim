@@ -44,7 +44,7 @@ Plug 'thosakwe/vim-flutter'
 Plug 'nfnty/vim-nftables'
 
 " Looks
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
 
