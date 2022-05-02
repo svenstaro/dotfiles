@@ -161,3 +161,7 @@ fdr() {
   local DIR=$(get_parent_dirs $(realpath "${1:-$(pwd)}") | fzf-tmux --tac)
   cd "$DIR"
 }
+
+sshhcloud() {
+    hcloud server ssh $1 -o StrictHostKeyChecking=no -i ~/.ssh/work/hcloud_sshkey
+}

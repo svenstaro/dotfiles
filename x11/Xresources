@@ -6,6 +6,8 @@ Xft.lcdfilter:  lcddefault
 Xft.rgba: rgb
 Xft.dpi: 180
 
+Xcursor.size: 16
+
 xterm*background: #292929
 xterm*foreground: #DBDBDB
 xterm*faceName: input:normal:pixelsize=10

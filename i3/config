@@ -27,11 +27,14 @@ bindsym $mod+Shift+q kill
 # applications
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+f exec wmfocus -f {{ wmfocus_font }}
-bindsym $mod+space exec --no-startup-id "rofi -show combi -switchers combi -combi-modi 'window,run' -dpi 180"
-bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort -dpi 180"
-bindsym $mod+p exec --no-startup-id "rofi-pass"
+bindsym $mod+space exec --no-startup-id "rofi -show combi -switchers combi -combi-modi 'window,run -dpi {{ rofi_dpi }}'"
+bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort -dpi {{ rofi_dpi }}"
 bindsym $mod+Ctrl+Shift+l exec --no-startup-id xset s activate
 bindsym Print exec --no-startup-id flameshot gui
+
+{%- if profile == "neo" %}
+exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.i3/workspace-1.json'"
+{%- endif %}
 
 # change focus
 bindsym $mod+h focus left
