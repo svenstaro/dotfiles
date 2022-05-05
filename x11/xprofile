@@ -22,7 +22,9 @@ teams --disable-seccomp-filter-sandbox &
 element-desktop &
 systemctl is-enabled bluetooth && blueman-applet &
 
-# sleep 5 && easyeffects --gapplication-service &
+{%- if profile == "neo" %}
+sleep 5 && easyeffects --gapplication-service &
+{%- endif %}
 
 export XSECURELOCK_SAVER=saver_mpv
 export XSECURELOCK_SHOW_DATETIME=1
