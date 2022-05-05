@@ -4,7 +4,7 @@ Xft.hinting: 1
 Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 Xft.rgba: rgb
-Xft.dpi: 180
+Xft.dpi: {{ xorg_dpi }}
 
 Xcursor.size: 16
 
