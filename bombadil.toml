@@ -61,7 +61,9 @@ termite = { source = "termite/config", target = ".config/termite/config" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
 xprofile = { source = "x11/xprofile", target = ".xprofile" }
-xresources = { source = "x11/Xresources", target = ".Xresources"}
+xresources = { source = "x11/Xresources", target = ".Xresources" }
+
+looking_glass = { source = "looking-glass/looking-glass-client.ini", target = ".config/looking-glass/client.ini" }
 
 [profiles.smith]
 vars = [ "vars/smith.toml" ]
