@@ -10,7 +10,6 @@ posthooks = [
 
 [settings.dots]
 dotfiles_deploy_service = { source = "user-services/dotfiles-deploy.service", target = ".config/systemd/user/dotfiles-deploy.service" }
-dotfiles_deploy_path = { source = "user-services/dotfiles-deploy.path", target = ".config/systemd/user/dotfiles-deploy.path" }
 
 btop = { source = "btop/btop.conf", target = ".config/btop/btop.conf" }
 htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
