@@ -45,7 +45,7 @@ gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.in
 
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
-redshift = { source = "redshift/redshift.conf", target = ".config/redshift/redshift" }
+redshift = { source = "redshift/redshift.conf", target = ".config/redshift/redshift.conf" }
 i3 = { source = "i3/config", target = ".config/i3/config"}
 i3_dmrc = { source = "i3/dmrc", target = ".dmrc"}
 i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-rust/config.toml" }
