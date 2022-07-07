@@ -103,6 +103,8 @@ alias vpnon='sudo networkctl up vpn'
 alias gpf='git push --force-with-lease'
 alias gpu='git publish'
 alias gra='git rebase --autostash'
+alias grc='git rebase --continue'
+alias gra='git rebase --abort'
 
 # Sudo shortcuts
 alias svim='sudo vim'
