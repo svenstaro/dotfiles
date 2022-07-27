@@ -9,7 +9,18 @@
     separator_color = frame
     font = Input 12
     markup = full
-    format = "%s %p\n%b"
+
+    # The format of the message.  Possible variables are:
+    #   %a  appname
+    #   %s  summary
+    #   %b  body
+    #   %i  iconname (including its path)
+    #   %I  iconname (without its path)
+    #   %p  progress value if set ([  0%] to [100%]) or nothing
+    #   %n  progress value if set without any extra characters
+    #   %%  Literal %
+    # Markup is allowed
+    format = "<b>%s</b> <i><small>%a</small></i> %p\n%b"
     alignment = left
 
     # Vertical alignment of message text and icon.
