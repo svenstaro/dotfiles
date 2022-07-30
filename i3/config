@@ -23,7 +23,7 @@ bar {
         #                    border  backgr. text
         focused_workspace    $aqua $aqua $darkgray
         inactive_workspace   $darkgray $darkgray $yellow
-        active_workspace     $darkgray $darkgray $yellow
+        active_workspace     $aqua $aqua $darkgray
         urgent_workspace     $red $red $bg
     }
 }
