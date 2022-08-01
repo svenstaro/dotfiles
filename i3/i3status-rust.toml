@@ -1,5 +1,10 @@
-theme = "slick"
 icons = "awesome"
+
+[theme]
+name = "gruvbox-dark"
+
+[theme.overrides]
+separator = ""
 
 [[block]]
 block = "disk_space"
@@ -10,7 +15,7 @@ interval = 20
 
 [[block]]
 block = "net"
-format = "{ssid} {signal_strength} {frequency} {ip} {speed_down;K*B} {speed_up;K*B}"
+format = "{ssid} {signal_strength}"
 hide_missing = true
 hide_inactive = true
 interval = 1
@@ -34,18 +39,20 @@ interval = 10
 format = "{max}"
 # good = 35
 idle = 50
-info = 60
-warning = 70
+info = 70
+warning = 80
 
 [[block]]
 block = "cpu"
-format = "CPU {utilization:5#100}"
+format = "CPU {utilization}"
+icons_format = " "
 
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "MEM {mem_used_percents:5#100}"
-format_swap = "MEM {swap_used_percents:5#100}"
+format_mem = "MEM {mem_used_percents}"
+format_swap = "MEM {swap_used_percents}"
+icons_format = " "
 
 [[block]]
 block = "sound"
@@ -57,3 +64,4 @@ headphones_indicator = true
 block = "time"
 interval = 5
 format = "%F %R"
+icons_format = " "
