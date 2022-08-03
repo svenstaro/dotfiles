@@ -11,33 +11,31 @@ block = "disk_space"
 info_type = "available"
 unit = "GB"
 format = "{icon} {used}/{total} ({available} free)"
-interval = 20
 
 [[block]]
 block = "net"
 format = "{ssid} {signal_strength}"
+format_alt = "{ssid} {signal_strength} {ip}"
 hide_missing = true
 hide_inactive = true
-interval = 1
+device = "wlan0"
 
 [[block]]
 block = "battery"
 format = "{percentage} {time}h {power}"
-device = "/sys/class/power_supply/BAT0"
+device = "BAT0"
 if_command = "test -e /sys/class/power_supply/BAT0"
 
 [[block]]
 block = "battery"
 format = "{percentage} {time}h {power}"
-device = "/sys/class/power_supply/BAT1"
+device = "BAT1"
 if_command = "test -e /sys/class/power_supply/BAT1"
 
 [[block]]
 block = "temperature"
 collapsed = false
-interval = 10
 format = "{max}"
-# good = 35
 idle = 50
 info = 70
 warning = 80
@@ -62,6 +60,5 @@ headphones_indicator = true
 
 [[block]]
 block = "time"
-interval = 5
 format = "%F %R"
 icons_format = " "
