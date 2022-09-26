@@ -72,7 +72,7 @@
             "swallows": [{
                 "class": "^discord$",
                 "instance": "^discord$",
-                "title": "^Discord$"
+                "title": "Discord(?! Updater)$"
             }],
             "type": "con"
         },
