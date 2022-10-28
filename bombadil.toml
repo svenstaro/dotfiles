@@ -33,6 +33,8 @@ vim_plug = { source = "vim/plug.vim", target = ".config/nvim/autoload/plug.vim" 
 
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
 zshenv = { source = "zsh/zshenv", target = ".zshenv" }
+starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
+sheldon = { source = "sheldon/plugins.toml", target = ".config/sheldon/plugins.toml" }
 
 [profiles.neo]
 vars = [ "vars/neo.toml" ]
@@ -56,8 +58,6 @@ mpv = { source = "mpv/config", target = ".config/mpv/config" }
 
 pipewire = { source = "pipewire/fix-discord-notifications.conf", target = ".config/pipewire/pipewire-pulse.conf.d/fix-discord-notifications.conf" }
 
-starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
-sheldon = { source = "sheldon/plugins.toml", target = ".config/sheldon/plugins.toml" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
@@ -85,8 +85,6 @@ inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
 
-starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
-sheldon = { source = "sheldon/plugins.toml", target = ".config/sheldon/plugins.toml" }
 termite = { source = "termite/config", target = ".config/termite/config" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
