@@ -1,0 +1,6 @@
+profile = "cypher"
+makepkg_jobs = "9"
+termite_font = "Input Mono 9"
+wmfocus_font = "Input:144"
+rofi_dpi = "180"
+xorg_dpi = "180"
