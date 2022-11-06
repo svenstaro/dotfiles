@@ -24,3 +24,6 @@ export ADB_LIBUSB=1
 
 # As per gpg-agent manpage
 export GPG_TTY=$(tty)
+
+# Make cross always use podman
+export CROSS_CONTAINER_ENGINE=podman
