@@ -27,3 +27,6 @@ export GPG_TTY=$(tty)
 
 # Make cross always use podman
 export CROSS_CONTAINER_ENGINE=podman
+
+# Android stuff
+export ANDROID_HOME=~/.local/share/android-sdk
