@@ -118,10 +118,11 @@ alias db-move-community='ssh repos.archlinux.org /community/db-move'
 alias db-update-packages='ssh repos.archlinux.org /packages/db-update'
 alias db-update-community='ssh repos.archlinux.org /community/db-update'
 
-# Trans
+# Translations
 alias t="trans de:en"
 alias te="trans :en"
 
+# SSH
 alias ssh="TERM=xterm-256color ssh"
 alias hcloud="TERM=xterm-256color hcloud"
 
