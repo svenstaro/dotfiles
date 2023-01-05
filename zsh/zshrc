@@ -168,3 +168,9 @@ fdr() {
 sshhcloud() {
   hcloud server ssh $1 -o StrictHostKeyChecking=no -i ~/.ssh/work/hcloud_sshkey
 }
+
+scrambleimage() {
+  new_name=$(shuf -er -n20  {A..Z} {a..z} {0..9} | tr -d '\n')
+  old_ext=${1##*.}
+  exiftool -o ${new_name}.${old_ext} -overwrite_original -all= "$1"
+}
