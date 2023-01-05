@@ -173,5 +173,7 @@ sshhcloud() {
 scrambleimage() {
   new_name=$(shuf -er -n20  {A..Z} {a..z} {0..9} | tr -d '\n')
   old_ext=${1##*.}
-  exiftool -o ${new_name}.${old_ext} -overwrite_original -all= "$1"
+  new_file=${new_name}.${old_ext}
+  exiftool -o ${new_file} -overwrite_original -all= "$1"
+  echo ${new_file}
 }
