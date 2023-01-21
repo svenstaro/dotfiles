@@ -70,7 +70,7 @@ Plug 'sjl/gundo.vim'                    " undo-tree visualizer
 Plug 'chrisbra/SudoEdit.vim'            " add :SudoWrite to save file with sudo
 Plug 'tpope/vim-speeddating'            " allow C-X and C-A to also work on dates
 Plug 'mhinz/vim-sayonara'               " close buffers and make them actually disappear
-Plug 'Chiel92/vim-autoformat'           " automatic formatting depending on filetype
+Plug 'vim-autoformat/vim-autoformat'    " automatic formatting depending on filetype
 Plug 'ntpeters/vim-better-whitespace'   " visualize trailing whitespaces
 Plug 'bronson/vim-visual-star-search'   " allow for searching by current visual seleciton
 Plug 'machakann/vim-highlightedyank'    " highlight what was just yanked
