@@ -97,7 +97,7 @@ alias sys='sudo systemctl'
 alias sysu='systemctl --user'
 alias locate='plocate'
 alias vpnoff='sudo networkctl down vpn'
-alias vpnon='sudo networkctl up vpn'
+alias vpnon='sudo networkctl up vpn && sudo networkctl reconfigure vpn'
 alias vpnsplit='sudo ip rule del not from all fwmark 0x8888 && sudo ip -6 rule del not from all fwmark 0x8888'
 alias myips='curl -4 icanhazip.com && curl -6 icanhazip.com'
 
