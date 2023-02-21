@@ -11,10 +11,10 @@ $username\
 $hostname\
 $directory\
 $python\
-$git_branch\
+($git_branch\
 $git_state\
 $git_status\
-$git_metrics\
+$git_metrics )\
 $cmd_duration\
 $status\
 $character"""
@@ -87,7 +87,7 @@ style = '166'
 disabled = false
 added_style = 'green'
 deleted_style = 'red'
-format = '(\([+$added]($added_style)/[-$deleted]($deleted_style)\) )'
+format = '(\([+$added]($added_style)/[-$deleted]($deleted_style)\))'
 
 [cmd_duration]
 format = '[$duration](yellow) '
