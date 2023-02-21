@@ -1,1 +1,97 @@
 add_newline = false
+
+format = """
+{% if profile == "smith" -%}
+$battery\
+{% endif -%}
+$memory_usage\
+$jobs\
+[\\[](dimmed)\
+$username\
+$hostname\
+$directory\
+$python\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+$cmd_duration\
+$status\
+$character"""
+
+{% if profile == "smith" -%}
+[[battery.display]]
+threshold = 50
+style = 'bold yellow'
+
+[[battery.display]]
+threshold = 30
+style = 'bold orange'
+
+[[battery.display]]
+threshold = 10
+style = 'bold red'
+{% endif %}
+
+[memory_usage]
+disabled = false
+format = '$symbol [$ram]($style) '
+threshold = 80
+symbol = 'MEM'
+style = 'bold red'
+
+[jobs]
+number_threshold = 1
+symbol = 'z'
+format = '[$number$symbol]($style) '
+style = 'yellow bold'
+
+[username]
+format = '\[[$user]($style)'
+style_user = "white"
+style_root = "yellow bold"
+
+[hostname]
+style = 'blue'
+format = '[@$hostname]($style)'
+
+[directory]
+format = ':[$path]($style)[$read_only]($read_only_style)[\]](dimmed) '
+truncation_symbol = '…/'
+style = 'bold fg:254'
+truncate_to_repo = false
+
+[python]
+format = '[${pyenv_prefix}(\($virtualenv\) )]($style)'
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style)'
+style = 'yellow'
+symbol = ''
+
+[git_status]
+format = '([[\[](red)$all_status$ahead_behind[\]](red)]($style))'
+# style = "orange"
+# conflicted = ""
+# untracked = ""
+# modified = ""
+# staged = ""
+# renamed = ""
+# deleted = ""
+# stashed = "📋"
+
+[git_state]
+style = '166'
+
+[git_metrics]
+disabled = false
+added_style = 'green'
+deleted_style = 'red'
+format = '(\([+$added]($added_style)/[-$deleted]($deleted_style)\) )'
+
+[cmd_duration]
+format = '[$duration](yellow) '
+
+[status]
+format = '[$status](red)'
+disabled = false
