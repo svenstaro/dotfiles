@@ -1,5 +1,5 @@
 zstyle ':prezto:module:terminal' auto-title 'yes'
-zstyle ':prezto:module:terminal:window-title' format '%s'
+zstyle ':prezto:module:terminal:window-title' format '%~ > %s'
 
 eval "$(sheldon source)"
 eval "$(starship init zsh)"
