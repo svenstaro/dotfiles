@@ -17,6 +17,9 @@ block = "net"
 format = "$icon $ssid $signal_strength "
 format_alt = "$icon $ssid $signal_strength $ip "
 device = "wlan0"
+[[block.click]]
+button = "left"
+cmd = "iwgtk"
 
 [[block]]
 block = "battery"
