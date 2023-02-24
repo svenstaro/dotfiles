@@ -1,7 +1,8 @@
-icons = "awesome"
-
 [theme]
-name = "gruvbox-dark"
+theme = "gruvbox-dark"
+
+[icons]
+icons = "awesome6"
 
 [theme.overrides]
 separator = ""
@@ -9,56 +10,53 @@ separator = ""
 [[block]]
 block = "disk_space"
 info_type = "available"
-unit = "GB"
-format = "{icon} {used}/{total} ({available} free)"
+format = "$icon $used/$total (used) "
 
 [[block]]
 block = "net"
-format = "{ssid} {signal_strength}"
-format_alt = "{ssid} {signal_strength} {ip}"
-hide_missing = true
-hide_inactive = true
+format = "$icon $ssid $signal_strength "
+format_alt = "$icon $ssid $signal_strength $ip "
 device = "wlan0"
 
 [[block]]
 block = "battery"
-format = "{percentage} {time}h {power}"
+format = "$icon $percentage {$time}h $power"
 device = "BAT0"
 if_command = "test -e /sys/class/power_supply/BAT0"
 
 [[block]]
 block = "battery"
-format = "{percentage} {time}h {power}"
+format = "$icon $percentage {$time}h $power"
 device = "BAT1"
 if_command = "test -e /sys/class/power_supply/BAT1"
 
 [[block]]
 block = "temperature"
-collapsed = false
-format = "{max}"
+format = " $icon $max"
 idle = 50
 info = 70
 warning = 80
 
 [[block]]
 block = "cpu"
-format = "CPU {utilization}"
+format = "$icon CPU $utilization"
 icons_format = " "
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "MEM {mem_used_percents}"
-format_swap = "MEM {swap_used_percents}"
+format = "$icon MEM $mem_used_percents"
+format_alt = "$icon MEM $swap_used_percents"
 icons_format = " "
 
 [[block]]
 block = "sound"
-format = "{volume} {volume:10#100}"
-on_click = "ponymix toggle"
+format = "   $icon {$volume.bar(w:10, max_value:100)|Muted} "
 headphones_indicator = true
+[[block.click]]
+button = "left"
+cmd = "ponymix toggle"
 
 [[block]]
 block = "time"
-format = "%F %R"
+format = "$icon $timestamp.datetime(f:'%F %R')"
 icons_format = " "
