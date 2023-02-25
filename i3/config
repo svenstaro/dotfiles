@@ -55,7 +55,7 @@ bindsym $mod+bracketleft workspace prev_on_output
 bindsym $mod+Shift+q kill
 
 # applications
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec wezterm
 bindsym $mod+Shift+f exec wmfocus -f {{ wmfocus_font }}
 bindsym $mod+space exec --no-startup-id "rofi -show combi -switchers combi -combi-modi window,run -dpi {{ rofi_dpi }}"
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort -dpi {{ rofi_dpi }}"

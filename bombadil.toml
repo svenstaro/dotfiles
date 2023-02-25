@@ -58,7 +58,7 @@ mpv = { source = "mpv/config", target = ".config/mpv/config" }
 
 pipewire = { source = "pipewire/fix-discord-notifications.conf", target = ".config/pipewire/pipewire-pulse.conf.d/fix-discord-notifications.conf" }
 
-termite = { source = "termite/config", target = ".config/termite/config" }
+wezterm = { source = "wezterm/wezterm.lua", target = ".config/wezterm/wezterm.lua" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
 xprofile = { source = "x11/xprofile", target = ".xprofile" }
@@ -85,7 +85,7 @@ inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
 
-termite = { source = "termite/config", target = ".config/termite/config" }
+wezterm = { source = "wezterm/wezterm.lua", target = ".config/wezterm/wezterm.lua" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
 xprofile = { source = "x11/xprofile", target = ".xprofile" }
@@ -116,7 +116,7 @@ inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
 
-termite = { source = "termite/config", target = ".config/termite/config" }
+wezterm = { source = "wezterm/wezterm.lua", target = ".config/wezterm/wezterm.lua" }
 
 xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
 xresources = { source = "x11/Xresources", target = ".Xresources"}
