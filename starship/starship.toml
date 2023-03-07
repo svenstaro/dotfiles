@@ -12,6 +12,7 @@ $hostname\
 $directory\
 $python\
 ($git_branch\
+$git_commit\
 $git_state\
 $git_status\
 $git_metrics )\
@@ -68,6 +69,13 @@ format = '[${pyenv_prefix}(\($virtualenv\) )]($style)'
 format = '[$symbol$branch(:$remote_branch)]($style)'
 style = 'yellow'
 symbol = ''
+
+[git_commit]
+format = '[$hash$tag]($style)'
+tag_disabled = false
+only_detached = true
+tag_symbol = ' '
+style = 'yellow'
 
 [git_status]
 format = '([[\[](red)$all_status$ahead_behind[\]](red)]($style))'
