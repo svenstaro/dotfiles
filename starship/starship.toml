@@ -48,7 +48,7 @@ format = '[$number$symbol]($style) '
 style = 'yellow bold'
 
 [username]
-format = '\[[$user]($style)'
+format = '[$user]($style)'
 style_user = "white"
 style_root = "yellow bold"
 
