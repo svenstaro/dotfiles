@@ -54,10 +54,10 @@ style_root = "yellow bold"
 
 [hostname]
 style = 'blue'
-format = '[@$hostname]($style)'
+format = '[@](yellow)[$hostname]($style)'
 
 [directory]
-format = ':[$path]($style)[$read_only]($read_only_style)[\]](dimmed) '
+format = '[:](green)[$path]($style)[$read_only]($read_only_style)[\]](dimmed) '
 truncation_symbol = '…/'
 style = 'bold fg:254'
 truncate_to_repo = false
