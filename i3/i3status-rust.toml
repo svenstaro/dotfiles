@@ -39,7 +39,10 @@ block = "temperature"
 format = " $icon $max"
 idle = 50
 info = 70
-warning = 80
+warning = 85
+{% if profile == "neo" %}
+inputs = ["TSI0_TEMP"]
+{% endif %}
 
 [[block]]
 block = "cpu"
