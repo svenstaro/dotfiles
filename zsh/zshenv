@@ -19,7 +19,7 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export FZF_CTRL_R_OPTS=-s
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude node_modules'
 
-export PATH=${PATH}:~/.cargo/bin:~/.yarn/bin:~/.pub-cache/bin:~/flutter/bin
+export PATH=${PATH}:~/.cargo/bin:~/.yarn/bin:~/.pub-cache/bin:~/src/flutter/bin
 export ADB_LIBUSB=1
 
 # As per gpg-agent manpage
@@ -28,5 +28,6 @@ export GPG_TTY=$(tty)
 # Make cross always use podman
 export CROSS_CONTAINER_ENGINE=podman
 
-# Android stuff
+# Android/Flutter stuff
 export ANDROID_HOME=~/.local/share/android-sdk
+export FLUTTER_HOME=~/src/flutter
