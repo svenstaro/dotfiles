@@ -107,6 +107,7 @@ alias gpu='git publish'
 alias gra='git rebase --autostash'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
+alias gsc='git switch -c'
 
 # Sudo shortcuts
 alias svim='sudo vim'
