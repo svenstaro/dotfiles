@@ -18,7 +18,8 @@ slack &
 telegram-desktop &
 discord &
 signal-desktop &
-teams --disable-seccomp-filter-sandbox &
+teams-for-linux --appTitle "ELOKON" --customUserDir="/home/svenstaro/.teams-data/elokon" &
+teams-for-linux --appTitle "Personal" --customUserDir="/home/svenstaro/.teams-data/personal" &
 element-desktop &
 systemctl is-enabled bluetooth && blueman-applet &
 
