@@ -13,6 +13,7 @@ numlockx &
 ./.fehbg &
 dunst &
 
+{%- if launch_messengers == "true" %}
 # Messengers
 slack &
 telegram-desktop &
@@ -21,6 +22,7 @@ signal-desktop &
 teams-for-linux --appTitle "ELOKON" --customUserDir="/home/svenstaro/.teams-data/elokon" &
 teams-for-linux --appTitle "Personal" --customUserDir="/home/svenstaro/.teams-data/personal" &
 element-desktop &
+{%- endif %}
 systemctl is-enabled bluetooth && blueman-applet &
 
 {%- if profile == "neo" %}

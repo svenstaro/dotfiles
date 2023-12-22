@@ -66,6 +66,30 @@ xresources = { source = "x11/Xresources", target = ".Xresources" }
 
 looking_glass = { source = "looking-glass/looking-glass-client.ini", target = ".config/looking-glass/client.ini" }
 
+[profiles.archvm]
+vars = [ "vars/archvm.toml" ]
+
+[profiles.archvm.dots]
+fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
+gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
+gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
+
+dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
+rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
+i3 = { source = "i3/config", target = ".config/i3/config"}
+i3_dmrc = { source = "i3/dmrc", target = ".dmrc"}
+i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-rust/config.toml" }
+
+inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
+makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
+mpv = { source = "mpv/config", target = ".config/mpv/config" }
+
+wezterm = { source = "wezterm/wezterm.lua", target = ".config/wezterm/wezterm.lua" }
+
+xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
+xprofile = { source = "x11/xprofile", target = ".xprofile" }
+xresources = { source = "x11/Xresources", target = ".Xresources" }
+
 [profiles.smith]
 vars = [ "vars/smith.toml" ]
 
