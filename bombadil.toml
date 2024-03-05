@@ -98,6 +98,7 @@ vars = [ "vars/smith.toml" ]
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
+gtk4 = { source = "gtk/gtk4.css", target = ".config/gtk-4.0/gtk.css" }
 
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
@@ -105,6 +106,7 @@ redshift = { source = "redshift/redshift.conf", target = ".config/redshift/redsh
 i3 = { source = "i3/config", target = ".config/i3/config"}
 i3_dmrc = { source = "i3/dmrc", target = ".dmrc"}
 i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-rust/config.toml" }
+i3_workspace = { source = "i3/workspace_1.json", target = ".config/i3/workspace_1.json" }
 
 inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
