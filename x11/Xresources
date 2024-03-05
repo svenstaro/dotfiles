@@ -6,7 +6,7 @@ Xft.lcdfilter:  lcddefault
 Xft.rgba: rgb
 Xft.dpi: {{ xorg_dpi }}
 
-Xcursor.size: 16
+Xcursor.size: {{ xcursor_size }}
 
 xterm*background: #292929
 xterm*foreground: #DBDBDB
