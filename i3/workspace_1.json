@@ -138,9 +138,8 @@
             "name": "Microsoft Teams",
             "percent": 0.5,
             "swallows": [{
-                "class": "^Microsoft Teams.*$",
-                "instance": "^microsoft teams.*$",
-                "title": "^.*\\ \\|\\ Microsoft\\ Teams$"
+               "class": "^teams\\-for\\-linux$",
+               "instance": "^teams\\-for\\-linux$"
             }],
             "type": "con"
         }
