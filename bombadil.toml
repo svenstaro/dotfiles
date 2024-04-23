@@ -35,6 +35,7 @@ zsh = { source = "zsh/zshrc", target = ".zshrc" }
 zshenv = { source = "zsh/zshenv", target = ".zshenv" }
 starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
 sheldon = { source = "sheldon/plugins.toml", target = ".config/sheldon/plugins.toml" }
+atuin = { source = "atuin/config.toml", target = ".config/atuin/config.toml" }
 
 [profiles.neo]
 vars = [ "vars/neo.toml" ]

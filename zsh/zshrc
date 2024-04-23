@@ -167,6 +167,8 @@ fdr() {
   cd "$DIR"
 }
 
+eval "$(atuin init zsh)"
+
 sshhcloud() {
   hcloud server ssh $1 -o StrictHostKeyChecking=no -i ~/.ssh/work/hcloud_sshkey
 }

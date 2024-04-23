@@ -1,0 +1,5 @@
+inline_height = 50
+sync_address = "http://dozer.bee-universe.ts.net:9841"
+sync_frequency = "10m"
+style = "compact"
+show_preview = true
