@@ -5,3 +5,6 @@ style = "compact"
 show_preview = true
 search_mode = "skim"
 filter_mode_shell_up_key_binding = "session"
+
+[sync]
+records = true
