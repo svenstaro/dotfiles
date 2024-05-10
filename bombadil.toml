@@ -31,6 +31,7 @@ vim_coc_settings = { source = "vim/coc-settings.json", target = ".config/nvim/co
 vim_init = { source = "vim/init.vim", target = ".config/nvim/init.vim" }
 vim_plug = { source = "vim/plug.vim", target = ".config/nvim/autoload/plug.vim" }
 
+azssh = { source = "bin/azssh", target = "bin/azssh" }
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
 zshenv = { source = "zsh/zshenv", target = ".zshenv" }
 starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
