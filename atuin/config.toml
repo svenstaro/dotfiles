@@ -3,7 +3,7 @@ sync_address = "http://dozer.bee-universe.ts.net:9841"
 sync_frequency = "10m"
 style = "compact"
 show_preview = true
-search_mode = "skim"
+search_mode = "fulltext"
 filter_mode_shell_up_key_binding = "session"
 
 [sync]
