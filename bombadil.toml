@@ -18,7 +18,6 @@ git = { source = "git/gitconfig", target = ".gitconfig" }
 hg = { source = "hg/hgrc", target = ".hgrc" }
 poetry = { source = "poetry/config.toml", target = ".config/poetry/config.toml" }
 psql = { source = "psql/psqlrc", target = ".psqlrc" }
-subversion = { source = "svn/config", target = ".subversion/config" }
 
 gnupg_agent = { source = "gnupg/gpg-agent.conf", target = ".gnupg/gpg-agent.conf" }
 gnupg = { source = "gnupg/gpg.conf", target = ".gnupg/gpg.conf" }
