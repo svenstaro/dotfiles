@@ -123,6 +123,11 @@ xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
 xprofile = { source = "x11/xprofile", target = ".xprofile" }
 xresources = { source = "x11/Xresources", target = ".Xresources"}
 
+[profiles.tank]
+vars = [ "vars/tank.toml" ]
+
+[profiles.tank.dots]
+
 [profiles.dozer]
 vars = [ "vars/dozer.toml" ]
 
