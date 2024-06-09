@@ -76,6 +76,8 @@ vars = [ "vars/archvm.toml" ]
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
+gtk4 = { source = "gtk/gtk4-settings.ini", target = ".config/gtk-4.0/settings.ini" }
+gtk4-css = { source = "gtk/gtk4.css", target = ".config/gtk-4.0/gtk.css" }
 
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
@@ -100,7 +102,8 @@ vars = [ "vars/smith.toml" ]
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
-gtk4 = { source = "gtk/gtk4.css", target = ".config/gtk-4.0/gtk.css" }
+gtk4 = { source = "gtk/gtk4-settings.ini", target = ".config/gtk-4.0/settings.ini" }
+gtk4-css = { source = "gtk/gtk4.css", target = ".config/gtk-4.0/gtk.css" }
 
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
@@ -134,6 +137,8 @@ vars = [ "vars/cypher.toml" ]
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
 gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
+gtk4 = { source = "gtk/gtk4-settings.ini", target = ".config/gtk-4.0/settings.ini" }
+gtk4-css = { source = "gtk/gtk4.css", target = ".config/gtk-4.0/gtk.css" }
 
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
