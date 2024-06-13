@@ -132,7 +132,7 @@ source <(zoxide init zsh)
 
 
 # ssh keys
-eval $(keychain --eval --timeout 600 --agents ssh -Q --quiet --noask arch_rsa id_ed25519 skeletonkey_rsa)
+eval $(keychain --eval --timeout 600 --agents ssh -Q --quiet --noask arch_ed25519 id_ed25519 skeletonkey_ed25519)
 alias auth='eval $(keychain --eval --timeout 600 --agents ssh -Q --quiet arch_ed25519 id_ed25519 skeletonkey_ed25519)'
 
 
