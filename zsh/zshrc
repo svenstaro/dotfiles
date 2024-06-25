@@ -22,6 +22,8 @@ bindkey ';5C' emacs-forward-word
 bindkey '^[[3~' delete-char
 bindkey '^[3;5~' delete-char
 
+# Misc exports
+export DOOL_OPTS="--bytes"
 
 # History
 HISTFILE=~/.zsh_history
