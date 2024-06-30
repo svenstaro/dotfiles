@@ -5,6 +5,7 @@ style = "compact"
 show_preview = true
 search_mode = "fulltext"
 filter_mode_shell_up_key_binding = "session"
+enter_accept = true
 
 [sync]
 records = true
