@@ -1,0 +1,17 @@
+import = [
+    # See https://github.com/alacritty/alacritty-theme
+    "/usr/share/alacritty/themes/gruvbox_dark.toml"
+]
+
+[colors.primary]
+# Use gruvbox hard background color
+background = "#1d2021"
+
+[font]
+normal = { family = "Input Mono" }
+size = 10
+
+# Try a visual bell, maybe it's actually nice.
+[bell]
+animation = "EaseOutCubic"
+duration = 100
