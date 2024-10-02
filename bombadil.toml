@@ -149,6 +149,7 @@ makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.co
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
 
 alacritty = { source = "alacritty/alacritty.toml", target = ".config/alacritty/alacritty.toml" }
+rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 
 [profiles.morpheus]
 vars = [ "vars/morpheus.toml" ]
