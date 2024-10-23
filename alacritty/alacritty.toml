@@ -1,3 +1,4 @@
+[general]
 import = [
     # See https://github.com/alacritty/alacritty-theme
     "/usr/share/alacritty/themes/gruvbox_dark.toml"
