@@ -26,9 +26,7 @@ tmux = { source = "tmux/tmux.conf", target = ".config/tmux/tmux.conf" }
 tmate = { source = "tmux/tmate.conf", target = ".tmate.conf" }
 
 helix = { source = "helix/config.toml", target = ".config/helix/config.toml" }
-vim_coc_settings = { source = "vim/coc-settings.json", target = ".config/nvim/coc-settings.json" }
-vim_init = { source = "vim/init.vim", target = ".config/nvim/init.vim" }
-vim_plug = { source = "vim/plug.vim", target = ".config/nvim/autoload/plug.vim" }
+vim_init = { source = "vim/init.lua", target = ".config/nvim/init.lua" }
 
 azssh = { source = "bin/azssh", target = "bin/azssh" }
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
