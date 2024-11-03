@@ -146,6 +146,7 @@ gtk4-css = { source = "gtk/gtk4.css", target = ".config/gtk-4.0/gtk.css" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
 
+dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 alacritty = { source = "alacritty/alacritty.toml", target = ".config/alacritty/alacritty.toml" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 
