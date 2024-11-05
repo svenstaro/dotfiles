@@ -9,5 +9,5 @@ import = [
 background = "#1d2021"
 
 [font]
-normal = { family = "Input Mono" }
+normal = { family = "InputMono Nerd Font" }
 size = 9
