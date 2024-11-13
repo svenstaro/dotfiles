@@ -135,6 +135,7 @@ beets_genres = { source = "beets/genres.txt", target = ".config/beets/genres.txt
 
 [profiles.cypher]
 vars = [ "vars/cypher.toml" ]
+posthooks = [ "kitten theme --dump-theme 'Gruvbox Dark Hard' > ~/.config/kitty/current-theme.conf" ]
 
 [profiles.cypher.dots]
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
@@ -147,7 +148,7 @@ makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.co
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
 
 dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
-alacritty = { source = "alacritty/alacritty.toml", target = ".config/alacritty/alacritty.toml" }
+kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 
 [profiles.morpheus]
