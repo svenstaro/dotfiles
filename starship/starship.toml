@@ -1,7 +1,7 @@
 add_newline = false
 
 format = """
-{% if profile == "smith" -%}
+{% if profile == "cypher" -%}
 $battery\
 {% endif -%}
 $memory_usage\
@@ -20,7 +20,7 @@ $cmd_duration\
 $status\
 $character"""
 
-{% if profile == "smith" -%}
+{% if profile == "cypher" -%}
 [[battery.display]]
 threshold = 50
 style = 'bold yellow'

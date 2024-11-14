@@ -1,9 +1,6 @@
 #!/bin/bash
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
-{%- if profile == "smith" %}
-xrandr --dpi 140
-{%- endif %}
 
 # We start redshift-gtk via systemd user service nowadays.
 # redshift-gtk &
