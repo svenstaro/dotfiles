@@ -34,11 +34,20 @@
     process = git-lfs filter-process
     required = true
 
-[pager]
-    # diff-highlight is script provided by git that shows word-by-word diff
-    log  = /usr/share/git/diff-highlight/diff-highlight | less
-    show = /usr/share/git/diff-highlight/diff-highlight | less
-    diff = /usr/share/git/diff-highlight/diff-highlight | less
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    line-numbers = true
+    side-by-side = true
+    syntax-theme = gruvbox-dark
+
+[merge]
+    conflictstyle = zdiff3
 
 [commit]
     gpgsign = true
