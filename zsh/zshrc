@@ -15,12 +15,14 @@ setopt notify               # report status of background jobs immediately
 
 # Key stuff
 bindkey -e
-bindkey "^[[1;3C" forward-word
-bindkey "^[[1;3D" backward-word
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey '^[[3~' delete-char
-bindkey '^[3;5~' delete-char
+bindkey "^[[1;3C" forward-word  # alt-right
+bindkey "^[[1;3D" backward-word # alt-left
+bindkey "^[[1;5C" forward-word  # ctrl-right
+bindkey "^[[1;5D" backward-word # ctrl-left
+bindkey "^[[3~" delete-char     # del
+bindkey "^[3;5~" delete-char    # alt-del
+bindkey -s "^[[6~" ""           # ignore page-down
+bindkey -s "^[[5~" ""           # ignore page-up
 
 # Misc exports
 export DOOL_OPTS="--bytes"
