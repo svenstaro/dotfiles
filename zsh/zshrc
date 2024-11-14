@@ -92,6 +92,8 @@ setopt correct              # spelling correction for commands
 alias ls='ls -F --color=auto'
 alias ll='ls -lhF --color=auto'
 alias la='ls -lhaF --color=auto'
+alias ip='ip -color=auto'
+alias diff='diff --color=auto'
 alias e='exa -F'
 alias ee='exa -lgF --git'
 alias grep='grep --color=auto'
