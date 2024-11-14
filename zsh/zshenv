@@ -10,8 +10,6 @@ export BROWSER=firefox
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 export FZF_CTRL_R_OPTS=-s
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude node_modules'
 
