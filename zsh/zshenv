@@ -7,6 +7,8 @@ export AWS_FEDERATION_TOKEN_TTL=4h
 export ANSIBLE_NOCOWS=1
 export EDITOR=vim
 export BROWSER=firefox
+export LESS="-R -i -M --use-color -DSky"
+
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
