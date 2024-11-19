@@ -115,6 +115,7 @@ alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 alias gsc='git switch -c'
 alias grh='git reset --hard'
+alias gpa='git pull --autostash'
 
 # Sudo shortcuts
 alias svim='sudo vim'
