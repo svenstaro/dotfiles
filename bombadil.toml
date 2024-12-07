@@ -127,7 +127,10 @@ vars = [ "vars/tank.toml" ]
 
 [profiles.cypher]
 vars = [ "vars/cypher.toml" ]
-posthooks = [ "kitten theme --dump-theme 'Gruvbox Dark Hard' > ~/.config/kitty/current-theme.conf" ]
+posthooks = [
+  "kitten theme --dump-theme 'Gruvbox Dark Hard' > ~/.config/kitty/current-theme.conf",
+  "mergiraf languages --gitattributes > ~/.gitattributes"
+]
 
 [profiles.cypher.dots]
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }

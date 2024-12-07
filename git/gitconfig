@@ -37,6 +37,9 @@
 [core]
     pager = delta
 
+    # Required for mergiraf to work:
+    attributesfile = ~/.gitattributes
+
 [interactive]
     diffFilter = delta --color-only
 
@@ -48,6 +51,10 @@
 
 [merge]
     conflictstyle = zdiff3
+
+[merge "mergiraf"]
+    name = mergiraf
+    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
 
 [commit]
     gpgsign = true
