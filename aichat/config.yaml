@@ -1,0 +1,11 @@
+# see https://github.com/sigoden/aichat/blob/main/config.example.yaml
+
+model: ollama
+clients:
+- type: openai-compatible
+  name: ollama
+  api_base: http://morpheus.bee-universe.ts.net:11434/v1
+  api_key: null
+  models:
+  - name: qwen2.5-coder:14b-instruct-q5_K_M
+    max_input_tokens: null

@@ -146,6 +146,8 @@ dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 
+aichat = { source = "aichat/config.yaml", target = ".config/aichat/config.yaml" }
+
 [profiles.morpheus]
 vars = [ "vars/morpheus.toml" ]
 
