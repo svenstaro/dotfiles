@@ -7,5 +7,5 @@ clients:
   api_base: http://morpheus.bee-universe.ts.net:11434/v1
   api_key: null
   models:
-  - name: qwen2.5-coder:14b-instruct-q5_K_M
+  - name: phi4
     max_input_tokens: null
