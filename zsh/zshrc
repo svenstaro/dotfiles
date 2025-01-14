@@ -91,9 +91,9 @@ setopt correct              # spelling correction for commands
 
 
 # Misc aliases
-alias ls='ls -F --color=auto'
-alias ll='ls -lhF --color=auto'
-alias la='ls -lhaF --color=auto'
+alias ls='eza -F'
+alias ll='eza -lgF'
+alias la='eza -lgaF'
 alias ip='ip -color=auto'
 alias diff='diff --color=auto'
 alias e='eza -F'
