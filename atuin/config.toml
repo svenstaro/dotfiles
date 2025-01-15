@@ -1,5 +1,5 @@
 # Disabled as it's slightly annoying (see https://github.com/atuinsh/atuin/issues/2207)
-#inline_height = 50
+inline_height = 0
 
 sync_address = "http://tank.bee-universe.ts.net:9841"
 sync_frequency = "10m"
