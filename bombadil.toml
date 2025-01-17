@@ -92,34 +92,6 @@ xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
 xprofile = { source = "x11/xprofile", target = ".xprofile" }
 xresources = { source = "x11/Xresources", target = ".Xresources" }
 
-[profiles.smith]
-vars = [ "vars/smith.toml" ]
-
-[profiles.smith.dots]
-fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
-gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
-gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
-gtk4 = { source = "gtk/gtk4-settings.ini", target = ".config/gtk-4.0/settings.ini" }
-gtk4-css = { source = "gtk/gtk4.css", target = ".config/gtk-4.0/gtk.css" }
-
-dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
-rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
-redshift = { source = "redshift/redshift.conf", target = ".config/redshift/redshift.conf" }
-i3 = { source = "i3/config", target = ".config/i3/config"}
-i3_dmrc = { source = "i3/dmrc", target = ".dmrc"}
-i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-rust/config.toml" }
-i3_workspace = { source = "i3/workspace_1.json", target = ".config/i3/workspace_1.json" }
-
-inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
-makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
-mpv = { source = "mpv/config", target = ".config/mpv/config" }
-
-wezterm = { source = "wezterm/wezterm.lua", target = ".config/wezterm/wezterm.lua" }
-
-xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
-xprofile = { source = "x11/xprofile", target = ".xprofile" }
-xresources = { source = "x11/Xresources", target = ".Xresources"}
-
 [profiles.tank]
 vars = [ "vars/tank.toml" ]
 
