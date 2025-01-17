@@ -126,6 +126,7 @@ hypridle = { source = "hypr/hypridle.conf", target = ".config/hypr/hypridle.conf
 hyprlock-battery = { source = "hypr/battery.sh", target = ".config/hypr/battery.sh" }
 hyprlock = { source = "hypr/hyprlock.conf", target = ".config/hypr/hyprlock.conf" }
 xdph = { source = "hypr/xdph.conf", target = ".config/hypr/xdph.conf" }
+wpaperd = { source = "wpaperd/config.toml", target = ".config/wpaperd/config.toml" }
 
 aichat = { source = "aichat/config.yaml", target = ".config/aichat/config.yaml" }
 
