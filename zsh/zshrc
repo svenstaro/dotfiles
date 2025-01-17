@@ -91,13 +91,13 @@ setopt correct              # spelling correction for commands
 
 
 # Misc aliases
-alias ls='eza -F'
-alias ll='eza -lgF'
-alias la='eza -lgaF'
+alias ls='eza --classify=auto'
+alias ll='eza -lg --classify=auto'
+alias la='eza -lga --classify=auto'
 alias ip='ip -color=auto'
 alias diff='diff --color=auto'
-alias e='eza -F'
-alias ee='eza -lgF --git'
+alias e='eza --classify=auto'
+alias ee='eza -lg --classify=auto --git'
 alias grep='grep --color=auto'
 alias sys='sudo systemctl'
 alias sysu='systemctl --user'
