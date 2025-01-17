@@ -118,6 +118,15 @@ dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
 kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
 rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 
+hyprland = { source = "hypr/hyprland.conf", target = ".config/hypr/hyprland.conf" }
+hyprland-binds = { source = "hypr/binds.conf", target = ".config/hypr/binds.conf" }
+hyprland-input = { source = "hypr/input.conf", target = ".config/hypr/input.conf" }
+hyprland-rules = { source = "hypr/rules.conf", target = ".config/hypr/rules.conf" }
+hypridle = { source = "hypr/hypridle.conf", target = ".config/hypr/hypridle.conf" }
+hyprlock-battery = { source = "hypr/battery.sh", target = ".config/hypr/battery.sh" }
+hyprlock = { source = "hypr/hyprlock.conf", target = ".config/hypr/hyprlock.conf" }
+xdph = { source = "hypr/xdph.conf", target = ".config/hypr/xdph.conf" }
+
 aichat = { source = "aichat/config.yaml", target = ".config/aichat/config.yaml" }
 
 [profiles.morpheus]
