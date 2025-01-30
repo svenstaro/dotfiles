@@ -134,6 +134,9 @@ alias hcloud="TERM=xterm-256color hcloud"
 # zoxide
 source <(zoxide init zsh)
 
+# Apps
+alias img="loupe"
+
 
 # ssh keys
 eval $(keychain --eval --timeout 600 --agents ssh -Q --quiet --noask arch_ed25519 id_ed25519 skeletonkey_ed25519)
