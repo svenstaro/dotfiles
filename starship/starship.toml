@@ -27,10 +27,6 @@ style = 'bold yellow'
 
 [[battery.display]]
 threshold = 30
-style = 'bold orange'
-
-[[battery.display]]
-threshold = 10
 style = 'bold red'
 {% endif %}
 
