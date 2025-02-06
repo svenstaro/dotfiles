@@ -7,5 +7,5 @@ clients:
   api_base: http://morpheus.bee-universe.ts.net:11434/v1
   api_key: null
   models:
-  - name: deepseek-r1:14b
+  - name: mistral-small
     max_input_tokens: 10240
