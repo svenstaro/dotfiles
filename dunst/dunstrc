@@ -1,5 +1,5 @@
 [global]
-	# separator_height = 2
+    # separator_height = 2
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
     frame_width = 2
