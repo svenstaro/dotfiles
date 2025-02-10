@@ -101,6 +101,8 @@ vars = [ "vars/tank.toml" ]
 vars = [ "vars/cypher.toml" ]
 posthooks = [
   "kitten theme --dump-theme 'Gruvbox Dark Hard' > ~/.config/kitty/current-theme.conf",
+  "pkill waybar; hyprctl dispatch exec waybar",
+
   "mergiraf languages --gitattributes > ~/.gitattributes"
 ]
 
