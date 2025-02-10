@@ -17,26 +17,26 @@ if [[ $battery_found == false ]]; then
   exit 0
 fi
 
-remaining=$(head -1 /sys/class/power_supply/*/capacity)
+battery_remaining=$(head -1 /sys/class/power_supply/*/capacity)
 
 if [[ $battery_charging == true ]]; then
-  color="#689d6a"
+  color=#ebdbb2
 else
-  if (( remaining <= 15 )); then
+  if (( battery_remaining <= 15 )); then
     color="#cc241d"
   else
     color="#fabd2f"
   fi
 fi
 
-if (( remaining <= 15 )); then
-  echo "<span foreground=\"$color\"></span>"
-elif (( remaining > 15 && remaining <= 35 )); then
-  echo "<span foreground=\"$color\"></span>"
-elif (( remaining > 35 && remaining <= 55 )); then
-  echo "<span foreground=\"$color\"></span>"
-elif (( remaining > 55 && remaining <= 75 )); then
-  echo "<span foreground=\"$color\"></span>"
-elif (( remaining > 75 )); then
-  echo "<span foreground=\"$color\"></span>"
+battery_icons=("󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰁹")
+charging_icon="󰂄"
+
+icon_index=$((battery_remaining / 10))
+battery_icon=${battery_icons[icon_index]}
+
+if [[ $battery_charging == true ]]; then
+  battery_icon=$charging_icon
 fi
+
+echo "<span foreground=\"$color\">$battery_remaining% $battery_icon</span>"
