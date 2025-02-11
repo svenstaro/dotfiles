@@ -100,10 +100,12 @@
       "format-full": "{icon} {capacity}%",
       "format-charging": " {capacity}%",
       "format-plugged": " {capacity}%",
-      "format-alt": "{icon} {time}",
+      "format-alt": "{icon} {time} ({power:0.0f}W)",
+      "format-time": "{H}h {M}min",
+      "tooltip-format": "{timeTo}\nPower: {power:0.0f}W",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"]
+      "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"]
     },
 
     "network": {
