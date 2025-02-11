@@ -1,0 +1,189 @@
+@define-color fg1 #ebdbb2;
+@define-color bg3 #665c54;
+@define-color bg #282828;
+@define-color red0 #cc241d;
+@define-color green0 #98971a;
+@define-color yellow0 #d79921;
+@define-color blue0 #458588;
+@define-color purple0 #b16286;
+@define-color aqua0 #689d6a;
+@define-color orange0 #d65d0e;
+
+* {
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+window#waybar {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: FontAwesome, monospace;
+  background-color: transparent;
+  border-bottom: 0px;
+  color: @fg1;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  /* box-shadow: inset 0 -3px transparent; */
+  border: none;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px @fg1;
+}
+
+#workspaces {
+  background-color: @bg;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: @fg1;
+  border-radius: 0;
+}
+
+#workspaces button:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+#workspaces button:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+#workspaces button:hover {
+  background-color: @yellow0;
+}
+
+#workspaces button.visible {
+  background-color: @bg3;
+  /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+#workspaces button.active {
+  background-color: @blue0;
+  /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+#workspaces button.urgent {
+  background-color: @purple0;
+}
+
+#idle_inhibitor,
+#cpu,
+#memory,
+#network,
+#submap,
+#window,
+#clock,
+#battery,
+#backlight,
+#wireplumber,
+#tray,
+#mpris,
+#load {
+  padding: 0 10px;
+  background-color: @bg;
+  color: @fg1;
+}
+
+#submap {
+  background-color: @aqua0;
+  color: @bg;
+  /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+  margin-right: 0;
+}
+
+#memory.warning {
+  background-color: @orange0;
+  color: @bg;
+}
+
+#memory.critical {
+  background-color: @red0;
+  color: @bg;
+}
+
+#battery.charging,
+#battery.plugged {
+  background-color: @green0;
+  color: @bg;
+}
+
+@keyframes blink {
+  to {
+    background-color: @bg;
+    color: @fg1;
+  }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+  background-color: @red0;
+  color: @fg1;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: black;
+}
+
+#wireplumber.muted {
+  background-color: @blue0;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+#mpris.playing {
+  background-color: @yellow0;
+  color: @bg;
+}
+
+#tray menu {
+  font-family: sans-serif;
+}
+
+#scratchpad.empty {
+  background: transparent;
+}

@@ -1,0 +1,156 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 24,
+    "spacing": 8,
+    "margin": "0 8 8 8",
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "hyprland/language"
+    ],
+
+    "modules-center": [
+        "mpris"
+    ],
+
+    "modules-right": [
+        "idle_inhibitor",
+        "cpu",
+        "memory",
+        "battery",
+        "network",
+        "wireplumber",
+        "backlight",
+        "tray",
+        "clock"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "tooltip": false
+    },
+
+    "hyprland/language": {
+      // Hide in case of default layout
+      "format-eu": "",
+      "format-ru": "RU"
+    },
+
+    "mpris": {
+      "format": "{player_icon} {dynamic}",
+      "format-paused": "{status_icon} <i>{dynamic}</i>",
+      "player-icons": {
+        "default": "▶",
+        "firefox": "",
+        "spotify": "",
+        "mpv": "🎵"
+      },
+      "status-icons": {
+        "paused": "⏸"
+      }
+    },
+
+    "idle_inhibitor": {
+        "timeout": 300, // Automatically un-inhibit after 5h
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip-format-activated": "Idle inhibited",
+        "tooltip-format-deactivated": "Idle not inhibited"
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 2,
+
+        "states": {
+            "critical": 90
+        }
+    },
+
+    "memory": {
+        "format": " {used:0.0f}/{total:0.0f} GB",
+        "interval": 2,
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "battery": {
+        "states": {
+            "good": 70,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"]
+    },
+
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-ethernet": " {ifname}",
+        "format-disconnected": "", // An empty format will hide the module.
+        "tooltip-format": "{ifname} <b>{ipaddr}</b> <i>via</i> {gwaddr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+
+    "wireplumber": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "tray": {
+        "spacing": 10,
+        "icon-size": 14
+    },
+
+    "clock": {
+        "format": "{:%F %R}",
+        "format-alt": "{:%a, %d. %b %H:%M}",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "calendar": {
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#fbf1c7'><b>{}</b></span>",
+                "days":       "<span color='#d5c4a1'><b>{}</b></span>",
+                "weeks":      "<span color='#b16286'><b>W{}</b></span>",
+                "weekdays":   "<span color='#83a598'><b>{}</b></span>",
+                "today":      "<span color='#fabd2f'><b><u>{}</u></b></span>"
+                }
+            }
+    }
+}
