@@ -34,9 +34,8 @@
     },
 
     "hyprland/language": {
-      // Hide in case of default layout
-      "format-eu": "",
-      "format-ru": "RU"
+      "format-eu": "EU",
+      "format-ru": "<span color=\"#d79921\">RU</span>"
     },
 
     "mpris": {
