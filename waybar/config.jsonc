@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "bottom",
     "height": 24,
-    "spacing": 8,
+    "spacing": 4,
     "margin": "0 8 8 8",
 
     "modules-left": [
