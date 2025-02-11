@@ -39,6 +39,7 @@
     },
 
     "mpris": {
+      "dynamic-len": 80,
       "format": "{player_icon} {dynamic}",
       "format-paused": "{status_icon} <i>{dynamic}</i>",
       "player-icons": {
