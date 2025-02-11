@@ -8,7 +8,8 @@
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/submap",
-        "hyprland/language"
+        "hyprland/language",
+        "idle_inhibitor"
     ],
 
     "modules-center": [
@@ -16,12 +17,10 @@
     ],
 
     "modules-right": [
-        "idle_inhibitor",
-        "cpu",
-        "memory",
+        "group/hardware",
         "battery",
         "network",
-        "wireplumber",
+        "pulseaudio",
         "backlight",
         "tray",
         "clock"
@@ -35,7 +34,8 @@
 
     "hyprland/language": {
       "format-eu": "EU",
-      "format-ru": "<span color=\"#d79921\">RU</span>"
+      "format-ru": "<span color=\"#d79921\">RU</span>",
+      "on-click": "hyprctl switchxkblayout current next"
     },
 
     "mpris": {
@@ -63,93 +63,101 @@
         "tooltip-format-deactivated": "Idle not inhibited"
     },
 
-    "cpu": {
-        "format": " {usage}%",
-        "interval": 2,
+    "group/hardware": {
+      "orientation": "horizontal",
+      "modules": [
+        "cpu",
+        "memory"
+      ]
+    },
 
-        "states": {
-            "critical": 90
-        }
+    "cpu": {
+      "format": " {usage}%",
+      "interval": 2,
+
+      "states": {
+        "critical": 90
+      }
     },
 
     "memory": {
-        "format": " {used:0.0f}/{total:0.0f} GB",
-        "interval": 2,
-        "states": {
-            "warning": 70,
-            "critical": 90
-        }
+      "format": " {used:0.0f}/{total:0.0f} GB",
+      "interval": 2,
+      "states": {
+        "warning": 70,
+        "critical": 90
+      }
     },
 
     "battery": {
-        "states": {
-            "good": 70,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-full": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
+      "states": {
+        "good": 70,
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-full": "{icon} {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"]
     },
 
     "network": {
-        "format": "{ifname}",
-        "format-wifi": " {essid} ({signalStrength}%)",
-        "format-ethernet": " {ifname}",
-        "format-disconnected": "", // An empty format will hide the module.
-        "tooltip-format": "{ifname} <b>{ipaddr}</b> <i>via</i> {gwaddr}",
-        "tooltip-format-disconnected": "Disconnected",
-        "max-length": 50
+      "format": "{ifname}",
+      "format-wifi": " {essid} ({signalStrength}%)",
+      "format-ethernet": "",
+      "format-disconnected": "", // An empty format will hide the module.
+      "tooltip-format": "{ifname} <b>{ipaddr}</b> <i>via</i> {gwaddr}",
+      "tooltip-format-disconnected": "Disconnected",
+      "max-length": 50
     },
 
-    "wireplumber": {
-        "scroll-step": 5, // %, can be a float
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}% ",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "pavucontrol"
+    "pulseaudio": {
+      "scroll-step": 5, // %, can be a float
+      "format": "{icon} {volume}%",
+      "format-bluetooth": "{icon} {volume}% ",
+      "format-bluetooth-muted": " {icon}",
+      "format-muted": "",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+      },
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+      "on-click-right": "pavucontrol"
     },
 
     "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+      "format": "{icon} {percent}%",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
 
     "tray": {
-        "spacing": 10,
-        "icon-size": 14
+      "spacing": 10,
+      "icon-size": 14
     },
 
     "clock": {
-        "format": "{:%F %R}",
-        "format-alt": "{:%a, %d. %b %H:%M}",
-        "tooltip-format": "<tt><big>{calendar}</big></tt>",
-        "calendar": {
-            "weeks-pos"     : "right",
-            "on-scroll"     : 1,
-            "format": {
-                "months":     "<span color='#fbf1c7'><b>{}</b></span>",
-                "days":       "<span color='#d5c4a1'><b>{}</b></span>",
-                "weeks":      "<span color='#b16286'><b>W{}</b></span>",
-                "weekdays":   "<span color='#83a598'><b>{}</b></span>",
-                "today":      "<span color='#fabd2f'><b><u>{}</u></b></span>"
-                }
-            }
+      "format": "{:%F %R}",
+      "format-alt": "{:%a, %d. %b %H:%M}",
+      "tooltip-format": "<tt><big>{calendar}</big></tt>",
+      "calendar": {
+        "weeks-pos"     : "right",
+        "on-scroll"     : 1,
+        "format": {
+          "months":     "<span color='#fbf1c7'><b>{}</b></span>",
+          "days":       "<span color='#d5c4a1'><b>{}</b></span>",
+          "weeks":      "<span color='#b16286'><b>W{}</b></span>",
+          "weekdays":   "<span color='#83a598'><b>{}</b></span>",
+          "today":      "<span color='#fabd2f'><b><u>{}</u></b></span>"
+        }
+      }
     }
 }

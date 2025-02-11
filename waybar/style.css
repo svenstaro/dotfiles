@@ -91,9 +91,10 @@ button:hover {
 #clock,
 #battery,
 #backlight,
-#wireplumber,
+#pulseaudio,
 #tray,
 #mpris,
+#hardware,
 #load {
   padding: 0 10px;
   background-color: @bg;
@@ -143,7 +144,7 @@ label:focus {
   background-color: black;
 }
 
-#wireplumber.muted {
+#pulseaudio.muted {
   background-color: @blue0;
 }
 
@@ -162,8 +163,4 @@ label:focus {
 
 #tray menu {
   font-family: sans-serif;
-}
-
-#scratchpad.empty {
-  background: transparent;
 }
