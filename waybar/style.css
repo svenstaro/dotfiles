@@ -1,6 +1,7 @@
 @define-color fg1 #ebdbb2;
 @define-color bg3 #665c54;
-@define-color bg #282828;
+@define-color bg0 #282828;
+@define-color bg0h #1d2021;
 @define-color red0 #cc241d;
 @define-color green0 #98971a;
 @define-color yellow0 #d79921;
@@ -12,6 +13,10 @@
 * {
   font-size: 14px;
   border-radius: 5px;
+}
+
+.modules-right {
+  background-color: rgba(29, 32, 33, 0.4);
 }
 
 window#waybar {
@@ -43,7 +48,7 @@ button:hover {
 }
 
 #workspaces {
-  background-color: @bg;
+  background-color: @bg0;
 }
 
 #workspaces button {
@@ -97,34 +102,34 @@ button:hover {
 #hardware,
 #load {
   padding: 0 10px;
-  background-color: @bg;
+  background-color: @bg0h;
   color: @fg1;
 }
 
 #submap {
   background-color: @aqua0;
-  color: @bg;
+  color: @bg0;
 }
 
 #memory.warning {
   background-color: @orange0;
-  color: @bg;
+  color: @bg0;
 }
 
 #memory.critical {
   background-color: @red0;
-  color: @bg;
+  color: @bg0;
 }
 
 #battery.charging,
 #battery.plugged {
   background-color: @green0;
-  color: @bg;
+  color: @bg0;
 }
 
 @keyframes blink {
   to {
-    background-color: @bg;
+    background-color: @bg0;
     color: @fg1;
   }
 }
@@ -158,7 +163,7 @@ label:focus {
 
 #mpris.playing {
   background-color: @yellow0;
-  color: @bg;
+  color: @bg0;
 }
 
 #tray menu {
