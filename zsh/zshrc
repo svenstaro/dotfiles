@@ -136,6 +136,7 @@ source <(zoxide init zsh)
 
 # Apps
 alias img="loupe"
+alias pdf="evince"
 
 
 # ssh keys
