@@ -26,7 +26,17 @@ tmux = { source = "tmux/tmux.conf", target = ".config/tmux/tmux.conf" }
 tmate = { source = "tmux/tmate.conf", target = ".tmate.conf" }
 
 helix = { source = "helix/config.toml", target = ".config/helix/config.toml" }
-vim_init = { source = "vim/init.lua", target = ".config/nvim/init.lua" }
+nvim_init = { source = "nvim/init.lua", target = ".config/nvim/init.lua" }
+nvim_chadrc = { source = "nvim/lua/chadrc.lua", target = ".config/nvim/lua/chadrc.lua" }
+nvim_mappings = { source = "nvim/lua/mappings.lua", target = ".config/nvim/lua/mappings.lua" }
+nvim_options = { source = "nvim/lua/options.lua", target = ".config/nvim/lua/options.lua" }
+
+nvim_plugins_init = { source = "nvim/lua/plugins/init.lua", target = ".config/nvim/lua/plugins/init.lua" }
+
+nvim_config_codecompanion = { source = "nvim/lua/configs/codecompanion.lua", target = ".config/nvim/lua/configs/codecompanion.lua" }
+nvim_config_conform = { source = "nvim/lua/configs/conform.lua", target = ".config/nvim/lua/configs/conform.lua" }
+nvim_config_lazy = { source = "nvim/lua/configs/lazy.lua", target = ".config/nvim/lua/configs/lazy.lua" }
+nvim_config_lspconfig = { source = "nvim/lua/configs/lspconfig.lua", target = ".config/nvim/lua/configs/lspconfig.lua" }
 
 zsh = { source = "zsh/zshrc", target = ".zshrc" }
 zshenv = { source = "zsh/zshenv", target = ".zshenv" }
@@ -101,8 +111,7 @@ vars = [ "vars/tank.toml" ]
 vars = [ "vars/cypher.toml" ]
 posthooks = [
   "kitten theme --dump-theme 'Gruvbox Dark Hard' > ~/.config/kitty/current-theme.conf",
-  "pkill waybar; hyprctl dispatch exec waybar",
-
+  "pkill -USR2 waybar",
   "mergiraf languages --gitattributes > ~/.gitattributes"
 ]
 
