@@ -17,7 +17,8 @@
     ],
 
     "modules-right": [
-        "group/hardware",
+        "cpu",
+        "memory",
         "battery",
         "network",
         "pulseaudio",
@@ -45,8 +46,7 @@
       "player-icons": {
         "default": "▶",
         "firefox": "",
-        "spotify": "",
-        "mpv": "🎵"
+        "spotify": ""
       },
       "status-icons": {
         "paused": "⏸"
@@ -62,14 +62,6 @@
         },
         "tooltip-format-activated": "Idle inhibited",
         "tooltip-format-deactivated": "Idle not inhibited"
-    },
-
-    "group/hardware": {
-      "orientation": "horizontal",
-      "modules": [
-        "cpu",
-        "memory"
-      ]
     },
 
     "cpu": {
