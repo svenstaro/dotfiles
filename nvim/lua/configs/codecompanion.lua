@@ -14,10 +14,10 @@ return {
         schema = {
           model = {
             -- default = "deepseek-r1:14b",
-            default = "qwen2.5-coder:14b-instruct-q5_K_M",
+            default = "phi4",
           },
           num_ctx = {
-            default = 10240,
+            default = 16384,
           },
         },
         env = {
