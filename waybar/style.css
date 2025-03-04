@@ -45,6 +45,7 @@ button {
 button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
+  background-image: inherit;
   transition-property: background-color;
   transition-duration: .2s;
 }
@@ -72,8 +73,9 @@ button:hover {
   border-radius: 5px;
 }
 
-#workspaces button:hover {
-  background-color: @yellow0;
+#workspaces button:hover,
+#workspaces button.active:hover {
+  background-color: @fg1;
   color: @bg0;
 }
 
