@@ -105,6 +105,7 @@ alias locate='plocate'
 alias myips='curl -4 icanhazip.com && curl -6 icanhazip.com'
 
 # Git aliases
+alias gp='git push'
 alias gpf='git push --force-with-lease'
 alias gpu='git publish'
 alias gra='git rebase --autostash'
