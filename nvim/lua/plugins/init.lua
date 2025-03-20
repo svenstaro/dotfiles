@@ -13,6 +13,21 @@ return {
   },
 
   {
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    opts = {
+      renderer = {
+        icons = {
+          git_placement = "after",
+        },
+      },
+      diagnostics = {
+        enable = true,
+      },
+    },
+  },
+
+  {
     "kevinhwang91/nvim-bqf",
     ft = { "qf" },
     opts = {
