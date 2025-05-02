@@ -74,7 +74,7 @@
     },
 
     "memory": {
-      "format": " {used:0.0f}/{total:0.0f} GB",
+      "format": " {used:0.0f}/{total:0.0f} GiB",
       "interval": 2,
       "states": {
         "warning": 70,
