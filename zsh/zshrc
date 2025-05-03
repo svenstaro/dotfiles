@@ -142,8 +142,8 @@ alias pdf="evince"
 
 
 # ssh keys
-eval $(keychain --eval --timeout 600 --quick --quiet --noask)
-alias auth='eval $(keychain --eval --timeout 600 --quiet arch_ed25519 id_ed25519 skeletonkey_ed25519)'
+eval $(keychain --eval --timeout 1000 --quiet --noask arch_ed25519 id_ed25519 skeletonkey_ed25519)
+alias auth='eval $(keychain --eval --timeout 1000 --quiet arch_ed25519 id_ed25519 skeletonkey_ed25519)'
 
 
 # fzf
