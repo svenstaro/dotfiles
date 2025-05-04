@@ -1,5 +1,5 @@
 profile = "neo"
-makepkg_jobs = "65"
+makepkg_jobs = "32"
 wezterm_font_size = "8"
 wmfocus_font = "Input:72"
 rofi_dpi = "96"

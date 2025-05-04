@@ -46,6 +46,11 @@ atuin = { source = "atuin/config.toml", target = ".config/atuin/config.toml" }
 
 [profiles.neo]
 vars = [ "vars/neo.toml" ]
+posthooks = [
+  "kitten theme --dump-theme 'Gruvbox Dark Hard' > ~/.config/kitty/current-theme.conf",
+  "pkill -USR2 waybar",
+  "mergiraf languages --gitattributes > ~/.gitattributes"
+]
 
 [profiles.neo.dots]
 fonts = { source = "fonts/fonts.conf", target = ".config/fontconfig/fonts.conf" }
@@ -53,25 +58,26 @@ gtk2 = { source = "gtk/gtkrc-2.0", target = ".gtkrc-2.0" }
 gtk3 = { source = "gtk/gtk3-settings.ini", target = ".config/gtk-3.0/settings.ini" }
 gtk4 = { source = "gtk/gtk4-settings.ini", target = ".config/gtk-4.0/settings.ini" }
 
-dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
-rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
-redshift = { source = "redshift/redshift.conf", target = ".config/redshift/redshift.conf" }
-i3 = { source = "i3/config", target = ".config/i3/config"}
-i3_dmrc = { source = "i3/dmrc", target = ".dmrc"}
-i3_status_rust = { source = "i3/i3status-rust.toml", target = ".config/i3status-rust/config.toml" }
-i3_workspace = { source = "i3/workspace_1.json", target = ".config/i3/workspace_1.json" }
-
-inputrc = { source = "inputrc/inputrc", target = ".inputrc" }
 makepkg = { source = "makepkg/makepkg.conf", target = ".config/pacman/makepkg.conf" }
 mpv = { source = "mpv/config", target = ".config/mpv/config" }
 
-pipewire = { source = "pipewire/fix-discord-notifications.conf", target = ".config/pipewire/pipewire-pulse.conf.d/fix-discord-notifications.conf" }
+dunst = { source = "dunst/dunstrc", target = ".config/dunst/dunstrc" }
+kitty = { source = "kitty/kitty.conf", target = ".config/kitty/kitty.conf" }
+rofi = { source = "rofi/config.rasi", target = ".config/rofi/config.rasi" }
 
-wezterm = { source = "wezterm/wezterm.lua", target = ".config/wezterm/wezterm.lua" }
+hyprland = { source = "hypr/hyprland.conf", target = ".config/hypr/hyprland.conf" }
+hyprland-binds = { source = "hypr/binds.conf", target = ".config/hypr/binds.conf" }
+hyprland-input = { source = "hypr/input.conf", target = ".config/hypr/input.conf" }
+hyprland-rules = { source = "hypr/rules.conf", target = ".config/hypr/rules.conf" }
+hypridle = { source = "hypr/hypridle.conf", target = ".config/hypr/hypridle.conf" }
+hyprlock-battery = { source = "hypr/battery.sh", target = ".config/hypr/battery.sh" }
+hyprlock = { source = "hypr/hyprlock.conf", target = ".config/hypr/hyprlock.conf" }
+xdph = { source = "hypr/xdph.conf", target = ".config/hypr/xdph.conf" }
+wpaperd = { source = "wpaperd/config.toml", target = ".config/wpaperd/config.toml" }
+warbar_config = { source = "waybar/config.jsonc", target = ".config/waybar/config.jsonc" }
+warbar_style = { source = "waybar/style.css", target = ".config/waybar/style.css" }
 
-xinitrc = { source = "x11/xinitrc", target = ".xinitrc" }
-xprofile = { source = "x11/xprofile", target = ".xprofile" }
-xresources = { source = "x11/Xresources", target = ".Xresources" }
+aichat = { source = "aichat/config.yaml", target = ".config/aichat/config.yaml" }
 
 looking_glass = { source = "looking-glass/looking-glass-client.ini", target = ".config/looking-glass/client.ini" }
 
