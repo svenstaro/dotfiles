@@ -65,15 +65,15 @@ return {
 
   {
     "OXY2DEV/markview.nvim",
-    lazy = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "echasnovski/mini.icons",
     },
-    ft = { "markdown", "codecompanion" },
+    ft = { "markdown", "Avante" },
     opts = {
       preview = {
-        filetypes = { "markdown", "codecompanion" },
+        icon_provider = "mini", -- "mini" or "devicons"
+        filetypes = { "markdown", "Avante" },
         ignore_buftypes = {},
       },
     },

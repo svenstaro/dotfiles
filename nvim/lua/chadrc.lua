@@ -7,6 +7,9 @@ local M = {}
 
 M.base46 = {
   theme = "gruvbox",
+  integrations = {
+    "markview",
+  },
 
   -- hl_override = {
   -- 	Comment = { italic = true },
