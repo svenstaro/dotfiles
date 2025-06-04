@@ -59,9 +59,21 @@ return {
       -- add any opts here
       -- for example
       provider = "ollama",
-      ollama = {
-        endpoint = "http://morpheus.bee-universe.ts.net:11434",
-        model = "qwen3:8b",
+      auto_suggestions_provider = "ollama",
+      behaviour = {
+        auto_suggestions = false, -- Experimental stage
+        auto_set_highlight_group = true,
+        auto_set_keymaps = true,
+        auto_apply_diff_after_generation = false,
+        support_paste_from_clipboard = false,
+        minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+        enable_token_counting = true, -- Whether to enable token counting. Default to true.
+      },
+      providers = {
+        ollama = {
+          endpoint = "http://morpheus.bee-universe.ts.net:11434",
+          model = "qwen3:8b",
+        },
       },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
