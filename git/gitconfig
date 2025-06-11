@@ -11,6 +11,7 @@
 
 [alias]
   default-branch = "!git ls-remote --symref origin HEAD | sed -n 's|.*refs/heads/\\(\\w*\\)\\W\\w*|\\1|p'"
+  cleanup-branches = "!git branch -d $(git branch --merged=$(git default-branch) | grep -v $(git default-branch)); git fetch --prune"
   lg = log --graph --all --format=format:'%C(yellow)%h%C(reset) - %C(cyan)%ci%C(reset) %C(green)(%cr)%C(reset) %C(bold yellow)%d%C(reset)%n          %C(white)%s%C(reset) %C(bold white)- %cn%C(reset)%n' --abbrev-commit --date=relative
   autosquash = "!GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash"
   as = autosquash
