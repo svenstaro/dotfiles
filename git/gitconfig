@@ -21,6 +21,7 @@
 [push]
     default = simple
     followTags = false
+    autoSetupRemote = true
 
 [github]
     user = svenstaro
