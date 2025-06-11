@@ -1,71 +1,71 @@
 [user]
-    name = Sven-Hendrik Haase
-    email = svenstaro@gmail.com
-    signingkey = E62EB915
+  name = Sven-Hendrik Haase
+  email = svenstaro@gmail.com
+  signingkey = E62EB915
 
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
 
 [alias]
-    default-branch = "!git ls-remote --symref origin HEAD | sed -n 's|.*refs/heads/\\(\\w*\\)\\W\\w*|\\1|p'"
-    lg = log --graph --all --format=format:'%C(yellow)%h%C(reset) - %C(cyan)%ci%C(reset) %C(green)(%cr)%C(reset) %C(bold yellow)%d%C(reset)%n          %C(white)%s%C(reset) %C(bold white)- %cn%C(reset)%n' --abbrev-commit --date=relative
-    autosquash = "!GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash"
-    as = autosquash
-    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
-    publish = "!git push -u origin $(git branch --show-current)"
-    pub = publish
+  default-branch = "!git ls-remote --symref origin HEAD | sed -n 's|.*refs/heads/\\(\\w*\\)\\W\\w*|\\1|p'"
+  lg = log --graph --all --format=format:'%C(yellow)%h%C(reset) - %C(cyan)%ci%C(reset) %C(green)(%cr)%C(reset) %C(bold yellow)%d%C(reset)%n          %C(white)%s%C(reset) %C(bold white)- %cn%C(reset)%n' --abbrev-commit --date=relative
+  autosquash = "!GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash"
+  as = autosquash
+  mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+  publish = "!git push -u origin $(git branch --show-current)"
+  pub = publish
 
 [push]
-    default = simple
-    followTags = false
-    autoSetupRemote = true
+  default = simple
+  followTags = false
+  autoSetupRemote = true
 
 [github]
-    user = svenstaro
+  user = svenstaro
 
 [lfs]
-    concurrenttransfers = 20
+  concurrenttransfers = 20
 
 [filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 
 [core]
-    pager = delta
+  pager = delta
 
-    # Required for mergiraf to work:
-    attributesfile = ~/.gitattributes
+  # Required for mergiraf to work:
+  attributesfile = ~/.gitattributes
 
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [delta]
-    navigate = true    # use n and N to move between diff sections
-    line-numbers = true
-    side-by-side = true
-    syntax-theme = gruvbox-dark
+  navigate = true    # use n and N to move between diff sections
+  line-numbers = true
+  side-by-side = true
+  syntax-theme = gruvbox-dark
 
 [merge]
-    conflictstyle = zdiff3
+  conflictstyle = zdiff3
 
 [merge "mergiraf"]
-    name = mergiraf
-    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
+  name = mergiraf
+  driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
 
 [commit]
-    gpgsign = true
+  gpgsign = true
 
 [pull]
-    rebase = true
+  rebase = true
 
 # See also https://andrewlock.net/working-with-stacked-branches-in-git-is-easier-with-update-refs/
 [rebase]
-    updateRefs = true
+  updateRefs = true
 
 [rerere]
-	enabled = true
+  enabled = true
