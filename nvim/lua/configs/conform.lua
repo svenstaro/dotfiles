@@ -3,6 +3,8 @@ local options = {
     lua = { "stylua" },
     rust = { "rustfmt", lsp_format = "fallback" },
     python = { "ruff_format" },
+    -- Disable shell formatting as I don't like the way it formats.
+    sh = { "trim_whitespace", lsp_format = "fallback" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
