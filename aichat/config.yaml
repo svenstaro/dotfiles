@@ -7,5 +7,5 @@ clients:
   api_base: http://neo.bee-universe.ts.net:11434/v1
   api_key: null
   models:
-  - name: qwen3:30b-a3b
+  - name: qwen3:30b
     max_input_tokens: 32768
