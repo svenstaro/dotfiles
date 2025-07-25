@@ -4,8 +4,8 @@ model: ollama
 clients:
 - type: openai-compatible
   name: ollama
-  api_base: http://morpheus.bee-universe.ts.net:11434/v1
+  api_base: http://neo.bee-universe.ts.net:11434/v1
   api_key: null
   models:
   - name: qwen3:30b-a3b
-    max_input_tokens: 16384
+    max_input_tokens: 32768
