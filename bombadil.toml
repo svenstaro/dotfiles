@@ -15,7 +15,6 @@ btop = { source = "btop/btop.conf", target = ".config/btop/btop.conf" }
 htop = { source = "htop/htoprc", target = ".config/htop/htoprc" }
 
 git = { source = "git/gitconfig", target = ".gitconfig" }
-hg = { source = "hg/hgrc", target = ".hgrc" }
 poetry = { source = "poetry/config.toml", target = ".config/poetry/config.toml" }
 psql = { source = "psql/psqlrc", target = ".psqlrc" }
 
