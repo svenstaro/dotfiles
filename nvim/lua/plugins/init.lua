@@ -92,6 +92,7 @@ return {
     opts = {
       ensure_installed = {
         "bash",
+        "caddy",
         "css",
         "html",
         "hyprlang",
