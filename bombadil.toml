@@ -150,3 +150,8 @@ aichat = { source = "aichat/config.yaml", target = ".config/aichat/config.yaml" 
 vars = [ "vars/morpheus.toml" ]
 
 [profiles.morpheus.dots]
+
+[profiles.trinity]
+vars = [ "vars/trinity.toml" ]
+
+[profiles.trinity.dots]
