@@ -24,9 +24,6 @@ bindkey "^[3;5~" delete-char    # alt-del
 bindkey -s "^[[6~" ""           # ignore page-down
 bindkey -s "^[[5~" ""           # ignore page-up
 
-# Misc exports
-export DOOL_OPTS="--bytes"
-
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=100000

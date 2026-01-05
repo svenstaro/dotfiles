@@ -26,3 +26,6 @@ export CROSS_CONTAINER_ENGINE=podman
 # Android/Flutter stuff
 export ANDROID_HOME=~/.local/share/android-sdk
 export FLUTTER_HOME=~/src/flutter
+
+# Misc exports
+export DOOL_OPTS="--bytes"
