@@ -65,12 +65,4 @@ map("n", "<leader>gQ", function()
 end, { desc = "gitsigns hunks to quickfix" })
 -- map("n", "<leader>gq", gitsigns.setloclist, { desc = "Hunk to quickfix" })
 
--- CodeCompanion
-map({ "n", "v" }, "<C-c>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
-
--- Expand 'cc' into 'CodeCompanion' in the command line
-vim.cmd [[cab cc CodeCompanion]]
-
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
