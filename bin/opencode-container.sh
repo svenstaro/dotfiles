@@ -20,7 +20,7 @@ function build() {
 }
 
 function run() {
-  podman run -it --rm --name opencode \
+  podman run -it --rm --name opencode-$RANDOM \
     -w /src \
     -v ./:/src \
     -v ~/.config/opencode:/root/.config/opencode \
