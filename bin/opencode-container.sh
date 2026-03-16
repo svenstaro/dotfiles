@@ -16,9 +16,7 @@ ENTRYPOINT opencode
 cmd=$1
 
 function build() {
-  tmpcontainerfile=$(mktemp)
-  echo "$containerfile" > "$tmpcontainerfile"
-  podman build --tag opencode -f "$tmpcontainerfile"
+  podman build --tag opencode -f - <<< "$containerfile"
 }
 
 function run() {
