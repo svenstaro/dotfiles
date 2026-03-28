@@ -79,6 +79,7 @@ opencode = { source = "opencode/opencode.json", target = ".config/opencode/openc
 opencode_agents = { source = "opencode/AGENTS.md", target = ".config/opencode/AGENTS.md" }
 opencode_bwrap = { source = "bin/opencode-bwrap.sh", target = "bin/opencode-bwrap" }
 pkgbuild_autofix = { source = "bin/pkgbuild-autofix.sh", target = "bin/pkgbuild-autofix" }
+nvim_bwrap = { source = "bin/nvim-bwrap.sh", target = "bin/nvim-bwrap" }
 
 looking_glass = { source = "looking-glass/looking-glass-client.ini", target = ".config/looking-glass/client.ini" }
 
