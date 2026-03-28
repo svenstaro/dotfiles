@@ -77,6 +77,8 @@ warbar_style = { source = "waybar/style.css", target = ".config/waybar/style.css
 
 opencode = { source = "opencode/opencode.json", target = ".config/opencode/opencode.json" }
 opencode_agents = { source = "opencode/AGENTS.md", target = ".config/opencode/AGENTS.md" }
+opencode_bwrap = { source = "bin/opencode-bwrap.sh", target = "bin/opencode-bwrap" }
+pkgbuild_autofix = { source = "bin/pkgbuild-autofix.sh", target = "bin/pkgbuild-autofix" }
 
 looking_glass = { source = "looking-glass/looking-glass-client.ini", target = ".config/looking-glass/client.ini" }
 
@@ -147,7 +149,8 @@ warbar_style = { source = "waybar/style.css", target = ".config/waybar/style.css
 
 opencode = { source = "opencode/opencode.json", target = ".config/opencode/opencode.json" }
 opencode_agents = { source = "opencode/AGENTS.md", target = ".config/opencode/AGENTS.md" }
-opencode_container = { source = "bin/opencode-container.sh", target = "bin/opencode-container" }
+opencode_bwrap = { source = "bin/opencode-bwrap.sh", target = "bin/opencode-bwrap" }
+pkgbuild_autofix = { source = "bin/pkgbuild-autofix.sh", target = "bin/pkgbuild-autofix" }
 
 [profiles.morpheus]
 vars = [ "vars/morpheus.toml" ]
