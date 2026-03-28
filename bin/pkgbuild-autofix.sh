@@ -18,6 +18,7 @@ vmexec run \
   --pmem /var/lib/archbuild:200 \
   --rm \
   --pull newer \
+  --ssh-timeout 60 \
   archlinux -- \
     bash -c '
 set -x
