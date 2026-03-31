@@ -1,5 +1,10 @@
 return {
   {
+    "andymass/vim-matchup",
+    event = "VeryLazy",
+  },
+
+  {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     opts = require "configs.conform",
