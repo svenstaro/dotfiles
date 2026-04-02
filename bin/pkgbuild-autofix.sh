@@ -12,9 +12,10 @@ vmexec run \
   -e OPENCODE_CONFIG_CONTENT='{"permission": "allow"}' \
   -v "$PWD":/src \
   -v "$HOME"/.config/opencode:/root/.config/opencode \
+  -v "$HOME"/.dotfiles/.dots/opencode:/root/.dotfiles/.dots/opencode:ro \
   -v "$HOME"/.local/share/opencode:/root/.local/share/opencode \
   -v "$HOME"/.local/state/opencode:/root/.local/state/opencode \
-  --pmem /build:50 \
+  --pmem /build:100 \
   --pmem /var/lib/archbuild:200 \
   --rm \
   --pull newer \
@@ -22,7 +23,7 @@ vmexec run \
   archlinux -- \
     bash -c '
 set -x
-pacman -Sy --noconfirm opencode ripgrep base-devel devtools bat less
+pacman -Sy --noconfirm opencode ripgrep base-devel devtools bat less htop kitty-terminfo pacman-contrib
 useradd -m -p "" builder
 echo "builder ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
 
@@ -31,6 +32,8 @@ You are an assistant for an Arch Linux packager.
 
 Fix the PKGBUILD in the current directory so that it builds.
 Use the script /tmp/run-build.sh to see whether it builds.
+If you change a patch or any other files that are referenced by in the sources=() array, you need to run /usr/bin/updpkgsums to regenerate all the hashes.
+Before starting your work, make sure you understand the PKGBUILD and any patches that might be getting applied.
 This script will copy all files in the current dir to /build and will then build them using another user so that we can use pkgctl build. Do not modify the files in /build because it is a transient directory.
 Set a really long timeout (at least 1h) when calling the build script as the package might take a long time to build.
 If you notice that the build fails, there are multiple things you can do:
@@ -59,5 +62,6 @@ EOF
 chmod +x /tmp/run-build.sh
 
 cd /src
+cp --remove-destination /root/.dotfiles/.dots/opencode/* /root/.config/opencode/
 opencode --prompt "$(cat /tmp/prompt.md)"
 '
