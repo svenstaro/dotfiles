@@ -1,8 +1,9 @@
 return {
-  {
-    "andymass/vim-matchup",
-    event = "VeryLazy",
-  },
+  { import = "nvchad.blink.lazyspec" },
+  -- {
+  --   "andymass/vim-matchup",
+  --   event = "VeryLazy",
+  -- },
 
   {
     "stevearc/conform.nvim",
@@ -94,6 +95,9 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = ":TSUpdate",
+    branch = "main",
     opts = {
       ensure_installed = {
         "bash",
