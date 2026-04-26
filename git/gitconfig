@@ -70,6 +70,3 @@
 
 [rerere]
   enabled = true
-
-[format]
-	signoff = true
