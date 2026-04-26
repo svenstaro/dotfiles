@@ -42,6 +42,7 @@ If you notice that the build fails, there are multiple things you can do:
 2. Adding a patch by changing the upstream sources.
    You can often take the upstream code from the sources array, change it and then generate a patch using either "git diff" or "diff", depending on the situation.
    Add the resulting patch into the sources=() array with a descriptive unique name such as "$pkgname-add-cmake-option-zig-local.patch" and then call patch in prepare().
+   IMPORTANT: Before coming up with your own patch, first search relevant upstreams projects on whether somebody has already posted a patch/merge request/pull request for the issue.
 3. Consider changing something else in the PKGBUILD that might be incorrect.
 4. Suggesting changing another Arch Linux package if you think it is necessary.
 5. Suggest something else entirely.
