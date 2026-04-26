@@ -101,6 +101,7 @@ alias sys='sudo systemctl'
 alias sysu='systemctl --user'
 alias locate='plocate'
 alias myips='curl -4 icanhazip.com && curl -6 icanhazip.com'
+alias amdgpu='amdgpu_top --dark'
 
 # Git aliases
 alias gp='git pull'
