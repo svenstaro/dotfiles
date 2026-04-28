@@ -90,7 +90,7 @@ setopt correct              # spelling correction for commands
 # Misc aliases
 alias ls='eza --classify=auto'
 alias ll='eza -lg --classify=auto'
-alias la='eza -lga --classify=auto'
+alias la='eza -lgaa --classify=auto'
 alias ip='ip -color=auto'
 alias diff='diff --color=auto'
 alias e='eza --classify=auto'
