@@ -2,6 +2,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 local gitsigns = require "gitsigns"
+local telescope = require "telescope.builtin"
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
@@ -66,3 +67,4 @@ end, { desc = "gitsigns hunks to quickfix" })
 -- map("n", "<leader>gq", gitsigns.setloclist, { desc = "Hunk to quickfix" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("n", "<leader>fr", telescope.resume, { desc = "Telescope resume last" })
