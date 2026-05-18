@@ -190,3 +190,7 @@ scrambleimage() {
   exiftool -o ${new_file} -overwrite_original -all= "$1"
   echo ${new_file}
 }
+
+claude-work() {
+  CLAUDE_CONFIG_DIR=~/.claude-work claude "$@"
+}
