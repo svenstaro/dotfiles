@@ -106,6 +106,7 @@ alias amdgpu='amdgpu_top --dark'
 # Git aliases
 alias gp='git pull'
 alias gis='git status'
+alias glp='git log -p'
 alias gaa='git commit -a --amend'
 alias gpf='git push --force-with-lease'
 alias gpu='git publish'
