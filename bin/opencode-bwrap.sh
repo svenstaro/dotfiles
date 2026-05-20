@@ -50,6 +50,4 @@ bwrap \
     --dir "$PWD" \
     --bind "$PWD" "$PWD" \
     --chdir "$PWD" \
-    {#- Hide .env file #}
-    --ro-bind /dev/null "$PWD/.env" \
     opencode "$@"
