@@ -152,6 +152,7 @@ opencode = { source = "opencode/opencode.json", target = ".config/opencode/openc
 opencode_agents = { source = "opencode/AGENTS.md", target = ".config/opencode/AGENTS.md" }
 opencode_bwrap = { source = "bin/opencode-bwrap.sh", target = "bin/opencode-bwrap" }
 pkgbuild_autofix = { source = "bin/pkgbuild-autofix.sh", target = "bin/pkgbuild-autofix" }
+bwrap_localdir = { source = "bin/bwrap-localdir.sh", target = "bin/bwrap-localdir" }
 
 [profiles.morpheus]
 vars = [ "vars/morpheus.toml" ]
