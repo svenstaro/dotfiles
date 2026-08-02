@@ -5,9 +5,13 @@ sync_address = "http://tank.bee-universe.ts.net:9841"
 sync_frequency = "10m"
 style = "compact"
 show_preview = true
-search_mode = "fulltext"
+search_mode = "daemon-fuzzy"
 filter_mode_shell_up_key_binding = "session"
 enter_accept = true
 
 [sync]
 records = true
+
+[daemon]
+enabled = true
+autostart = true
