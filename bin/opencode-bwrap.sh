@@ -50,4 +50,4 @@ bwrap \
     --dir "$PWD" \
     --bind "$PWD" "$PWD" \
     --chdir "$PWD" \
-    opencode "$@"
+    opencode --standalone "$@"
