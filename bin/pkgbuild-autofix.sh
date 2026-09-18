@@ -66,5 +66,5 @@ sed -i "s/#MAKEFLAGS=.*/MAKEFLAGS=\"-j$(nproc)\"/" /etc/makepkg.conf
 
 cd /src
 cp --remove-destination /root/.dotfiles/.dots/opencode/* /root/.config/opencode/
-opencode --prompt "$(cat /tmp/prompt.md)"
+opencode --standalone --prompt "$(cat /tmp/prompt.md)"
 '
