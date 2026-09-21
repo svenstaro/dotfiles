@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "llama.cpp (neo)/qwen3.8-27b",
+  "model": "halogen-qwen3.8-flash-next",
   "provider": {
     "llama.cpp (neo)": {
       "npm": "@ai-sdk/openai-compatible",
@@ -22,11 +22,11 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "llama-server (morpheus)",
       "options": {
-        "baseURL": "http://morpheus.bee-universe.ts.net:1234"
+        "baseURL": "http://morpheus.bee-universe.ts.net:8731/v1"
       },
       "models": {
-        "qwen3.8-27b": {
-          "name": "qwen3.8-27b",
+        "qwen3.8-flash-next": {
+          "name": "halogen-qwen3.8-flash-next",
           "limit": {
             "context": 262144,
             "output": 65536
