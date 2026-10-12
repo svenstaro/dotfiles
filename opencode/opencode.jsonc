@@ -13,23 +13,23 @@
           "name": "qwen3.8-27b",
           "limit": {
             "context": 131072,
-            "output": 65536
+            "output": 16384
           }
         }
       }
     },
-    "llama.cpp (morpheus)": {
+    "halogen (morpheus)": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "llama-server (morpheus)",
+      "name": "halogen (morpheus)",
       "options": {
-        "baseURL": "http://morpheus.bee-universe.ts.net:8731/v1"
+        "baseURL": "https://agentgateway.pseudoform.org/v1"
       },
       "models": {
-        "qwen3.8-flash-next": {
+        "halogen-qwen3.8-flash-next": {
           "name": "halogen-qwen3.8-flash-next",
           "limit": {
             "context": 262144,
-            "output": 65536
+            "output": 16384
           }
         }
       }
