@@ -3,6 +3,9 @@
 - See if a CONTRIBUTING.md exists and if so, read it and try to follow it.
 - Do not just start coding! Think the problem through and ask clarifying questions in case things are not perfectly clear.
 - If the prompt indicates that a bug is being fixed, don't write the fix right away. First write the test. Observe it failing. Then write the fix. And observe the test passing.
+- Use the question tool when asking questions.
+- Use (parallel) subagents when it makes sense.
+- Do not make git commits.
 
 # Code Style
 
