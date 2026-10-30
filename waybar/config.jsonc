@@ -22,7 +22,9 @@
         "battery",
         "network",
         "pulseaudio",
+        {%- if profile == "cypher" %}
         "backlight",
+        {%- endif %}
         "tray",
         "clock"
     ],
