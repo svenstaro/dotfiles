@@ -21,8 +21,24 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	name = "firefox-fix-save-file",
-	match = { class = "firefox" },
+	-- Ignore maximize requests from all apps. Tends to be annoying.
+	name = "suppress-maximize-events",
+	match = { class = ".*" },
 
 	suppress_event = "maximize",
+})
+
+hl.window_rule({
+	-- Fix some dragging issues with XWayland
+	name = "fix-xwayland-drags",
+	match = {
+		class = "^$",
+		title = "^$",
+		xwayland = true,
+		float = true,
+		fullscreen = false,
+		pin = false,
+	},
+
+	no_focus = true,
 })
