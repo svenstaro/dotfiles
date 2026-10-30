@@ -105,7 +105,7 @@ alias amdgpu='amdgpu_top --dark'
 
 # Git aliases
 alias gp='git pull'
-alias gis='git status'
+alias gst='git status'
 alias glp='git log -p'
 alias gaa='git commit -a --amend'
 alias gpf='git push --force-with-lease'
@@ -114,6 +114,8 @@ alias gra='git rebase --autostash'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 alias gsc='git switch -c'
+alias gd='git diff'
+alias gds='git diff --staged'
 alias grh='git reset --hard'
 alias gpa='git pull --autostash'
 
