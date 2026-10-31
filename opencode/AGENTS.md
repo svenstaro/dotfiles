@@ -23,6 +23,7 @@
 - Keep function names short if possible. Aim for less than 30 characters.
 - Use enums instead of booleans for function parameters when it makes sense.
 - Let the reader of the code breathe. Add empty lines between logical blocks of code.
-- Add a small, to the point, comment to explain *what* the block does and *why*. Use examples when possible. Propose ASCII drawings to explain complete systems. Do NOT add descriptions to comments that only make sense in the context of the prompt given to you. The comment is read by people that do not know the original prompt and should be written as such.
+- Add a small, to the point, comment to explain *what* the block does and *why*. Use examples when possible. Propose ASCII drawings to explain complete systems.
+- Do NOT add descriptions to comments that only make sense in the context of the prompt given to you. The comment is read by people that do not know the original prompt and should be written as such.
 - Program to levels of abstraction. Lower-level mechanics (e.g., raw hardware I/O, sector parsing, direct socket streams) must be encapsulated in a dedicated driver/abstraction layer. Expose clean, high-level APIs to the rest of the application so calling code works with domain concepts, not raw implementation details.
 - Strictly adhere to the layered boundary hierarchy: each layer may only communicate with its immediate neighbor directly below it. Never "punch holes" through layers (e.g., controllers or UI components must never directly call database queries, raw hardware drivers, or low-level network clients; always route through the intermediate service/abstraction layer).
