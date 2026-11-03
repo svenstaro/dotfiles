@@ -41,7 +41,7 @@ hl.bind(
 	)
 )
 
-hl.bind("SUPER + SHIFT + Q", hl.dsp.window.kill())
+hl.bind("SUPER + SHIFT + Q", hl.dsp.window.close())
 hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + O", hl.dsp.layout("togglesplit")) -- dwindle
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
